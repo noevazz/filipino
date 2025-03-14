@@ -84,6 +84,13 @@
             loadScript("greetings.js");
           });
       }
+      function goToPronouns() {
+        fetch('pronouns.html')
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('mainSection').innerHTML = data;
+          });
+      }
       goToHome();
     </script>
   </body>
