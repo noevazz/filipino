@@ -200,6 +200,14 @@
             document.getElementById('mainSection').innerHTML = data;
           });
       }
+      function goToAlphabet() {
+        updateOnpageChange()
+        fetch('alphabet.html')
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('mainSection').innerHTML = data;
+          });
+      }
       goToHome();
 
       const savedTheme = localStorage.getItem('theme');
