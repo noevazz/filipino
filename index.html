@@ -138,13 +138,21 @@
           });
         updateOnpageChange()
       }
+      function goToPronouns() {
+        updateOnpageChange()
+        fetch('pronouns.html')
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('mainSection').innerHTML = data;
+          });
+      }
       function goToPronounsGroup1() {
+        updateOnpageChange()
         fetch('pronounsgroup1.html')
           .then((response) => response.text())
           .then((data) => {
             document.getElementById('mainSection').innerHTML = data;
           });
-        updateOnpageChange()
       }
       function goToPronounsGame() {
         updateOnpageChange()
@@ -159,8 +167,7 @@
               { filipino: 'Kami', english: 'We (exclusive)' },
               { filipino: 'Tayo', english: 'We (inclusive)' },
               { filipino: 'Kayo', english: 'You (plural)' },
-              { filipino: 'Sila', english: 'They' },
-              { filipino: 'Kita', english: 'You (Direct second person)' }
+              { filipino: 'Sila', english: 'They' }
             ];
             shuffleArray(options);
             loadScript('logicforcardsgame.js', options);
