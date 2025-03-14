@@ -47,6 +47,7 @@ function checkAnswer(selected, correct, config) {
     setTimeout(() => {
       position += 1;
       if (position == config.length) {
+          position = 0;
         var myModal = new bootstrap.Modal(
           document.getElementById('modalElement'),
         );
