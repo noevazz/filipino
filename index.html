@@ -20,16 +20,34 @@
     <div class="container-fluid p-5 bg-primary text-white text-center">
       <h1>Learn Filipino! 🇵🇭</h1>
       <p>A guide to learn Filipino on your own.</p>
+      <button
+        class="btn float-end animate-up-down"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvas"
+        role="button"
+        title="Open menu"
+      >
+        <i
+          class="bi bi-arrow-right-square-fill fs-3"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvas"
+        ></i>
+      </button>
+      <br>
     </div>
 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="navBar"></nav>
+    <nav id="sideBar"></nav>
 
-    <div class="container mt-5" id="mainSection"></div>
+    <div class="container mt-5"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col min-vh-100 p-4" id="mainSection"></div>
+      </div>
+    </div>
 
     <div class="modal fade" id="aboutModal"></div>
     <script>
       function loadScript(scriptName) {
-        console.log("loading script", scriptName);
         fetch(scriptName)
           .then((response) => response.text())
           .then((data) => {
@@ -46,12 +64,11 @@
           document.getElementById('aboutModal').innerHTML = data;
         });
 
-      fetch('navbar.html')
+      fetch('sidebar.html')
         .then((response) => response.text())
         .then((data) => {
-          document.getElementById('navBar').innerHTML = data;
+          document.getElementById('sideBar').innerHTML = data;
           const link = document.getElementById('homeLink');
-          console.log(window.location.hostname);
           if (
             window.location.hostname === 'localhost' ||
             window.location.hostname === '127.0.0.1'
@@ -81,7 +98,7 @@
           .then((response) => response.text())
           .then((data) => {
             document.getElementById('mainSection').innerHTML = data;
-            loadScript("greetings.js");
+            loadScript('greetings.js');
           });
       }
       function goToPronouns() {
