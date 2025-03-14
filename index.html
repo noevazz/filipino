@@ -22,6 +22,15 @@
       <p>A guide to learn Filipino on your own.</p>
       <button
         class="btn float-end animate-up-down"
+        role="button"
+        title="Change theme color"
+        id="themeToggleButton"
+        onclick="toggleTheme()"
+      >
+        <i class="bi bi-moon-stars-fill fs-3" id="themeToggleIcon"></i>
+      </button>
+      <button
+        class="btn float-end animate-up-down"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvas"
         role="button"
@@ -33,7 +42,7 @@
           data-bs-target="#offcanvas"
         ></i>
       </button>
-      <br>
+      <br />
     </div>
 
     <nav id="sideBar"></nav>
@@ -117,6 +126,27 @@
           });
       }
       goToHome();
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+        document.getElementById("themeToggleIcon").classList.replace("bi-moon-stars-fill", "bi-sun-fill");
+      }
+
+      function toggleTheme() {
+        const htmlElement = document.documentElement;
+        const iconElement = document.getElementById("themeToggleIcon");
+        
+        if (htmlElement.getAttribute('data-bs-theme') === 'dark') {
+          htmlElement.removeAttribute('data-bs-theme');
+          localStorage.setItem("theme", "light");
+          iconElement.classList.replace("bi-sun-fill", "bi-moon-stars-fill");
+        } else {
+          htmlElement.setAttribute('data-bs-theme', 'dark');
+          localStorage.setItem("theme", "dark");
+          iconElement.classList.replace("bi-moon-stars-fill", "bi-sun-fill");
+        }
+      }
     </script>
   </body>
 </html>
