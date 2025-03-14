@@ -56,6 +56,11 @@
 
     <div class="modal fade" id="modalElement"></div>
     <script>
+      function updateOnpageChange(){
+        if (typeof position !== 'undefined') {
+          position = 0;
+        }
+      }
       function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -114,6 +119,7 @@
           .then((data) => {
             document.getElementById('mainSection').innerHTML = data;
           });
+        updateOnpageChange()
       }
       function goToVowels() {
         fetch('vowels.html')
@@ -121,6 +127,7 @@
           .then((data) => {
             document.getElementById('mainSection').innerHTML = data;
           });
+        updateOnpageChange()
       }
       function goToGreetings() {
         fetch('greetings.html')
@@ -129,6 +136,7 @@
             document.getElementById('mainSection').innerHTML = data;
             loadScript('togglepopover.js');
           });
+        updateOnpageChange()
       }
       function goToPronouns() {
         fetch('pronouns.html')
@@ -136,8 +144,10 @@
           .then((data) => {
             document.getElementById('mainSection').innerHTML = data;
           });
+        updateOnpageChange()
       }
       function goToPronounsGame() {
+        updateOnpageChange()
         fetch('pronounsgame.html')
           .then((response) => response.text())
           .then((data) => {
