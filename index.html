@@ -178,6 +178,17 @@
           document.getElementById('modalElement').innerHTML = data;
         });
       }
+      function openAbout() {
+        fetch('modalabout.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById('modalElement').innerHTML = data;
+          let myModal = new bootstrap.Modal(
+          document.getElementById('modalElement'),
+        );
+        myModal.show();
+        });
+      }
       function goToIntroduceYourself() {
         updateOnpageChange()
         fetch('introduceyourself.html')
