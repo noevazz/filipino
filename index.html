@@ -92,12 +92,6 @@
           .catch((error) => console.error('Error loading script:', error));
       }
 
-      fetch('modal.html')
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById('modalElement').innerHTML = data;
-        });
-
       fetch('sidebar.html')
         .then((response) => response.text())
         .then((data) => {
@@ -184,9 +178,9 @@
         .then((data) => {
           document.getElementById('modalElement').innerHTML = data;
           let myModal = new bootstrap.Modal(
-          document.getElementById('modalElement'),
-        );
-        myModal.show();
+            document.getElementById('modalElement'),
+          );
+          myModal.show();
         });
       }
       function goToIntroduceYourself() {
