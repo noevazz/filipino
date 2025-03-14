@@ -172,6 +172,7 @@
         });
       }
       function goToIntroduceYourself() {
+        updateOnpageChange()
         fetch('introduceyourself.html')
           .then((response) => response.text())
           .then((data) => {
@@ -180,6 +181,7 @@
           });
       }
       function goToVocabulary() {
+        updateOnpageChange()
         fetch('vocabulary.html')
           .then((response) => response.text())
           .then((data) => {
