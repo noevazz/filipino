@@ -54,15 +54,35 @@
       </div>
     </div>
 
-    <div class="modal fade" id="aboutModal"></div>
+    <div class="modal fade" id="modalElement"></div>
     <script>
-      function loadScript(scriptName) {
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+        }
+      }
+      function loadScript(scriptName, config = null) {
         fetch(scriptName)
           .then((response) => response.text())
           .then((data) => {
             const script = document.createElement('script');
+            script.addEventListener('load', () => {
+              const loadEvent = new Event('load');
+              window.dispatchEvent(loadEvent);
+            });
+
             script.textContent = data;
+
             document.head.appendChild(script);
+
+            // Delay execution of handleOptions until the script is executed:
+            if (config)
+              setTimeout(() => {
+                if (typeof handleOptions === 'function') {
+                  handleOptions(config);
+                }
+              }, 0);
           })
           .catch((error) => console.error('Error loading script:', error));
       }
@@ -70,7 +90,7 @@
       fetch('modal.html')
         .then((response) => response.text())
         .then((data) => {
-          document.getElementById('aboutModal').innerHTML = data;
+          document.getElementById('modalElement').innerHTML = data;
         });
 
       fetch('sidebar.html')
@@ -117,6 +137,30 @@
             document.getElementById('mainSection').innerHTML = data;
           });
       }
+      function goToPronounsGame() {
+        fetch('pronounsgame.html')
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('mainSection').innerHTML = data;
+            let options = [
+              { filipino: 'Ako', english: 'I' },
+              { filipino: 'Ikaw/ka', english: 'You' },
+              { filipino: 'Siya', english: 'He/She' },
+              { filipino: 'Kami', english: 'We (exclusive)' },
+              { filipino: 'Tayo', english: 'We (inclusive)' },
+              { filipino: 'Kayo', english: 'You (plural)' },
+              { filipino: 'Sila', english: 'They' },
+              { filipino: 'Kita', english: 'You (Direct second person)' }
+            ];
+            shuffleArray(options);
+            loadScript('logicforcardsgame.js', options);
+          });
+        fetch('modalCompleted.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById('modalElement').innerHTML = data;
+        });
+      }
       function goToIntroduceYourself() {
         fetch('introduceyourself.html')
           .then((response) => response.text())
@@ -130,21 +174,23 @@
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-bs-theme', 'dark');
-        document.getElementById("themeToggleIcon").classList.replace("bi-moon-stars-fill", "bi-sun-fill");
+        document
+          .getElementById('themeToggleIcon')
+          .classList.replace('bi-moon-stars-fill', 'bi-sun-fill');
       }
 
       function toggleTheme() {
         const htmlElement = document.documentElement;
-        const iconElement = document.getElementById("themeToggleIcon");
-        
+        const iconElement = document.getElementById('themeToggleIcon');
+
         if (htmlElement.getAttribute('data-bs-theme') === 'dark') {
           htmlElement.removeAttribute('data-bs-theme');
-          localStorage.setItem("theme", "light");
-          iconElement.classList.replace("bi-sun-fill", "bi-moon-stars-fill");
+          localStorage.setItem('theme', 'light');
+          iconElement.classList.replace('bi-sun-fill', 'bi-moon-stars-fill');
         } else {
           htmlElement.setAttribute('data-bs-theme', 'dark');
-          localStorage.setItem("theme", "dark");
-          iconElement.classList.replace("bi-moon-stars-fill", "bi-sun-fill");
+          localStorage.setItem('theme', 'dark');
+          iconElement.classList.replace('bi-moon-stars-fill', 'bi-sun-fill');
         }
       }
     </script>
