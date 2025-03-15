@@ -205,6 +205,42 @@
             document.getElementById('mainSection').innerHTML = data;
           });
       }
+      function goToNumbers() {
+        updateOnpageChange()
+        fetch('numbers.html')
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('mainSection').innerHTML = data;
+          });
+      }
+      function goToNumbersGame0to10(){
+        updateOnpageChange()
+        fetch('numbersgame0to10.html')
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('mainSection').innerHTML = data;
+            let options = [
+              { filipino: 'sero', english: 'zero' },
+              { filipino: 'isa', english: 'one' },
+              { filipino: 'dalawa', english: 'two' },
+              { filipino: 'tatlo', english: 'three' },
+              { filipino: 'apat', english: 'four' },
+              { filipino: 'lima', english: 'five' },
+              { filipino: 'anim', english: 'six' },
+              { filipino: 'pito', english: 'seven' },
+              { filipino: 'walo', english: 'eight' },
+              { filipino: 'siyam', english: 'nine' },
+              { filipino: 'sampu', english: 'ten' }
+            ];
+            shuffleArray(options);
+            loadScript('logicforcardsgame.js', options);
+          });
+        fetch('modalCompleted.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById('modalElement').innerHTML = data;
+        });
+      }
       goToHome();
 
       const savedTheme = localStorage.getItem('theme');

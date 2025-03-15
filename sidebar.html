@@ -138,6 +138,64 @@
           ><span class="ms-1 d-inline text-wrap">Introduce yourself</span>
         </a>
       </li>
+
+      <li class="nav-item w-100">
+        <div class="accordion p-0 m-0" id="numbersAccordion">
+          <!--IF YOU COPY THIS ACCORDION MAKE SURE TO CHANGE AAALLLL IDSSSS NOT ONLY THIS ONE-->
+          <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed nav-link text-truncate p-3"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseNumbers"
+                aria-expanded="false"
+                aria-controls="collapseNumbers"
+              >
+                <a href="javascript:void(0)" style="text-decoration: none">
+                  <i class="fs-5 bi-collection"></i>
+                  <span class="ms-1 d-sm-inline"> Numbers </span>
+                </a>
+              </button>
+            </h2>
+            <div
+              id="collapseNumbers"
+              class="accordion-collapse collapse"
+              data-bs-parent="#numbersAccordion"
+            >
+              <div class="accordion-body">
+                <ul class="list-unstyled">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate"
+                      href="javascript:void(0)"
+                      onclick="goToNumbers()()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-book"></i>
+                      <span class="ms-1 d-inline text-wrap">Numbers Overview</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate"
+                      href="javascript:void(0)"
+                      onclick="goToNumbersGame0to10()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-controller"></i>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Numbers Game 0-10</span
+                      >
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
       <li class="nav-item">
         <a
           class="nav-link text-truncate"
@@ -149,6 +207,7 @@
           ><span class="ms-1 d-inline text-wrap">Vocabulary</span>
         </a>
       </li>
+
       <li class="nav-item">
         <a
           class="nav-link text-truncate"
