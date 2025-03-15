@@ -47,38 +47,74 @@
           ><span class="ms-1 d-inline text-wrap">Alphabet</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a
-          class="nav-link text-truncate"
-          href="javascript:void(0)"
-          onclick="goToPronouns()"
-          data-bs-dismiss="offcanvas"
-        >
-          <i class="fs-5 bi-book"></i
-          ><span class="ms-1 d-inline text-wrap">Pronouns</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link text-truncate"
-          href="javascript:void(0)"
-          onclick="goToPronounsGroup1()"
-          data-bs-dismiss="offcanvas"
-        >
-          <i class="fs-5 bi-book"></i
-          ><span class="ms-1 d-inline text-wrap">Pronouns Group 1</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link rtext-truncate"
-          href="javascript:void(0)"
-          onclick="goToPronounsGameGroup1()"
-          data-bs-dismiss="offcanvas"
-        >
-          <i class="fs-5 bi-controller"></i
-          ><span class="ms-1 d-inline text-wrap">Pronouns Game Group 1</span>
-        </a>
+      <li class="nav-item w-100">
+        <div class="accordion p-0 m-0" id="pronounsAccordion">
+          <!--IF YOU COPY THIS ACCORDION MAKE SURE TO CHANGE AAALLLL IDSSSS NOT ONLY THIS ONE-->
+          <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed nav-link text-truncate p-3"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsePronouns"
+                aria-expanded="false"
+                aria-controls="collapsePronouns"
+              >
+                <a href="javascript:void(0)" style="text-decoration: none">
+                  <i class="fs-5 bi-collection"></i>
+                  <span class="ms-1 d-sm-inline"> Pronouns </span>
+                </a>
+              </button>
+            </h2>
+            <div
+              id="collapsePronouns"
+              class="accordion-collapse collapse"
+              data-bs-parent="#pronounsAccordion"
+            >
+              <div class="accordion-body">
+                <ul class="list-unstyled">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate"
+                      href="javascript:void(0)"
+                      onclick="goToPronouns()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-book"></i>
+                      <span class="ms-1 d-inline text-wrap">Pronouns</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate"
+                      href="javascript:void(0)"
+                      onclick="goToPronounsGroup1()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-book"></i>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Pronouns Group 1</span
+                      >
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate"
+                      href="javascript:void(0)"
+                      onclick="goToPronounsGameGroup1()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-controller"></i>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Pronouns Game Group 1</span
+                      >
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </li>
       <li class="nav-item">
         <a
@@ -123,22 +159,6 @@
           ><span class="ms-1 d-inline text-wrap">About</span>
         </a>
       </li>
-      <!--
-          <li class="dropdown">
-              <a href="#" class="nav-link dropdown-toggle  text-truncate" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fs-5 bi-bootstrap"></i><span class="ms-1  d-sm-inline">Bootstrap</span>
-              </a>
-              <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdown">
-                  <li><a class="dropdown-item" href="#">New project...</a></li>
-                  <li><a class="dropdown-item" href="#">Settings</a></li>
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
-                  <li>
-                      <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="#">Sign out</a></li>
-              </ul>
-          </li>
-          -->
     </ul>
   </div>
 </div>
