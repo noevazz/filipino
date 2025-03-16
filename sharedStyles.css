@@ -65,3 +65,10 @@
     width: 40%;
   }
 }
+
+
+
+
+.hover-text-primary:hover {
+  color: var(--bs-info);
+}

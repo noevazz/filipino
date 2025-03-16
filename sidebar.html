@@ -3,9 +3,9 @@
   tabindex="-1"
   id="offcanvas"
   data-bs-keyboard="false"
-  data-bs-backdrop="false"
+  data-bs-backdrop="true"
 >
-  <div class="offcanvas-header">
+  <div class="offcanvas-header ms-3">
     <h6 class="offcanvas-title" id="offcanvas">Menu</h6>
     <button
       type="button"
@@ -19,15 +19,15 @@
       class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
       id="menu"
     >
-      <li class="nav-item">
-        <a href="#" class="nav-link text-truncate" id="homeLink">
+      <li class="nav-item container-fluid">
+        <a href="#" class="nav-link text-truncate w-100 hover-text-primary" id="homeLink">
           <i class="fs-5 bi-house-fill"></i
           ><span class="ms-1 d-inline text-wrap">Home</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item container-fluid">
         <a
-          class="nav-link text-truncate"
+          class="nav-link text-truncate w-100 hover-text-primary"
           href="javascript:void(0)"
           onclick="goToVowels()"
           data-bs-dismiss="offcanvas"
@@ -36,9 +36,9 @@
           ><span class="ms-1 d-inline text-wrap">Vowels</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item container-fluid">
         <a
-          class="nav-link text-truncate"
+          class="nav-link text-truncate w-100 hover-text-primary"
           href="javascript:void(0)"
           onclick="goToAlphabet()"
           data-bs-dismiss="offcanvas"
@@ -47,7 +47,7 @@
           ><span class="ms-1 d-inline text-wrap">Alphabet</span>
         </a>
       </li>
-      <li class="nav-item w-100">
+      <li class="nav-item container-fluid w-100">
         <div class="accordion p-0 m-0" id="pronounsAccordion">
           <!--IF YOU COPY THIS ACCORDION MAKE SURE TO CHANGE AAALLLL IDSSSS NOT ONLY THIS ONE-->
           <div class="accordion-item border-0">
@@ -60,7 +60,7 @@
                 aria-expanded="false"
                 aria-controls="collapsePronouns"
               >
-                <a href="javascript:void(0)" style="text-decoration: none">
+                <a href="javascript:void(0)" style="text-decoration: none" class="hover-text-primary">
                   <i class="fs-5 bi-collection"></i>
                   <span class="ms-1 d-sm-inline"> Pronouns </span>
                 </a>
@@ -75,7 +75,7 @@
                 <ul class="list-unstyled">
                   <li class="nav-item">
                     <a
-                      class="nav-link text-truncate"
+                      class="nav-link text-truncate hover-text-primary"
                       href="javascript:void(0)"
                       onclick="goToPronouns()"
                       data-bs-dismiss="offcanvas"
@@ -86,7 +86,7 @@
                   </li>
                   <li class="nav-item">
                     <a
-                      class="nav-link text-truncate"
+                      class="nav-link text-truncate hover-text-primary"
                       href="javascript:void(0)"
                       onclick="goToPronounsGroup1()"
                       data-bs-dismiss="offcanvas"
@@ -99,7 +99,7 @@
                   </li>
                   <li class="nav-item">
                     <a
-                      class="nav-link text-truncate"
+                      class="nav-link text-truncate hover-text-primary"
                       href="javascript:void(0)"
                       onclick="goToPronounsGameGroup1()"
                       data-bs-dismiss="offcanvas"
@@ -116,9 +116,9 @@
           </div>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item container-fluid">
         <a
-          class="nav-link text-truncate"
+          class="nav-link text-truncate w-100 hover-text-primary"
           href="javascript:void(0)"
           onclick="goToGreetings()"
           data-bs-dismiss="offcanvas"
@@ -127,9 +127,9 @@
           ><span class="ms-1 d-inline text-wrap">Greetings</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item container-fluid">
         <a
-          class="nav-link text-truncate"
+          class="nav-link text-truncate w-100 hover-text-primary"
           href="javascript:void(0)"
           onclick="goToIntroduceYourself()"
           data-bs-dismiss="offcanvas"
@@ -139,7 +139,7 @@
         </a>
       </li>
 
-      <li class="nav-item w-100">
+      <li class="nav-item container-fluid w-100">
         <div class="accordion p-0 m-0" id="numbersAccordion">
           <!--IF YOU COPY THIS ACCORDION MAKE SURE TO CHANGE AAALLLL IDSSSS NOT ONLY THIS ONE-->
           <div class="accordion-item border-0">
@@ -152,7 +152,7 @@
                 aria-expanded="false"
                 aria-controls="collapseNumbers"
               >
-                <a href="javascript:void(0)" style="text-decoration: none">
+                <a href="javascript:void(0)" style="text-decoration: none" class="hover-text-primary">
                   <i class="fs-5 bi-collection"></i>
                   <span class="ms-1 d-sm-inline"> Numbers </span>
                 </a>
@@ -167,7 +167,7 @@
                 <ul class="list-unstyled">
                   <li class="nav-item">
                     <a
-                      class="nav-link text-truncate"
+                      class="nav-link text-truncate hover-text-primary"
                       href="javascript:void(0)"
                       onclick="goToNumbers()()"
                       data-bs-dismiss="offcanvas"
@@ -178,7 +178,7 @@
                   </li>
                   <li class="nav-item">
                     <a
-                      class="nav-link text-truncate"
+                      class="nav-link text-truncate hover-text-primary"
                       href="javascript:void(0)"
                       onclick="goToNumbersGame0to10()"
                       data-bs-dismiss="offcanvas"
@@ -196,9 +196,9 @@
         </div>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item container-fluid">
         <a
-          class="nav-link text-truncate"
+          class="nav-link text-truncate w-100 hover-text-primary"
           href="javascript:void(0)"
           onclick="goToVocabulary()"
           data-bs-dismiss="offcanvas"
@@ -208,9 +208,9 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item container-fluid">
         <a
-          class="nav-link text-truncate"
+          class="nav-link text-truncate w-100"
           href="javascript:void(0)"
           onclick="openAbout()"
         >
