@@ -23,41 +23,46 @@ function handleOptions_PAIR_GAME(opts) {
 
   filipinoColumn.innerHTML = '';
   englishColumn.innerHTML = '';
+
   shuffledFilipino.forEach((item) => {
-    const btn = document.createElement('button');
-    btn.className = 'btn btn-outline-primary mb-2';
-    btn.textContent = item.filipino;
-    btn.setAttribute('data-filipino', item.filipino);
-    btn.setAttribute('data-english', item.english);
-    btn.onclick = () => select_PAIRGAME(btn, 'filipino');
-    filipinoColumn.appendChild(btn);
+    const div = document.createElement('div');
+    div.className = 'option-item mb-2 p-2 border option-item'; // Use Bootstrap classes for styling
+    div.textContent = item.filipino;
+    div.setAttribute('data-filipino', item.filipino);
+    div.setAttribute('data-english', item.english);
+    div.style.cursor = 'pointer';
+    div.classList.add('hover:bg-primary', 'hover:text-white');
+    div.onclick = () => select_PAIRGAME(div, 'filipino');
+    filipinoColumn.appendChild(div);
   });
 
   shuffledEnglish.forEach((item) => {
-    const btn = document.createElement('button');
-    btn.className = 'btn btn-outline-primary mb-2';
-    btn.textContent = item.english;
-    btn.setAttribute('data-filipino', item.filipino);
-    btn.setAttribute('data-english', item.english);
-    btn.onclick = () => select_PAIRGAME(btn, 'english');
-    englishColumn.appendChild(btn);
+    const div = document.createElement('div');
+    div.className = 'option-item mb-2 p-2 border option-item'; // Use Bootstrap classes for styling
+    div.textContent = item.english;
+    div.setAttribute('data-filipino', item.filipino);
+    div.setAttribute('data-english', item.english);
+    div.style.cursor = 'pointer';
+    div.onclick = () => select_PAIRGAME(div, 'english');
+    englishColumn.appendChild(div);
   });
 }
 
-function select_PAIRGAME(btn, language) {
+function select_PAIRGAME(div, language) {
   if (language === 'filipino') {
-    if (selectedFilipino != null && selectedFilipino != btn) {
-      selectedFilipino.classList.remove('active');
+    if (selectedFilipino != null && selectedFilipino !== div) {
+      selectedFilipino.classList.remove('bg-primary', 'text-white'); // Remove selected class from previous item
     }
-    selectedFilipino = btn;
+    selectedFilipino = div;
   } else {
-    if (selectedEnglish != null && selectedEnglish != btn) {
-      selectedEnglish.classList.remove('active');
+    if (selectedEnglish != null && selectedEnglish !== div) {
+      selectedEnglish.classList.remove('bg-primary', 'text-white'); // Remove selected class from previous item
     }
-    selectedEnglish = btn;
+    selectedEnglish = div;
   }
 
-  btn.classList.add('active');
+  // Apply Bootstrap classes to change color of selected div
+  div.classList.add('bg-primary', 'text-white');
 
   if (selectedFilipino && selectedEnglish) {
     const btn_filipinoValue = selectedFilipino.getAttribute('data-english');
@@ -70,12 +75,12 @@ function select_PAIRGAME(btn, language) {
     if (btn_filipinoValue === btn_englishValue) {
       feedback.textContent = '✅ Correct!';
       feedback.className = 'text-success';
-      selectedEnglish.remove(); // since I am removing the elements here I do not need to call handleOptions again
-      selectedFilipino.remove();
-      options.splice(options.indexOf(englishItem), 1);
-      selectedFilipino = null;
-      selectedEnglish = null;
       setTimeout(() => {
+        selectedEnglish.remove(); // since I am removing the elements here I do not need to call handleOptions again
+        selectedFilipino.remove();
+        options.splice(options.indexOf(englishItem), 1);
+        selectedFilipino = null;
+        selectedEnglish = null;
         feedback.textContent = '';
       }, 1000);
       if (options.length === 0) {
@@ -89,11 +94,10 @@ function select_PAIRGAME(btn, language) {
       feedback.className = 'text-danger';
       setTimeout(() => {
         feedback.textContent = '';
-        selectedFilipino.classList.remove('active');
-        selectedEnglish.classList.remove('active');
-        if (language === 'filipino') {
-          selectedEnglish = null;
-        } else selectedFilipino = null;
+        selectedFilipino.classList.remove('bg-primary', 'text-white');
+        selectedEnglish.classList.remove('bg-primary', 'text-white');
+        selectedEnglish = null;
+        selectedFilipino = null;
       }, 1000);
     }
   }
