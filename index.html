@@ -275,6 +275,30 @@
           document.getElementById('modalElement').innerHTML = data;
         });
       }
+      function goToNumbersGameTENS(){
+        updateOnpageChange()
+        fetch('numbersgametens.html')
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('mainSection').innerHTML = data;
+            let options = [
+              { filipino: 'dalawampu', english: 'twenty' },
+              { filipino: 'tatlumpu', english: 'thirty' },
+              { filipino: 'apatnapu', english: 'forty' },
+              { filipino: 'limampu', english: 'fifty' },
+              { filipino: 'pitumpu', english: 'seventy' },
+              { filipino: 'walumpu', english: 'eighty' },
+              { filipino: 'siyamnapu', english: 'ninety' },
+            ];
+            shuffleArray(options);
+            loadScript('logicforcardsgame.js', options);
+          });
+        fetch('modalCompleted.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById('modalElement').innerHTML = data;
+        });
+      }
       goToHome();
 
       const savedTheme = localStorage.getItem('theme');
