@@ -4,7 +4,7 @@ let shuffledFilipino = [];
 let shuffledEnglish = [];
 let options;
 
-const feedback = document.getElementById('feedback'); // Get the feedback element
+const feedback = document.getElementById('feedback');
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -12,6 +12,26 @@ function shuffle(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
+}
+
+function disableOpts(disable) {
+  const filipinoColumn = document.getElementById('filipino-options');
+  const englishColumn = document.getElementById('english-options');
+  if (disable) {
+    Array.from(filipinoColumn.childNodes).forEach(
+      (elem) => (elem.style.pointerEvents = 'none'),
+    );
+    Array.from(englishColumn.childNodes).forEach(
+      (elem) => (elem.style.pointerEvents = 'none'),
+    );
+    return;
+  }
+  Array.from(filipinoColumn.childNodes).forEach(
+    (elem) => (elem.style.pointerEvents = 'auto'),
+  );
+  Array.from(englishColumn.childNodes).forEach(
+    (elem) => (elem.style.pointerEvents = 'auto'),
+  );
 }
 
 function handleOptions_PAIR_GAME(opts) {
@@ -26,7 +46,7 @@ function handleOptions_PAIR_GAME(opts) {
 
   shuffledFilipino.forEach((item) => {
     const div = document.createElement('div');
-    div.className = 'option-item mb-2 p-2 border'; // Use Bootstrap classes for styling
+    div.className = 'option-item mb-2 p-2 border';
     div.textContent = item.filipino;
     div.setAttribute('data-filipino', item.filipino);
     div.setAttribute('data-english', item.english);
@@ -51,20 +71,21 @@ function handleOptions_PAIR_GAME(opts) {
 function select_PAIRGAME(div, language) {
   if (language === 'filipino') {
     if (selectedFilipino != null && selectedFilipino !== div) {
-      selectedFilipino.classList.remove('bg-primary', 'text-white'); // Remove selected class from previous item
+      selectedFilipino.classList.remove('bg-primary', 'text-white');
     }
     selectedFilipino = div;
   } else {
     if (selectedEnglish != null && selectedEnglish !== div) {
-      selectedEnglish.classList.remove('bg-primary', 'text-white'); // Remove selected class from previous item
+      selectedEnglish.classList.remove('bg-primary', 'text-white');
     }
     selectedEnglish = div;
   }
 
-  // Apply Bootstrap classes to change color of selected div
   div.classList.add('bg-primary', 'text-white');
 
   if (selectedFilipino && selectedEnglish) {
+    disableOpts(true);
+
     const btn_filipinoValue = selectedFilipino.getAttribute('data-english');
     const btn_englishValue = selectedEnglish.getAttribute('data-english');
 
@@ -79,16 +100,18 @@ function select_PAIRGAME(div, language) {
         selectedEnglish.remove(); // since I am removing the elements here I do not need to call handleOptions again
         selectedFilipino.remove();
         options.splice(options.indexOf(englishItem), 1);
+        console.log(options);
         selectedFilipino = null;
         selectedEnglish = null;
         feedback.textContent = '';
+        if (options.length === 0) {
+          const myModal = new bootstrap.Modal(
+            document.getElementById('modalElement'),
+          );
+          myModal.show();
+        }
+        disableOpts(false);
       }, 1000);
-      if (options.length === 0) {
-        const myModal = new bootstrap.Modal(
-          document.getElementById('modalElement'),
-        );
-        myModal.show();
-      }
     } else {
       feedback.textContent = '❌ Incorrect! Try again.';
       feedback.className = 'text-danger';
@@ -98,6 +121,7 @@ function select_PAIRGAME(div, language) {
         selectedEnglish.classList.remove('bg-primary', 'text-white');
         selectedEnglish = null;
         selectedFilipino = null;
+        disableOpts(false);
       }, 1000);
     }
   }
