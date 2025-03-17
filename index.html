@@ -53,40 +53,58 @@
 
     <div class="modal fade" id="modalElement"></div>
     <script>
-      function updateOnpageChange(){
+      function updateOnpageChange() {
         if (typeof position !== 'undefined') {
           position = 0;
+        }
+        if (typeof selectedFilipino !== 'undefined') {
+          selectedFilipino = null;
+        }
+        if (typeof selectedEnglish !== 'undefined') {
+          selectedEnglish = null;
+        }
+        if (typeof shuffledFilipino !== 'undefined') {
+          shuffledFilipino = [];
+        }
+        if (typeof shuffledEnglish !== 'undefined') {
+          shuffledEnglish = [];
         }
       }
       function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+          [array[i], array[j]] = [array[j], array[i]];
         }
       }
-      function loadScript(scriptName, config = null) {
-        fetch(scriptName)
-          .then((response) => response.text())
-          .then((data) => {
-            const script = document.createElement('script');
-            script.addEventListener('load', () => {
-              const loadEvent = new Event('load');
-              window.dispatchEvent(loadEvent);
-            });
+      function loadScript(scriptName, functionName = null, config = null) {
+        // Check if the script already exists
+        let existingScript = document.querySelector(
+          `script[data-name="${scriptName}"]`,
+        );
 
-            script.textContent = data;
+        if (!existingScript) {
+          const script = document.createElement('script');
+          script.setAttribute('data-name', scriptName);
+          script.src = scriptName; // Load script from URL
+          script.async = true;
 
-            document.head.appendChild(script);
+          script.onload = () => {
+            if (typeof window[functionName] === 'function') {
+              window[functionName](config);
+            }
+          };
 
-            // Delay execution of handleOptions until the script is executed:
-            if (config)
-              setTimeout(() => {
-                if (typeof handleOptions === 'function') {
-                  handleOptions(config);
-                }
-              }, 0);
-          })
-          .catch((error) => console.error('Error loading script:', error));
+          script.onerror = () =>
+            console.error(`Error loading script: ${scriptName}`);
+
+          document.head.appendChild(script);
+        } else {
+          console.log(`script ${scriptName} already exist.`)
+          // If script already exists, execute handleOptions immediately
+          if (typeof window[functionName] === 'function') {
+            window[functionName](config);
+          }
+        }
       }
 
       fetch('sidebar.html')
@@ -110,7 +128,7 @@
           .then((data) => {
             document.getElementById('mainSection').innerHTML = data;
           });
-        updateOnpageChange()
+        updateOnpageChange();
       }
       function goToVowels() {
         fetch('vowels.html')
@@ -118,7 +136,7 @@
           .then((data) => {
             document.getElementById('mainSection').innerHTML = data;
           });
-        updateOnpageChange()
+        updateOnpageChange();
       }
       function goToGreetings() {
         fetch('greetings.html')
@@ -127,10 +145,10 @@
             document.getElementById('mainSection').innerHTML = data;
             loadScript('togglepopover.js');
           });
-        updateOnpageChange()
+        updateOnpageChange();
       }
       function goToPronouns() {
-        updateOnpageChange()
+        updateOnpageChange();
         fetch('pronouns.html')
           .then((response) => response.text())
           .then((data) => {
@@ -138,7 +156,7 @@
           });
       }
       function goToPronounsGroup1() {
-        updateOnpageChange()
+        updateOnpageChange();
         fetch('pronounsgroup1.html')
           .then((response) => response.text())
           .then((data) => {
@@ -146,7 +164,7 @@
           });
       }
       function goToPronounsGameGroup1() {
-        updateOnpageChange()
+        updateOnpageChange();
         fetch('pronounsgamegroup1.html')
           .then((response) => response.text())
           .then((data) => {
@@ -158,30 +176,30 @@
               { filipino: 'Kami', english: 'We (exclusive)' },
               { filipino: 'Tayo', english: 'We (inclusive)' },
               { filipino: 'Kayo', english: 'You (plural)' },
-              { filipino: 'Sila', english: 'They' }
+              { filipino: 'Sila', english: 'They' },
             ];
             shuffleArray(options);
-            loadScript('logicforcardsgame.js', options);
+            loadScript('logicforcardsgame.js', "handleOptions", options);
           });
         fetch('modalCompleted.html')
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById('modalElement').innerHTML = data;
-        });
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('modalElement').innerHTML = data;
+          });
       }
       function openAbout() {
         fetch('modalabout.html')
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById('modalElement').innerHTML = data;
-          let myModal = new bootstrap.Modal(
-            document.getElementById('modalElement'),
-          );
-          myModal.show();
-        });
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('modalElement').innerHTML = data;
+            let myModal = new bootstrap.Modal(
+              document.getElementById('modalElement'),
+            );
+            myModal.show();
+          });
       }
       function goToIntroduceYourself() {
-        updateOnpageChange()
+        updateOnpageChange();
         fetch('introduceyourself.html')
           .then((response) => response.text())
           .then((data) => {
@@ -190,7 +208,7 @@
           });
       }
       function goToVocabulary() {
-        updateOnpageChange()
+        updateOnpageChange();
         fetch('vocabulary.html')
           .then((response) => response.text())
           .then((data) => {
@@ -198,7 +216,7 @@
           });
       }
       function goToAlphabet() {
-        updateOnpageChange()
+        updateOnpageChange();
         fetch('alphabet.html')
           .then((response) => response.text())
           .then((data) => {
@@ -206,7 +224,7 @@
           });
       }
       function goToTrickySyllables() {
-        updateOnpageChange()
+        updateOnpageChange();
         fetch('trickysyllables.html')
           .then((response) => response.text())
           .then((data) => {
@@ -214,15 +232,15 @@
           });
       }
       function goToNumbers() {
-        updateOnpageChange()
+        updateOnpageChange();
         fetch('numbers.html')
           .then((response) => response.text())
           .then((data) => {
             document.getElementById('mainSection').innerHTML = data;
           });
       }
-      function goToNumbersGame0to10(){
-        updateOnpageChange()
+      function goToNumbersGame0to10() {
+        updateOnpageChange();
         fetch('numbersgame0to10.html')
           .then((response) => response.text())
           .then((data) => {
@@ -238,19 +256,19 @@
               { filipino: 'pito', english: 'seven' },
               { filipino: 'walo', english: 'eight' },
               { filipino: 'siyam', english: 'nine' },
-              { filipino: 'sampu', english: 'ten' }
+              { filipino: 'sampu', english: 'ten' },
             ];
             shuffleArray(options);
-            loadScript('logicforcardsgame.js', options);
+            loadScript('logicforcardsgame.js', "handleOptions", options);
           });
         fetch('modalCompleted.html')
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById('modalElement').innerHTML = data;
-        });
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('modalElement').innerHTML = data;
+          });
       }
-      function goToNumbersGame11to19(){
-        updateOnpageChange()
+      function goToNumbersGame11to19() {
+        updateOnpageChange();
         fetch('numbersgame11to19.html')
           .then((response) => response.text())
           .then((data) => {
@@ -264,19 +282,45 @@
               { filipino: 'labing-anim', english: 'sixteen' },
               { filipino: 'labimpito', english: 'seventeen' },
               { filipino: 'labingwalo', english: 'eighteen' },
-              { filipino: 'labinsiyam', english: 'nineteen' }
+              { filipino: 'labinsiyam', english: 'nineteen' },
             ];
             shuffleArray(options);
-            loadScript('logicforcardsgame.js', options);
+            loadScript('logicforcardsgame.js', "handleOptions", options);
           });
         fetch('modalCompleted.html')
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById('modalElement').innerHTML = data;
-        });
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('modalElement').innerHTML = data;
+          });
       }
-      function goToNumbersGameTENS(){
-        updateOnpageChange()
+      function goToNumbersGameHUNDREDS() {
+        updateOnpageChange();
+        fetch('numbersgamehundreds.html')
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('mainSection').innerHTML = data;
+            let options = [
+              { filipino: 'isang daan', english: 'one hundred' },
+              { filipino: 'dalawang daan', english: 'two hundred' },
+              { filipino: 'tatlong daan', english: 'three hundred' },
+              { filipino: 'apat na daan', english: 'four hundred' },
+              { filipino: 'limang daan', english: 'five hundred' },
+              { filipino: 'anim na daan', english: 'six hundred' },
+              { filipino: 'pitong daan', english: 'seven hundred' },
+              { filipino: 'walong daan', english: 'eight hundred' },
+              { filipino: 'siyam na daan', english: 'nine hundred' },
+            ];
+            shuffleArray(options);
+            loadScript('logicforpairsgame.js', "handleOptions_PAIR_GAME", options);
+          });
+        fetch('modalCompleted.html')
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('modalElement').innerHTML = data;
+          });
+      }
+      function goToNumbersGameTENS() {
+        updateOnpageChange();
         fetch('numbersgametens.html')
           .then((response) => response.text())
           .then((data) => {
@@ -291,13 +335,13 @@
               { filipino: 'siyamnapu', english: 'ninety' },
             ];
             shuffleArray(options);
-            loadScript('logicforcardsgame.js', options);
+            loadScript('logicforcardsgame.js', "handleOptions", options);
           });
         fetch('modalCompleted.html')
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById('modalElement').innerHTML = data;
-        });
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById('modalElement').innerHTML = data;
+          });
       }
       goToHome();
 
