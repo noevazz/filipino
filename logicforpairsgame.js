@@ -26,7 +26,7 @@ function handleOptions_PAIR_GAME(opts) {
 
   shuffledFilipino.forEach((item) => {
     const div = document.createElement('div');
-    div.className = 'option-item mb-2 p-2 border option-item'; // Use Bootstrap classes for styling
+    div.className = 'option-item mb-2 p-2 border'; // Use Bootstrap classes for styling
     div.textContent = item.filipino;
     div.setAttribute('data-filipino', item.filipino);
     div.setAttribute('data-english', item.english);
@@ -38,7 +38,7 @@ function handleOptions_PAIR_GAME(opts) {
 
   shuffledEnglish.forEach((item) => {
     const div = document.createElement('div');
-    div.className = 'option-item mb-2 p-2 border option-item'; // Use Bootstrap classes for styling
+    div.className = 'option-item mb-2 p-2 border'; // Use Bootstrap classes for styling
     div.textContent = item.english;
     div.setAttribute('data-filipino', item.filipino);
     div.setAttribute('data-english', item.english);

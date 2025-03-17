@@ -73,13 +73,3 @@
   color: var(--bs-info);
 }
 
-
-
-
-
-
-.option-item:hover {
-  background-color: #8cb4de; /* Bootstrap primary color */
-  color: white; /* Change text color to white */
-  cursor: pointer; /* Change cursor to a hand */
-}
