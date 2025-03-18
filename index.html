@@ -223,14 +223,6 @@
             document.getElementById('mainSection').innerHTML = data;
           });
       }
-      function goToTrickySyllables() {
-        updateOnpageChange();
-        fetch('trickysyllables.html')
-          .then((response) => response.text())
-          .then((data) => {
-            document.getElementById('mainSection').innerHTML = data;
-          });
-      }
       function goToNumbers() {
         updateOnpageChange();
         fetch('numbers.html')
