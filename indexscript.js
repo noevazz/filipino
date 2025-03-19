@@ -86,7 +86,7 @@ function goToPronounsGroup1() {
   fetchPage('pronounsgroup1.html', 'mainSection');
 }
 function goToPronounsGameGroup1() {
-  fetchPage('pronounsgamegroup1.html', 'mainSection', () => {
+  fetchPage('games/html/pronounsgamegroup1.html', 'mainSection', () => {
     fetchForGame(
       [
         { filipino: 'Ako', english: 'I' },
@@ -245,7 +245,6 @@ function goToDaysOfTheWeek() {
   fetchPage('modalCompleted.html', 'modalElement');
 }
 function goToMonthsOfTheYear() {
-
   fetchPage('games/html/monthsoftheyear.html', 'mainSection', () => {
     fetchForGame(
       [
