@@ -20,6 +20,7 @@ function shuffleArray(array) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
+  return array;
 }
 function loadScript(scriptName, functionName = null, config = null) {
   // Check if the script already exists
@@ -51,69 +52,43 @@ function loadScript(scriptName, functionName = null, config = null) {
   }
 }
 
-fetch('sidebar.html')
-  .then((response) => response.text())
-  .then((data) => {
-    document.getElementById('sideBar').innerHTML = data;
-    const link = document.getElementById('homeLink');
-    if (
-      window.location.hostname === 'localhost' ||
-      window.location.hostname === '127.0.0.1'
-    ) {
-      link.href = '/';
-    } else {
-      link.href = '/filipino';
-    }
-  });
+function fetchPage(fileName, elementID, callBack = null) {
+  updateOnpageChange();
+  fetch(fileName)
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById(elementID).innerHTML = data;
+      if (typeof callBack == 'function' && callBack != null) callBack(); // always at the end cause some callbacks make use of elements on data
+    });
+}
+function fetchForGame(optionsObject, scriptName, functionName) {
+  loadScript(scriptName, functionName, shuffleArray(optionsObject));
+}
 
 function goToHome() {
-  fetch('homeContent.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-    });
-  updateOnpageChange();
+  fetchPage('homeContent.html', 'mainSection');
 }
 function goToVowels() {
-  fetch('vowels.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-    });
-  updateOnpageChange();
+  fetchPage('vowels.html', 'mainSection');
+}
+function goToAlphabet() {
+  fetchPage('alphabet.html', 'mainSection');
 }
 function goToGreetings() {
-  fetch('greetings.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-      loadScript('togglepopover.js');
-    });
-  updateOnpageChange();
+  fetchPage('greetings.html', 'mainSection', () =>
+    loadScript('togglepopover.js'),
+  );
 }
 function goToPronouns() {
-  updateOnpageChange();
-  fetch('pronouns.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-    });
+  fetchPage('pronouns.html', 'mainSection');
 }
 function goToPronounsGroup1() {
-  updateOnpageChange();
-  fetch('pronounsgroup1.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-    });
+  fetchPage('pronounsgroup1.html', 'mainSection');
 }
 function goToPronounsGameGroup1() {
-  updateOnpageChange();
-  fetch('pronounsgamegroup1.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-      let options = [
+  fetchPage('pronounsgamegroup1.html', 'mainSection', () => {
+    fetchForGame(
+      [
         { filipino: 'Ako', english: 'I' },
         { filipino: 'Ikaw/ka', english: 'You' },
         { filipino: 'Siya', english: 'He/She' },
@@ -121,15 +96,12 @@ function goToPronounsGameGroup1() {
         { filipino: 'Tayo', english: 'We (inclusive)' },
         { filipino: 'Kayo', english: 'You (plural)' },
         { filipino: 'Sila', english: 'They' },
-      ];
-      shuffleArray(options);
-      loadScript('logicforcardsgame.js', 'handleOptions', options);
-    });
-  fetch('modalCompleted.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('modalElement').innerHTML = data;
-    });
+      ],
+      'games/js/logicforcardsgame.js',
+      'handleOptions',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
 }
 function openAbout() {
   fetch('modalabout.html')
@@ -143,45 +115,17 @@ function openAbout() {
     });
 }
 function goToIntroduceYourself() {
-  updateOnpageChange();
-  fetch('introduceyourself.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-      loadScript('togglepopover.js');
-    });
-}
-function goToVocabulary() {
-  updateOnpageChange();
-  fetch('vocabulary.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-    });
-}
-function goToAlphabet() {
-  updateOnpageChange();
-  fetch('alphabet.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-    });
+  fetchPage('introduceyourself.html', 'mainSection', () =>
+    loadScript('togglepopover.js'),
+  );
 }
 function goToNumbers() {
-  updateOnpageChange();
-  fetch('numbers.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-    });
+  fetchPage('numbers.html', 'mainSection');
 }
 function goToNumbersGame0to10() {
-  updateOnpageChange();
-  fetch('numbersgame0to10.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-      let options = [
+  fetchPage('games/html/numbersgame0to10.html', 'mainSection', () => {
+    fetchForGame(
+      [
         { filipino: 'sero', english: 'zero' },
         { filipino: 'isa', english: 'one' },
         { filipino: 'dalawa', english: 'two' },
@@ -193,23 +137,17 @@ function goToNumbersGame0to10() {
         { filipino: 'walo', english: 'eight' },
         { filipino: 'siyam', english: 'nine' },
         { filipino: 'sampu', english: 'ten' },
-      ];
-      shuffleArray(options);
-      loadScript('logicforcardsgame.js', 'handleOptions', options);
-    });
-  fetch('modalCompleted.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('modalElement').innerHTML = data;
-    });
+      ],
+      'games/js/logicforcardsgame.js',
+      'handleOptions',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
 }
 function goToNumbersGame11to19() {
-  updateOnpageChange();
-  fetch('numbersgame11to19.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-      let options = [
+  fetchPage('games/html/numbersgame11to19.html', 'mainSection', () => {
+    fetchForGame(
+      [
         { filipino: 'labing-isa', english: 'eleven' },
         { filipino: 'labindalawa', english: 'twelve' },
         { filipino: 'labintatlo', english: 'thirteen' },
@@ -219,23 +157,17 @@ function goToNumbersGame11to19() {
         { filipino: 'labimpito', english: 'seventeen' },
         { filipino: 'labingwalo', english: 'eighteen' },
         { filipino: 'labinsiyam', english: 'nineteen' },
-      ];
-      shuffleArray(options);
-      loadScript('logicforcardsgame.js', 'handleOptions', options);
-    });
-  fetch('modalCompleted.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('modalElement').innerHTML = data;
-    });
+      ],
+      'games/js/logicforcardsgame.js',
+      'handleOptions',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
 }
 function goToNumbersGameHUNDREDS() {
-  updateOnpageChange();
-  fetch('numbersgamehundreds.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-      let options = [
+  fetchPage('games/html/numbersgamehundreds.html', 'mainSection', () => {
+    fetchForGame(
+      [
         { filipino: 'isang daan', english: 'one hundred' },
         { filipino: 'dalawang daan', english: 'two hundred' },
         { filipino: 'tatlong daan', english: 'three hundred' },
@@ -245,47 +177,37 @@ function goToNumbersGameHUNDREDS() {
         { filipino: 'pitong daan', english: 'seven hundred' },
         { filipino: 'walong daan', english: 'eight hundred' },
         { filipino: 'siyam na daan', english: 'nine hundred' },
-      ];
-      shuffleArray(options);
-      loadScript('logicforpairsgame.js', 'handleOptions_PAIR_GAME', options);
-    });
-  fetch('modalCompleted.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('modalElement').innerHTML = data;
-    });
+      ],
+      'games/js/logicforpairsgame.js',
+      'handleOptions_PAIR_GAME',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
 }
 function goToNumbersGameTENS() {
-  updateOnpageChange();
-  fetch('numbersgametens.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-      let options = [
-        { filipino: 'dalawampu', english: 'twenty' },
-        { filipino: 'tatlumpu', english: 'thirty' },
-        { filipino: 'apatnapu', english: 'forty' },
-        { filipino: 'limampu', english: 'fifty' },
-        { filipino: 'pitumpu', english: 'seventy' },
-        { filipino: 'walumpu', english: 'eighty' },
-        { filipino: 'siyamnapu', english: 'ninety' },
-      ];
-      shuffleArray(options);
-      loadScript('logicforcardsgame.js', 'handleOptions', options);
-    });
-  fetch('modalCompleted.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('modalElement').innerHTML = data;
-    });
+  fetchPage('games/html/numbersgametens.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { filipino: 'labing-isa', english: 'eleven' },
+        { filipino: 'labindalawa', english: 'twelve' },
+        { filipino: 'labintatlo', english: 'thirteen' },
+        { filipino: 'labingapat', english: 'fourteen' },
+        { filipino: 'labinlima', english: 'fifteen' },
+        { filipino: 'labing-anim', english: 'sixteen' },
+        { filipino: 'labimpito', english: 'seventeen' },
+        { filipino: 'labingwalo', english: 'eighteen' },
+        { filipino: 'labinsiyam', english: 'nineteen' },
+      ],
+      'games/js/logicforcardsgame.js',
+      'handleOptions',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
 }
 function goToColorsGame() {
-  updateOnpageChange();
-  fetch('colorsgame.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('mainSection').innerHTML = data;
-      let options = [
+  fetchPage('colorsgame.html', 'mainSection', () => {
+    fetchForGame(
+      [
         { filipino: 'Pula', english: 'Red' },
         { filipino: 'Asul', english: 'Blue' },
         { filipino: 'Dilaw', english: 'Yellow' },
@@ -297,37 +219,53 @@ function goToColorsGame() {
         { filipino: 'Puti', english: 'White' },
         { filipino: 'Abo/Abuhin', english: 'Gray' },
         { filipino: 'Kayumanggi', english: 'Brown' },
-      ];
-      shuffleArray(options);
-      loadScript('logicforcardsgame.js', 'handleOptions', options);
-    });
-  fetch('modalCompleted.html')
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById('modalElement').innerHTML = data;
-    });
+      ],
+      'games/js/logicforcardsgame.js',
+      'handleOptions',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
+function goToDaysOfTheWeek() {
+  fetchPage('games/html/daysoftheweek.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { filipino: 'Lunes', english: 'Monday' },
+        { filipino: 'Martes', english: 'Tuesday' },
+        { filipino: 'Miyerkules', english: 'Wednesday' },
+        { filipino: 'Huwebes', english: 'Thursday' },
+        { filipino: 'Biyernes', english: 'Friday' },
+        { filipino: 'Sabado', english: 'Saturday' },
+        { filipino: 'Linggo', english: 'Sunday' },
+      ],
+      'games/js/logicforcardsgame.js',
+      'handleOptions',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
+function goToMonthsOfTheYear() {
+
+  fetchPage('games/html/monthsoftheyear.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { filipino: 'Enero', english: 'January' },
+        { filipino: 'Pebrero', english: 'February' },
+        { filipino: 'Marso', english: 'March' },
+        { filipino: 'Abril', english: 'April' },
+        { filipino: 'Mayo', english: 'May' },
+        { filipino: 'Hunyo', english: 'June' },
+        { filipino: 'Hulyo', english: 'July' },
+        { filipino: 'Agosto', english: 'August' },
+        { filipino: 'Setyembre', english: 'September' },
+        { filipino: 'Oktubre', english: 'October' },
+        { filipino: 'Nobyembre', english: 'November' },
+        { filipino: 'Disyembre', english: 'December' },
+      ],
+      'games/js/logicforcardsgame.js',
+      'handleOptions',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
 }
 goToHome();
-
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-  document.documentElement.setAttribute('data-bs-theme', 'dark');
-  document
-    .getElementById('themeToggleIcon')
-    .classList.replace('bi-moon-stars-fill', 'bi-sun-fill');
-}
-
-function toggleTheme() {
-  const htmlElement = document.documentElement;
-  const iconElement = document.getElementById('themeToggleIcon');
-
-  if (htmlElement.getAttribute('data-bs-theme') === 'dark') {
-    htmlElement.removeAttribute('data-bs-theme');
-    localStorage.setItem('theme', 'light');
-    iconElement.classList.replace('bi-sun-fill', 'bi-moon-stars-fill');
-  } else {
-    htmlElement.setAttribute('data-bs-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
-    iconElement.classList.replace('bi-moon-stars-fill', 'bi-sun-fill');
-  }
-}
