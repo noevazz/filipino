@@ -235,16 +235,48 @@
         </div>
       </li>
 
-      <li class="nav-item container-fluid">
-        <a
-          class="nav-link text-truncate w-100 hover-text-primary"
-          href="javascript:void(0)"
-          onclick="goToVocabulary()"
-          data-bs-dismiss="offcanvas"
-        >
-          <i class="fs-5 bi-book"></i
-          ><span class="ms-1 d-inline text-wrap">Vocabulary</span>
-        </a>
+      <li class="nav-item container-fluid w-100">
+        <div class="accordion p-0 m-0" id="vocabularyAccordion">
+          <!--IF YOU COPY THIS ACCORDION MAKE SURE TO CHANGE AAALLLL IDSSSS NOT ONLY THIS ONE-->
+          <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed nav-link text-truncate p-3"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseVocabulary"
+                aria-expanded="false"
+                aria-controls="collapseVocabulary"
+              >
+                <a href="javascript:void(0)" style="text-decoration: none" class="hover-text-primary">
+                  <i class="fs-5 bi-collection"></i>
+                  <span class="ms-1 d-sm-inline"> Vocabulary Games</span>
+                </a>
+              </button>
+            </h2>
+            <div
+              id="collapseVocabulary"
+              class="accordion-collapse collapse"
+              data-bs-parent="#vocabularyAccordion"
+            >
+              <div class="accordion-body">
+                <ul class="list-unstyled">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate hover-text-primary"
+                      href="javascript:void(0)"
+                      onclick="goToColorsGame()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-controller"></i>
+                      <span class="ms-1 d-inline text-wrap">Colors Game</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </li>
 
       <li class="nav-item container-fluid">
