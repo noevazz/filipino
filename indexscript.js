@@ -22,7 +22,7 @@ function shuffleArray(array) {
   }
   return array;
 }
-function loadScript(scriptName, functionName = null, config = null) {
+function loadScript(scriptName, functionName = null, config = null, languageInGame=null) {
   // Check if the script already exists
   let existingScript = document.querySelector(
     `script[data-name="${scriptName}"]`,
@@ -36,7 +36,7 @@ function loadScript(scriptName, functionName = null, config = null) {
 
     script.onload = () => {
       if (typeof window[functionName] === 'function') {
-        window[functionName](config);
+        window[functionName](config, languageInGame);
       }
     };
 
@@ -47,12 +47,13 @@ function loadScript(scriptName, functionName = null, config = null) {
     console.log(`script ${scriptName} already exist.`);
     // If script already exists, execute handleOptions immediately
     if (typeof window[functionName] === 'function') {
-      window[functionName](config);
+      window[functionName](config, languageInGame);
     }
   }
 }
 
 function fetchPage(fileName, elementID, callBack = null) {
+  window.currentGoTo = fetchPage.caller.name;
   updateOnpageChange();
   fetch(fileName)
     .then((response) => response.text())
@@ -61,8 +62,8 @@ function fetchPage(fileName, elementID, callBack = null) {
       if (typeof callBack == 'function' && callBack != null) callBack(); // always at the end cause some callbacks make use of elements on data
     });
 }
-function fetchForGame(optionsObject, scriptName, functionName) {
-  loadScript(scriptName, functionName, shuffleArray(optionsObject));
+function fetchForGame(optionsObject, scriptName, functionName, languageInGame=null) {
+  loadScript(scriptName, functionName, shuffleArray(optionsObject), languageInGame);
 }
 
 function goToHome() {
@@ -85,7 +86,7 @@ function goToPronouns() {
 function goToPronounsGroup1() {
   fetchPage('pronounsgroup1.html', 'mainSection');
 }
-function goToPronounsGameGroup1() {
+function goToPronounsGameGroup1(languageInGame='filipino') {
   fetchPage('games/html/pronounsgamegroup1.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -99,6 +100,7 @@ function goToPronounsGameGroup1() {
       ],
       'games/js/logicforcardsgame.js',
       'handleOptions',
+      languageInGame
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
@@ -122,7 +124,7 @@ function goToIntroduceYourself() {
 function goToNumbers() {
   fetchPage('numbers.html', 'mainSection');
 }
-function goToNumbersGame0to10() {
+function goToNumbersGame0to10(languageInGame='filipino') {
   fetchPage('games/html/numbersgame0to10.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -140,11 +142,12 @@ function goToNumbersGame0to10() {
       ],
       'games/js/logicforcardsgame.js',
       'handleOptions',
+      languageInGame
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToNumbersGame11to19() {
+function goToNumbersGame11to19(languageInGame='filipino') {
   fetchPage('games/html/numbersgame11to19.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -160,6 +163,7 @@ function goToNumbersGame11to19() {
       ],
       'games/js/logicforcardsgame.js',
       'handleOptions',
+      languageInGame
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
@@ -184,7 +188,7 @@ function goToNumbersGameHUNDREDS() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToNumbersGameTENS() {
+function goToNumbersGameTENS(languageInGame='filipino') {
   fetchPage('games/html/numbersgametens.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -200,12 +204,13 @@ function goToNumbersGameTENS() {
       ],
       'games/js/logicforcardsgame.js',
       'handleOptions',
+      languageInGame
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToColorsGame() {
-  fetchPage('colorsgame.html', 'mainSection', () => {
+function goToColorsGame(languageInGame='filipino') {
+  fetchPage('games/html/colorsgame.html', 'mainSection', () => {
     fetchForGame(
       [
         { filipino: 'Pula', english: 'Red' },
@@ -222,11 +227,12 @@ function goToColorsGame() {
       ],
       'games/js/logicforcardsgame.js',
       'handleOptions',
+      languageInGame
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToDaysOfTheWeek() {
+function goToDaysOfTheWeek(languageInGame='filipino') {
   fetchPage('games/html/daysoftheweek.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -240,11 +246,12 @@ function goToDaysOfTheWeek() {
       ],
       'games/js/logicforcardsgame.js',
       'handleOptions',
+      languageInGame
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToMonthsOfTheYear() {
+function goToMonthsOfTheYear(languageInGame='filipino') {
   fetchPage('games/html/monthsoftheyear.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -263,6 +270,7 @@ function goToMonthsOfTheYear() {
       ],
       'games/js/logicforcardsgame.js',
       'handleOptions',
+      languageInGame
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');

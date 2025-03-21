@@ -11,20 +11,38 @@ function shuffle(array) {
 }
 
 let position = 0;
+let config;
 
-function handleOptions(config) {
+
+function langButton (reference) {
+  reference.innerHTML == "filipino" ? reference.innerHTML = 'english' : reference.innerHTML = 'filipino';
+  if (typeof position != null)
+    position = 0;
+  if (typeof window[currentGoTo] === 'function') {
+    window[currentGoTo](reference.innerHTML);
+  } else {
+    console.log("did not found currentToGO")
+  }
+}
+
+
+function handleOptions(config, languageInGame = 'filipino') {
+  document.getElementById('toggle-lang').innerHTML = languageInGame;
   const currentOption = config[position];
+  const oppositeLang = languageInGame;
   const wrongAnswers = config
     .filter((p) => p.english !== currentOption.english)
-    .map((p) => p.english);
+    .map((p) => p[oppositeLang]);
+  
   const opts = shuffle([
-    currentOption.english,
+    currentOption[oppositeLang],
     ...shuffle(wrongAnswers).slice(0, 2),
   ]);
 
-  document.getElementById(
-    'question',
-  ).textContent = `What is the meaning of "${currentOption.filipino}"?`;
+  document.getElementById('question').textContent = languageInGame === 'english'
+    ? `What is the meaning of "${currentOption.filipino}"?`
+    : `Translate this word to Filipino: "${currentOption.english}"`;
+  
   const optionsContainer = document.getElementById('options');
   optionsContainer.innerHTML = '';
 
@@ -32,7 +50,7 @@ function handleOptions(config) {
     const button = document.createElement('button');
     button.className = 'btn btn-outline-primary my-2';
     button.textContent = option;
-    button.onclick = () => checkAnswer(option, currentOption.english, config);
+    button.onclick = () => checkAnswer(option, currentOption[oppositeLang], config);
     optionsContainer.appendChild(button);
   });
 }
