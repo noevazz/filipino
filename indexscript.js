@@ -101,12 +101,12 @@ function goToSentenceStructure() {
 }
 function goToMarkers() {
   fetchPage('markers.html', 'mainSection', () =>
-    loadScript('togglepopover.js'),
+    loadScript('togglepopover.js', 'togglepopover'),
   );
 }
 function goToGreetings() {
   fetchPage('greetings.html', 'mainSection', () =>
-    loadScript('togglepopover.js'),
+    loadScript('togglepopover.js', 'togglepopover'),
   );
 }
 function goToPronouns() {
@@ -209,7 +209,7 @@ function openAbout() {
 }
 function goToIntroduceYourself() {
   fetchPage('introduceyourself.html', 'mainSection', () =>
-    loadScript('togglepopover.js'),
+    loadScript('togglepopover.js', 'togglepopover'),
   );
 }
 function goToNumbers() {
