@@ -20,7 +20,11 @@
       id="menu"
     >
       <li class="nav-item container-fluid">
-        <a href="#" class="nav-link text-truncate w-100 hover-text-primary" id="homeLink">
+        <a
+          href="#"
+          class="nav-link text-truncate w-100 hover-text-primary"
+          id="homeLink"
+        >
           <i class="fs-5 bi-house-fill"></i
           ><span class="ms-1 d-inline text-wrap">Home</span>
         </a>
@@ -60,7 +64,11 @@
                 aria-expanded="false"
                 aria-controls="collapsePronouns"
               >
-                <a href="javascript:void(0)" style="text-decoration: none" class="hover-text-primary">
+                <a
+                  href="javascript:void(0)"
+                  style="text-decoration: none"
+                  class="hover-text-primary"
+                >
                   <i class="fs-5 bi-collection"></i>
                   <span class="ms-1 d-sm-inline"> Pronouns </span>
                 </a>
@@ -81,7 +89,9 @@
                       data-bs-dismiss="offcanvas"
                     >
                       <i class="fs-5 bi-book"></i>
-                      <span class="ms-1 d-inline text-wrap">Pronouns Overview</span>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Pronouns Overview</span
+                      >
                     </a>
                   </li>
                   <li class="nav-item">
@@ -94,6 +104,34 @@
                       <i class="fs-5 bi-book"></i>
                       <span class="ms-1 d-inline text-wrap"
                         >Pronouns Group 1</span
+                      >
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate hover-text-primary"
+                      href="javascript:void(0)"
+                      onclick="goToPronounsGroup2()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-book"></i>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Pronouns Group 2</span
+                      >
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate hover-text-primary"
+                      href="javascript:void(0)"
+                      onclick="goToPronounsGroup3()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-book"></i>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Pronouns Group 3</span
                       >
                     </a>
                   </li>
@@ -110,11 +148,70 @@
                       >
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate hover-text-primary"
+                      href="javascript:void(0)"
+                      onclick="goToPronounsGameGroup2()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-controller"></i>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Pronouns Game Group 2</span
+                      >
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate hover-text-primary"
+                      href="javascript:void(0)"
+                      onclick="goToPronounsGameGroup3()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-controller"></i>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Pronouns Game Group 3</span
+                      >
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+      </li>
+      <li class="nav-item container-fluid">
+        <a
+          class="nav-link text-truncate w-100 hover-text-primary"
+          href="javascript:void(0)"
+          onclick="goToRootsAndAffixes()"
+          data-bs-dismiss="offcanvas"
+        >
+          <i class="fs-5 bi-book"></i
+          ><span class="ms-1 d-inline text-wrap">Roots & Affixes</span>
+        </a>
+      </li>
+      <li class="nav-item container-fluid">
+        <a
+          class="nav-link text-truncate w-100 hover-text-primary"
+          href="javascript:void(0)"
+          onclick="goToSentenceStructure()"
+          data-bs-dismiss="offcanvas"
+        >
+          <i class="fs-5 bi-book"></i
+          ><span class="ms-1 d-inline text-wrap">Sentence Structure</span>
+        </a>
+      </li>
+      <li class="nav-item container-fluid">
+        <a
+          class="nav-link text-truncate w-100 hover-text-primary"
+          href="javascript:void(0)"
+          onclick="goToMarkers()"
+          data-bs-dismiss="offcanvas"
+        >
+          <i class="fs-5 bi-book"></i
+          ><span class="ms-1 d-inline text-wrap">Markers</span>
+        </a>
       </li>
       <li class="nav-item container-fluid">
         <a
@@ -152,7 +249,11 @@
                 aria-expanded="false"
                 aria-controls="collapseNumbers"
               >
-                <a href="javascript:void(0)" style="text-decoration: none" class="hover-text-primary">
+                <a
+                  href="javascript:void(0)"
+                  style="text-decoration: none"
+                  class="hover-text-primary"
+                >
                   <i class="fs-5 bi-collection"></i>
                   <span class="ms-1 d-sm-inline"> Numbers </span>
                 </a>
@@ -173,7 +274,9 @@
                       data-bs-dismiss="offcanvas"
                     >
                       <i class="fs-5 bi-book"></i>
-                      <span class="ms-1 d-inline text-wrap">Numbers Overview</span>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Numbers Overview</span
+                      >
                     </a>
                   </li>
                   <li class="nav-item">
@@ -248,7 +351,11 @@
                 aria-expanded="false"
                 aria-controls="collapseVocabulary"
               >
-                <a href="javascript:void(0)" style="text-decoration: none" class="hover-text-primary">
+                <a
+                  href="javascript:void(0)"
+                  style="text-decoration: none"
+                  class="hover-text-primary"
+                >
                   <i class="fs-5 bi-collection"></i>
                   <span class="ms-1 d-sm-inline"> Vocabulary Games</span>
                 </a>
@@ -280,7 +387,9 @@
                       data-bs-dismiss="offcanvas"
                     >
                       <i class="fs-5 bi-controller"></i>
-                      <span class="ms-1 d-inline text-wrap">Days Of The Week Game</span>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Days Of The Week Game</span
+                      >
                     </a>
                   </li>
                   <li class="nav-item">
@@ -291,7 +400,9 @@
                       data-bs-dismiss="offcanvas"
                     >
                       <i class="fs-5 bi-controller"></i>
-                      <span class="ms-1 d-inline text-wrap">Months Of The Year Game</span>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Months Of The Year Game</span
+                      >
                     </a>
                   </li>
                 </ul>
