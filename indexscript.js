@@ -279,6 +279,27 @@ function goToNumbersGameHUNDREDS() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
+function goToGreetingsGame() {
+  fetchPage('games/html/numbersgamehundreds.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { filipino: 'kumusta?', english: 'how are you? (short version, used only with familiar people)' },
+        { filipino: 'kumusta ka?', english: 'how are you? (used only with familiar people)' },
+        { filipino: 'kumusta po?', english: 'how are you? (short version, it shows respect)' },
+        { filipino: 'kumusta po kayo?', english: 'how are you? (extended version, it shows respect, works with singular and plural)' },
+        { filipino: 'kumusta po sila?', english: 'how are you? (EXTREME respect, works with singular and plural)' },
+        { filipino: 'mabuti', english: 'good/fine' },
+        { filipino: 'mabuti rin', english: 'I\'m fine too' },
+        { filipino: 'magandang umaga', english: 'good morning' },
+        { filipino: 'magandang hapon', english: 'good afternoon' },
+        { filipino: 'magandang gabi', english: 'good night' },
+      ],
+      'games/js/logicforpairsgame.js',
+      'handleOptions_PAIR_GAME',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
 function goToNumbersGameTENS(languageInGame = 'filipino') {
   fetchPage('games/html/numbersgametens.html', 'mainSection', () => {
     fetchForGame(
