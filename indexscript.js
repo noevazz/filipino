@@ -105,7 +105,9 @@ function goToMarkers() {
   );
 }
 function goToGreetings() {
-  fetchPage('greetings.html', 'mainSection');
+  fetchPage('greetings.html', 'mainSection', () =>
+    loadScript('togglepopover.js'),
+  );
 }
 function goToPronouns() {
   fetchPage('pronouns.html', 'mainSection');
