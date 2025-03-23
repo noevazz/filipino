@@ -110,7 +110,7 @@ function goToGreetings() {
   );
 }
 function goToPronouns() {
-  fetchPage('pronouns.html', 'mainSection');
+  fetchPage('pronounsoverview.html', 'mainSection');
 }
 function goToPronounsGroup1() {
   fetchPage('pronounsgroup1.html', 'mainSection');
