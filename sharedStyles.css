@@ -73,3 +73,11 @@
   color: var(--bs-info);
 }
 
+
+
+
+
+html[data-bs-theme="dark"] img.invertible {
+  filter: invert();
+  mix-blend-mode: difference;
+}
