@@ -53,6 +53,22 @@
 
 
 
+.image-responsive {
+  width: 100%;
+  margin: auto;
+}
+
+@media (min-width: 600px) {
+  .image-responsive  {
+    width: 60%;
+  }
+}
+
+
+
+
+
+
 .hover-text-primary:hover {
   color: var(--bs-info);
 }

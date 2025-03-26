@@ -338,6 +338,9 @@ function goToNumbersGameTENS(languageInGame = 'filipino') {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
+function goToActivitesVocabulary() {
+  fetchPage('activitiesvocabulary.html', 'mainSection');
+}
 function goToColorsGame(languageInGame = 'filipino') {
   fetchPage('games/html/colorsgame.html', 'mainSection', () => {
     fetchForGame(
