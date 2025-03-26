@@ -109,6 +109,23 @@ function goToGreetings() {
     loadScript('togglepopover.js', 'togglepopover'),
   );
 }
+function goToGameGreetingDepending() {
+  fetchPage('games/html/greetingsdependingontime.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { filipino: 'Magandang madaling araw', english: 'Good early morning  (Dawn – 12:00 AM to ~5:00 AM)' },
+        { filipino: 'Magandang umaga', english: 'Good morning (Morning – ~5:00 AM to 11:59 AM)' },
+        { filipino: 'Magandang tanghali', english: 'Good noon (Noon – 12:00 PM to ~1:00 PM)' },
+        { filipino: 'Magandang hapon', english: 'Good afternoon (Afternoon – ~1:00 PM to 5:59 PM)' },
+        { filipino: 'Magandang gabi', english: 'Good evening/night (Evening – ~6:00 PM to 11:59 PM)' },
+        { filipino: 'Magandang hatinggabi', english: 'Good midnight (exactly 12 AM)' }
+      ],
+      'games/js/logicforpairsgame.js',
+      'handleOptions_PAIR_GAME',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
 function goToPronouns() {
   fetchPage('pronounsoverview.html', 'mainSection');
 }
