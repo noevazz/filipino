@@ -18,10 +18,12 @@ function toggleTheme() {
     htmlElement.removeAttribute('data-bs-theme');
     localStorage.setItem('theme', 'light');
     iconElement.classList.replace('bi-sun-fill', 'bi-moon-stars-fill');
+  document.body.style.backgroundColor = "#FFFFFF"
   } else {
     htmlElement.setAttribute('data-bs-theme', 'dark');
     localStorage.setItem('theme', 'dark');
     iconElement.classList.replace('bi-moon-stars-fill', 'bi-sun-fill');
+    document.body.style.backgroundColor = "#212529"
   }
 }
 
