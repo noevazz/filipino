@@ -5,6 +5,9 @@ if (savedTheme === 'dark') {
   document
     .getElementById('themeToggleIcon')
     .classList.replace('bi-moon-stars-fill', 'bi-sun-fill');
+} else {
+  document.documentElement.setAttribute('data-bs-theme', 'light');
+
 }
 
 function toggleTheme() {
