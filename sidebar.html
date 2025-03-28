@@ -180,17 +180,70 @@
           </div>
         </div>
       </li>
-      <li class="nav-item container-fluid">
-        <a
-          class="nav-link text-truncate w-100 hover-text-primary"
-          href="javascript:void(0)"
-          onclick="goToRootsAndAffixes()"
-          data-bs-dismiss="offcanvas"
-        >
-          <i class="fs-5 bi-book"></i
-          ><span class="ms-1 d-inline text-wrap">Roots & Affixes</span>
-        </a>
+
+      <li class="nav-item container-fluid w-100">
+        <div class="accordion p-0 m-0" id="rootsAndAffixesAccordion">
+          <!--IF YOU COPY THIS ACCORDION MAKE SURE TO CHANGE AAALLLL IDSSSS NOT ONLY THIS ONE-->
+          <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed nav-link text-truncate p-3"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseRootsAndAffixes"
+                aria-expanded="false"
+                aria-controls="collapseRootsAndAffixes"
+              >
+                <a
+                  href="javascript:void(0)"
+                  style="text-decoration: none"
+                  class="hover-text-primary"
+                >
+                  <i class="fs-5 bi-collection"></i>
+                  <span class="ms-1 d-sm-inline">Roots & Affixes</span>
+                </a>
+              </button>
+            </h2>
+            <div
+              id="collapseRootsAndAffixes"
+              class="accordion-collapse collapse"
+              data-bs-parent="#rootsAndAffixesAccordion"
+            >
+              <div class="accordion-body">
+                <ul class="list-unstyled">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate hover-text-primary"
+                      href="javascript:void(0)"
+                      onclick="goToRootsAndAffixes()()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-book"></i>
+                      <span class="ms-1 d-inline text-wrap"
+                        >Roots & Affixes Overview</span
+                      >
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-truncate hover-text-primary"
+                      href="javascript:void(0)"
+                      onclick="goToGameUmInfix()"
+                      data-bs-dismiss="offcanvas"
+                    >
+                      <i class="fs-5 bi-controller"></i>
+                      <span class="ms-1 d-inline text-wrap"
+                        >UM Infix Game</span
+                      >
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </li>
+
       <li class="nav-item container-fluid">
         <a
           class="nav-link text-truncate w-100 hover-text-primary"

@@ -93,8 +93,29 @@ function goToAlphabet() {
 function goToRootsAndAffixes() {
   fetchPage('rootandaffixes.html', 'mainSection');
 }
-function goToRootsAndAffixes() {
-  fetchPage('rootandaffixes.html', 'mainSection');
+function goToGameUmInfix() {
+  fetchPage('games/html/uminfix.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { filipino: 'takbo', english: 'run' },
+        { filipino: 'tatakbo', english: 'will run' },
+        { filipino: 'tumakbo', english: 'ran' },
+        { filipino: 'tumatakbo', english: 'running' },
+        { filipino: 'kain', english: 'eat' },
+        { filipino: 'kakain', english: 'will eat' },
+        { filipino: 'kumain', english: 'ate' },
+        { filipino: 'kumakain', english: 'eating' },
+        { filipino: 'inom', english: 'drink' },
+        { filipino: 'iinom', english: 'will drink' },
+        { filipino: 'uminom', english: 'drank' },
+        { filipino: 'umiinom', english: 'drinking' },
+        
+      ],
+      'games/js/logicforpairsgame.js',
+      'handleOptions_PAIR_GAME',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
 }
 function goToSentenceStructure() {
   fetchPage('sentencestructure.html', 'mainSection');
@@ -113,12 +134,30 @@ function goToGameGreetingDepending() {
   fetchPage('games/html/greetingsdependingontime.html', 'mainSection', () => {
     fetchForGame(
       [
-        { filipino: 'Magandang madaling araw', english: 'Good early morning  (Dawn – 12:00 AM to ~5:00 AM)' },
-        { filipino: 'Magandang umaga', english: 'Good morning (Morning – ~5:00 AM to 11:59 AM)' },
-        { filipino: 'Magandang tanghali', english: 'Good noon (Noon – 12:00 PM to ~1:00 PM)' },
-        { filipino: 'Magandang hapon', english: 'Good afternoon (Afternoon – ~1:00 PM to 5:59 PM)' },
-        { filipino: 'Magandang gabi', english: 'Good evening/night (Evening – ~6:00 PM to 11:59 PM)' },
-        { filipino: 'Magandang hatinggabi', english: 'Good midnight (exactly 12 AM)' }
+        {
+          filipino: 'Magandang madaling araw',
+          english: 'Good early morning  (Dawn – 12:00 AM to ~5:00 AM)',
+        },
+        {
+          filipino: 'Magandang umaga',
+          english: 'Good morning (Morning – ~5:00 AM to 11:59 AM)',
+        },
+        {
+          filipino: 'Magandang tanghali',
+          english: 'Good noon (Noon – 12:00 PM to ~1:00 PM)',
+        },
+        {
+          filipino: 'Magandang hapon',
+          english: 'Good afternoon (Afternoon – ~1:00 PM to 5:59 PM)',
+        },
+        {
+          filipino: 'Magandang gabi',
+          english: 'Good evening/night (Evening – ~6:00 PM to 11:59 PM)',
+        },
+        {
+          filipino: 'Magandang hatinggabi',
+          english: 'Good midnight (exactly 12 AM)',
+        },
       ],
       'games/js/logicforpairsgame.js',
       'handleOptions_PAIR_GAME',
@@ -300,13 +339,31 @@ function goToGreetingsGame() {
   fetchPage('games/html/numbersgamehundreds.html', 'mainSection', () => {
     fetchForGame(
       [
-        { filipino: 'kumusta?', english: 'how are you? (short version, used only with familiar people)' },
-        { filipino: 'kumusta ka?', english: 'how are you? (used only with familiar people)' },
-        { filipino: 'kumusta po?', english: 'how are you? (short version, it shows respect)' },
-        { filipino: 'kumusta po kayo?', english: 'how are you? (extended version, it shows respect, works with singular and plural)' },
-        { filipino: 'kumusta po sila?', english: 'how are you? (EXTREME respect, works with singular and plural)' },
+        {
+          filipino: 'kumusta?',
+          english:
+            'how are you? (short version, used only with familiar people)',
+        },
+        {
+          filipino: 'kumusta ka?',
+          english: 'how are you? (used only with familiar people)',
+        },
+        {
+          filipino: 'kumusta po?',
+          english: 'how are you? (short version, it shows respect)',
+        },
+        {
+          filipino: 'kumusta po kayo?',
+          english:
+            'how are you? (extended version, it shows respect, works with singular and plural)',
+        },
+        {
+          filipino: 'kumusta po sila?',
+          english:
+            'how are you? (EXTREME respect, works with singular and plural)',
+        },
         { filipino: 'mabuti', english: 'good/fine' },
-        { filipino: 'mabuti rin', english: 'I\'m fine too' },
+        { filipino: 'mabuti rin', english: "I'm fine too" },
         { filipino: 'magandang umaga', english: 'good morning' },
         { filipino: 'magandang hapon', english: 'good afternoon' },
         { filipino: 'magandang gabi', english: 'good night' },
