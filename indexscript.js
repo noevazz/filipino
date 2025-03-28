@@ -396,7 +396,22 @@ function goToNumbersGameTENS(languageInGame = 'filipino') {
   fetchPage('modalCompleted.html', 'modalElement');
 }
 function goToActivitesVocabulary() {
-  fetchPage('activitiesvocabulary.html', 'mainSection');
+  fetchPage('games/html/activitiesvocabulary.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { filipino: 'nagluluto', english: 'cooking' },
+        { filipino: 'kumakain', english: 'eating' },
+        { filipino: 'tumatakbo', english: 'running' },
+        { filipino: 'nagbabasa', english: 'reading' },
+        { filipino: 'umiinon', english: 'drinking' },
+        { filipino: 'nagsusulat', english: 'writing' },
+        { filipino: 'lumalangoy', english: 'swimming' },
+      ],
+      'games/js/logicforpairsgame.js',
+      'handleOptions_PAIR_GAME',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
 }
 function goToColorsGame(languageInGame = 'filipino') {
   fetchPage('games/html/colorsgame.html', 'mainSection', () => {
