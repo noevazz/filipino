@@ -4,7 +4,6 @@ let shuffledFilipino = [];
 let shuffledEnglish = [];
 let options;
 
-const feedback = document.getElementById('feedback');
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -46,19 +45,18 @@ function handleOptions_PAIR_GAME(opts) {
 
   shuffledFilipino.forEach((item) => {
     const div = document.createElement('div');
-    div.className = 'option-item mb-2 p-2 border';
+    div.className = 'option-item mb-2 p-2 border text-center card shadow';
     div.textContent = item.filipino;
     div.setAttribute('data-filipino', item.filipino);
     div.setAttribute('data-english', item.english);
     div.style.cursor = 'pointer';
-    div.classList.add('hover:bg-primary', 'hover:text-white');
     div.onclick = () => select_PAIRGAME(div, 'filipino');
     filipinoColumn.appendChild(div);
   });
 
   shuffledEnglish.forEach((item) => {
     const div = document.createElement('div');
-    div.className = 'option-item mb-2 p-2 border'; // Use Bootstrap classes for styling
+    div.className = 'option-item mb-2 p-2 border text-center card shadow';
     div.textContent = item.english;
     div.setAttribute('data-filipino', item.filipino);
     div.setAttribute('data-english', item.english);
@@ -92,6 +90,7 @@ function select_PAIRGAME(div, language) {
     const englishItem = options.find(
       (option) => option.english === btn_englishValue,
     );
+    let feedback = document.getElementById('feedback');
 
     if (btn_filipinoValue === btn_englishValue) {
       feedback.textContent = '✅ Correct!';
