@@ -413,6 +413,24 @@ function goToActivitesVocabulary() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
+function goToActivitesVocabularyImages() {
+  fetchPage('games/html/activitiesvocabularyimages.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { filipino: 'nagluluto', english: 'img/nagluluto.png' },
+        { filipino: 'kumakain', english: 'img/kumakain.png' },
+        { filipino: 'tumatakbo', english: 'img/tumatakbo.png' },
+        { filipino: 'nagbabasa', english: 'img/nagbabasa.png' },
+        { filipino: 'umiinon', english: 'img/umiinon.png' },
+        { filipino: 'nagsusulat', english: 'img/nagsusulat.png' },
+        { filipino: 'lumalangoy', english: 'img/lumalangoy.png' },
+      ],
+      'games/js/imagesgame.js',
+      'handleOptionsImages',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
 function goToColorsGame(languageInGame = 'filipino') {
   fetchPage('games/html/colorsgame.html', 'mainSection', () => {
     fetchForGame(
