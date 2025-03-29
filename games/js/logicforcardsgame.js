@@ -66,6 +66,10 @@ function checkAnswer(selected, correct, config) {
   if (selected === correct) {
     feedback.textContent = '✅ Correct!';
     feedback.className = 'text-success';
+    if (position != config.length-1)
+      confetti({ particleCount: 50 })
+    else
+      confetti({ particleCount: 300 })
     setTimeout(() => {
       position += 1;
       if (position == config.length) {

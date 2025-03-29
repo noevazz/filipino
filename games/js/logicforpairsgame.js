@@ -95,6 +95,10 @@ function select_PAIRGAME(div, language) {
     if (btn_filipinoValue === btn_englishValue) {
       feedback.textContent = '✅ Correct!';
       feedback.className = 'text-success';
+      if (options.length != 1)
+        confetti({ particleCount: 50 })
+      else
+        confetti({ particleCount: 300 })
       setTimeout(() => {
         selectedEnglish.remove(); // since I am removing the elements here I do not need to call handleOptions again
         selectedFilipino.remove();
