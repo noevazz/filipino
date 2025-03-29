@@ -67,7 +67,7 @@ function getRandomItem(array) {
           );
           myModal.show();
         } else {
-          handleOptions(config);
+            handleOptionsImages(config);
           feedback.textContent = '';
         }
       }, 1000);
