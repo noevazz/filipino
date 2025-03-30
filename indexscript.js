@@ -481,10 +481,38 @@ function goToAnimalsGameImages() {
         { "filipino": "paruparo", "english": "img/animals/paruparo.svg" }, // butterfly
         { "filipino": "pating", "english": "img/animals/pating.svg" }, // shark
         { "filipino": "pagong", "english": "img/animals/pagong.svg" } // turtle
-      ]
-      ,
+      ],
       'games/js/imagesgame.js',
       'handleOptionsImages',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
+function goToClothes() {
+  fetchPage('games/html/clothes.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { "filipino": "sapatos", "english": "shoes" },
+        { "filipino": "damit", "english": "clothes" },
+        { "filipino": "kamiseta", "english": "shirt" },
+        { "filipino": "pantalon", "english": "pants" },
+        { "filipino": "bestida", "english": "dress" },
+        { "filipino": "palda", "english": "skirt" },
+        { "filipino": "medyas", "english": "socks" },
+        { "filipino": "sumbrero", "english": "hat" },
+        { "filipino": "dyaket", "english": "jacket" },
+        { "filipino": "kurbata", "english": "tie" },
+        { "filipino": "salamin sa mata", "english": "glasses" },
+        { "filipino": "sinturon", "english": "belt" },
+        { "filipino": "guwantes", "english": "gloves" },
+        { "filipino": "bota", "english": "boots" },
+        { "filipino": "sweter", "english": "sweater" },
+        { "filipino": "shorts", "english": "shorts" },
+        { "filipino": "panloob", "english": "underwear" },
+        { "filipino": "sandalyas", "english": "Sandals" },
+      ],
+      'games/js/logicforpairsgame.js',
+      'handleOptions_PAIR_GAME',
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
@@ -519,28 +547,6 @@ function goToClothesImages() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-/*
-[
-        { "filipino": "sapatos", "english": "shoes" },
-        { "filipino": "damit", "english": "clothes" },
-        { "filipino": "kamiseta", "english": "shirt" },
-        { "filipino": "pantalon", "english": "pants" },
-        { "filipino": "bestida", "english": "dress" },
-        { "filipino": "palda", "english": "skirt" },
-        { "filipino": "medyas", "english": "socks" },
-        { "filipino": "sumbrero", "english": "hat" },
-        { "filipino": "dyaket", "english": "jacket" },
-        { "filipino": "kurbata", "english": "tie" },
-        { "filipino": "salamin sa mata", "english": "glasses" },
-        { "filipino": "sinturon", "english": "belt" },
-        { "filipino": "guwantes", "english": "gloves" },
-        { "filipino": "bota", "english": "boots" },
-        { "filipino": "sweter", "english": "sweater" },
-        { "filipino": "shorts", "english": "shorts" },
-        { "filipino": "panloob", "english": "underwear" },
-        { "filipino": "sandalyas", "english": "Sandals" },
-      ]
-*/
 function goToColorsGame(languageInGame = 'filipino') {
   fetchPage('games/html/colorsgame.html', 'mainSection', () => {
     fetchForGame(
