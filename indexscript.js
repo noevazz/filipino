@@ -417,13 +417,13 @@ function goToActivitesVocabularyImages() {
   fetchPage('games/html/activitiesvocabularyimages.html', 'mainSection', () => {
     fetchForGame(
       [
-        { filipino: 'nagluluto', english: 'img/nagluluto.png' },
-        { filipino: 'kumakain', english: 'img/kumakain.png' },
-        { filipino: 'tumatakbo', english: 'img/tumatakbo.png' },
-        { filipino: 'nagbabasa', english: 'img/nagbabasa.png' },
-        { filipino: 'umiinon', english: 'img/umiinon.png' },
-        { filipino: 'nagsusulat', english: 'img/nagsusulat.png' },
-        { filipino: 'lumalangoy', english: 'img/lumalangoy.png' },
+        { filipino: 'nagluluto', english: 'img/nagluluto.svg' },
+        { filipino: 'kumakain', english: 'img/kumakain.svg' },
+        { filipino: 'tumatakbo', english: 'img/tumatakbo.svg' },
+        { filipino: 'nagbabasa', english: 'img/nagbabasa.svg' },
+        { filipino: 'umiinon', english: 'img/umiinon.svg' },
+        { filipino: 'nagsusulat', english: 'img/nagsusulat.svg' },
+        { filipino: 'lumalangoy', english: 'img/lumalangoy.svg' },
       ],
       'games/js/imagesgame.js',
       'handleOptionsImages',
