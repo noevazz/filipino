@@ -109,7 +109,7 @@ function goToGameUmInfix() {
         { filipino: 'iinom', english: 'will drink' },
         { filipino: 'uminom', english: 'drank' },
         { filipino: 'umiinom', english: 'drinking' },
-        
+
       ],
       'games/js/logicforpairsgame.js',
       'handleOptions_PAIR_GAME',
@@ -425,6 +425,64 @@ function goToActivitesVocabularyImages() {
         { filipino: 'nagsusulat', english: 'img/nagsusulat.svg' },
         { filipino: 'lumalangoy', english: 'img/lumalangoy.svg' },
       ],
+      'games/js/imagesgame.js',
+      'handleOptionsImages',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
+function goToAnimalsGameCards() {
+  fetchPage('games/html/animalscards.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { "filipino": "aso", "english": "dog" },
+        { "filipino": "pusa", "english": "cat" },
+        { "filipino": "ibon", "english": "bird" },
+        { "filipino": "isda", "english": "fish" },
+        { "filipino": "baboy", "english": "pig" },
+        { "filipino": "baka", "english": "cow" },
+        { "filipino": "kabayong", "english": "horse" },
+        { "filipino": "kuneho", "english": "rabbit" },
+        { "filipino": "unggoy", "english": "monkey" },
+        { "filipino": "manok", "english": "chicken" },
+        { "filipino": "kambing", "english": "goat" },
+        { "filipino": "elepante", "english": "elephant" },
+        { "filipino": "ahas", "english": "snake" },
+        { "filipino": "gagamba", "english": "spider" },
+        { "filipino": "paruparo", "english": "butterfly" },
+        { "filipino": "pating", "english": "shark" },
+        { "filipino": "pagong", "english": "turtle" }
+      ]
+      ,
+      'games/js/logicforpairsgame.js',
+      'handleOptions_PAIR_GAME',
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
+function goToAnimalsGameImages() {
+  fetchPage('games/html/animalsimages.html', 'mainSection', () => {
+    fetchForGame(
+      [
+        { "filipino": "aso", "english": "img/animals/aso.svg" }, // dpg
+        { "filipino": "pusa", "english": "img/animals/pusa.svg" }, // cat
+        { "filipino": "ibon", "english": "img/animals/ibon.svg" }, // bird
+        { "filipino": "isda", "english": "img/animals/isda.svg" }, // fish
+        { "filipino": "baboy", "english": "img/animals/baboy.svg" }, // pig
+        { "filipino": "baka", "english": "img/animals/baka.svg" }, // cow
+        { "filipino": "kabayong", "english": "img/animals/kabayong.svg" }, // horse
+        { "filipino": "kuneho", "english": "img/animals/kuneho.svg" }, // rabbit
+        { "filipino": "unggoy", "english": "img/animals/unggoy.svg" }, // monkey
+        { "filipino": "manok", "english": "img/animals/manok.svg" }, // chicken
+        { "filipino": "kambing", "english": "img/animals/kambing.svg" }, // goat
+        { "filipino": "elepante", "english": "img/animals/elepante.svg" }, // elephant
+        { "filipino": "ahas", "english": "img/animals/ahas.svg" }, // snake
+        { "filipino": "gagamba", "english": "img/animals/gagamba.svg" }, // spider
+        { "filipino": "paruparo", "english": "img/animals/paruparo.svg" }, // butterfly
+        { "filipino": "pating", "english": "img/animals/pating.svg" }, // shark
+        { "filipino": "pagong", "english": "img/animals/pagong.svg" } // turtle
+      ]
+      ,
       'games/js/imagesgame.js',
       'handleOptionsImages',
     );
