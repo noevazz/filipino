@@ -451,7 +451,8 @@ function goToAnimalsGameCards() {
         { "filipino": "gagamba", "english": "spider" },
         { "filipino": "paruparo", "english": "butterfly" },
         { "filipino": "pating", "english": "shark" },
-        { "filipino": "pagong", "english": "turtle" }
+        { "filipino": "pagong", "english": "turtle" },
+        { "filipino": "hipon", "english": "shrimp" },
       ]
       ,
       'games/js/logicforpairsgame.js',
@@ -480,7 +481,8 @@ function goToAnimalsGameImages() {
         { "filipino": "gagamba", "english": "img/animals/gagamba.svg" }, // spider
         { "filipino": "paruparo", "english": "img/animals/paruparo.svg" }, // butterfly
         { "filipino": "pating", "english": "img/animals/pating.svg" }, // shark
-        { "filipino": "pagong", "english": "img/animals/pagong.svg" } // turtle
+        { "filipino": "pagong", "english": "img/animals/pagong.svg" }, // turtle
+        { "filipino": "hipon", "english": "img/animals/hipon.svg" } // shrimp
       ],
       'games/js/imagesgame.js',
       'handleOptionsImages',
