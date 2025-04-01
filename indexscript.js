@@ -1,3 +1,74 @@
+function preloadImages(imageUrls) {
+  console.log(imageUrls);
+  imageUrls.forEach((url) => {
+    const img = new Image();
+    if (
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1'
+    ) {
+      img.src = 'http://127.0.0.1:5500/' + url;
+    } else {
+      img.src = 'http://noevazz.github.io/filipino/' + url;
+    }
+  });
+}
+const words = {
+  goToActivitesVocabularyImages: [
+    { filipino: 'nagluluto', english: 'img/nagluluto.svg' },
+    { filipino: 'kumakain', english: 'img/kumakain.svg' },
+    { filipino: 'tumatakbo', english: 'img/tumatakbo.svg' },
+    { filipino: 'nagbabasa', english: 'img/nagbabasa.svg' },
+    { filipino: 'umiinon', english: 'img/umiinon.svg' },
+    { filipino: 'nagsusulat', english: 'img/nagsusulat.svg' },
+    { filipino: 'lumalangoy', english: 'img/lumalangoy.svg' },
+  ],
+  goToAnimalsGameImages: [
+    { filipino: 'aso', english: 'img/animals/aso.svg' }, // dog
+    { filipino: 'pusa', english: 'img/animals/pusa.svg' }, // cat
+    { filipino: 'ibon', english: 'img/animals/ibon.svg' }, // bird
+    { filipino: 'isda', english: 'img/animals/isda.svg' }, // fish
+    { filipino: 'baboy', english: 'img/animals/baboy.svg' }, // pig
+    { filipino: 'baka', english: 'img/animals/baka.svg' }, // cow
+    { filipino: 'kabayong', english: 'img/animals/kabayong.svg' }, // horse
+    { filipino: 'kuneho', english: 'img/animals/kuneho.svg' }, // rabbit
+    { filipino: 'unggoy', english: 'img/animals/unggoy.svg' }, // monkey
+    { filipino: 'manok', english: 'img/animals/manok.svg' }, // chicken
+    { filipino: 'kambing', english: 'img/animals/kambing.svg' }, // goat
+    { filipino: 'elepante', english: 'img/animals/elepante.svg' }, // elephant
+    { filipino: 'ahas', english: 'img/animals/ahas.svg' }, // snake
+    { filipino: 'gagamba', english: 'img/animals/gagamba.svg' }, // spider
+    { filipino: 'paruparo', english: 'img/animals/paruparo.svg' }, // butterfly
+    { filipino: 'pating', english: 'img/animals/pating.svg' }, // shark
+    { filipino: 'pagong', english: 'img/animals/pagong.svg' }, // turtle
+    { filipino: 'hipon', english: 'img/animals/hipon.svg' }, // shrimp
+    { filipino: 'tandang', english: 'img/animals/tandang.svg' }, // rooster
+    { filipino: 'pusit', english: 'img/animals/pusit.svg' }, // squid
+  ],
+  goToClothesImages: [
+    { filipino: 'sapatos', english: 'img/clothes/sapatos.svg' },
+    { filipino: 'damit', english: 'img/clothes/damit.svg' },
+    { filipino: 'kamiseta', english: 'img/clothes/kamiseta.svg' },
+    { filipino: 'pantalon', english: 'img/clothes/pantalon.svg' },
+    { filipino: 'bestida', english: 'img/clothes/bestida.svg' },
+    { filipino: 'palda', english: 'img/clothes/palda.svg' },
+    { filipino: 'medyas', english: 'img/clothes/medyas.svg' },
+    { filipino: 'sumbrero', english: 'img/clothes/sumbrero.svg' },
+    { filipino: 'dyaket', english: 'img/clothes/dyaket.svg' },
+    { filipino: 'kurbata', english: 'img/clothes/kurbata.svg' },
+    { filipino: 'salamin sa mata', english: 'img/clothes/salamin_sa_mata.svg' },
+    { filipino: 'sinturon', english: 'img/clothes/sinturon.svg' },
+    { filipino: 'guwantes', english: 'img/clothes/guwantes.svg' },
+    { filipino: 'bota', english: 'img/clothes/bota.svg' },
+    { filipino: 'sweter', english: 'img/clothes/sweter.svg' },
+    { filipino: 'shorts', english: 'img/clothes/shorts.svg' },
+    { filipino: 'panloob', english: 'img/clothes/panloob.svg' },
+    { filipino: 'sandalyas', english: 'img/clothes/sandalyas.svg' },
+  ],
+};
+preloadImages(words.goToActivitesVocabularyImages.map((item) => item.english));
+preloadImages(words.goToAnimalsGameImages.map((item) => item.english));
+preloadImages(words.goToClothesImages.map((item) => item.english));
+
 function updateOnpageChange() {
   if (typeof position !== 'undefined') {
     position = 0;
@@ -109,7 +180,6 @@ function goToGameUmInfix() {
         { filipino: 'iinom', english: 'will drink' },
         { filipino: 'uminom', english: 'drank' },
         { filipino: 'umiinom', english: 'drinking' },
-
       ],
       'games/js/logicforpairsgame.js',
       'handleOptions_PAIR_GAME',
@@ -416,15 +486,7 @@ function goToActivitesVocabulary() {
 function goToActivitesVocabularyImages() {
   fetchPage('games/html/activitiesvocabularyimages.html', 'mainSection', () => {
     fetchForGame(
-      [
-        { filipino: 'nagluluto', english: 'img/nagluluto.svg' },
-        { filipino: 'kumakain', english: 'img/kumakain.svg' },
-        { filipino: 'tumatakbo', english: 'img/tumatakbo.svg' },
-        { filipino: 'nagbabasa', english: 'img/nagbabasa.svg' },
-        { filipino: 'umiinon', english: 'img/umiinon.svg' },
-        { filipino: 'nagsusulat', english: 'img/nagsusulat.svg' },
-        { filipino: 'lumalangoy', english: 'img/lumalangoy.svg' },
-      ],
+      words.goToActivitesVocabularyImages,
       'games/js/imagesgame.js',
       'handleOptionsImages',
     );
@@ -435,28 +497,27 @@ function goToAnimalsGameCards() {
   fetchPage('games/html/animalscards.html', 'mainSection', () => {
     fetchForGame(
       [
-        { "filipino": "aso", "english": "dog" },
-        { "filipino": "pusa", "english": "cat" },
-        { "filipino": "ibon", "english": "bird" },
-        { "filipino": "isda", "english": "fish" },
-        { "filipino": "baboy", "english": "pig" },
-        { "filipino": "baka", "english": "cow" },
-        { "filipino": "kabayong", "english": "horse" },
-        { "filipino": "kuneho", "english": "rabbit" },
-        { "filipino": "unggoy", "english": "monkey" },
-        { "filipino": "manok", "english": "chicken" },
-        { "filipino": "kambing", "english": "goat" },
-        { "filipino": "elepante", "english": "elephant" },
-        { "filipino": "ahas", "english": "snake" },
-        { "filipino": "gagamba", "english": "spider" },
-        { "filipino": "paruparo", "english": "butterfly" },
-        { "filipino": "pating", "english": "shark" },
-        { "filipino": "pagong", "english": "turtle" },
-        { "filipino": "hipon", "english": "shrimp" },
-        { "filipino": "tandang", "english": "rooster" },
-        { "filipino": "pusit", "english": "squid" },
-      ]
-      ,
+        { filipino: 'aso', english: 'dog' },
+        { filipino: 'pusa', english: 'cat' },
+        { filipino: 'ibon', english: 'bird' },
+        { filipino: 'isda', english: 'fish' },
+        { filipino: 'baboy', english: 'pig' },
+        { filipino: 'baka', english: 'cow' },
+        { filipino: 'kabayong', english: 'horse' },
+        { filipino: 'kuneho', english: 'rabbit' },
+        { filipino: 'unggoy', english: 'monkey' },
+        { filipino: 'manok', english: 'chicken' },
+        { filipino: 'kambing', english: 'goat' },
+        { filipino: 'elepante', english: 'elephant' },
+        { filipino: 'ahas', english: 'snake' },
+        { filipino: 'gagamba', english: 'spider' },
+        { filipino: 'paruparo', english: 'butterfly' },
+        { filipino: 'pating', english: 'shark' },
+        { filipino: 'pagong', english: 'turtle' },
+        { filipino: 'hipon', english: 'shrimp' },
+        { filipino: 'tandang', english: 'rooster' },
+        { filipino: 'pusit', english: 'squid' },
+      ],
       'games/js/logicforpairsgame.js',
       'handleOptions_PAIR_GAME',
     );
@@ -466,28 +527,7 @@ function goToAnimalsGameCards() {
 function goToAnimalsGameImages() {
   fetchPage('games/html/animalsimages.html', 'mainSection', () => {
     fetchForGame(
-      [
-        { "filipino": "aso", "english": "img/animals/aso.svg" }, // dpg
-        { "filipino": "pusa", "english": "img/animals/pusa.svg" }, // cat
-        { "filipino": "ibon", "english": "img/animals/ibon.svg" }, // bird
-        { "filipino": "isda", "english": "img/animals/isda.svg" }, // fish
-        { "filipino": "baboy", "english": "img/animals/baboy.svg" }, // pig
-        { "filipino": "baka", "english": "img/animals/baka.svg" }, // cow
-        { "filipino": "kabayong", "english": "img/animals/kabayong.svg" }, // horse
-        { "filipino": "kuneho", "english": "img/animals/kuneho.svg" }, // rabbit
-        { "filipino": "unggoy", "english": "img/animals/unggoy.svg" }, // monkey
-        { "filipino": "manok", "english": "img/animals/manok.svg" }, // chicken
-        { "filipino": "kambing", "english": "img/animals/kambing.svg" }, // goat
-        { "filipino": "elepante", "english": "img/animals/elepante.svg" }, // elephant
-        { "filipino": "ahas", "english": "img/animals/ahas.svg" }, // snake
-        { "filipino": "gagamba", "english": "img/animals/gagamba.svg" }, // spider
-        { "filipino": "paruparo", "english": "img/animals/paruparo.svg" }, // butterfly
-        { "filipino": "pating", "english": "img/animals/pating.svg" }, // shark
-        { "filipino": "pagong", "english": "img/animals/pagong.svg" }, // turtle
-        { "filipino": "hipon", "english": "img/animals/hipon.svg" }, // shrimp
-        { "filipino": "tandang", "english": "img/animals/tandang.svg" }, // rooster
-        { "filipino": "pusit", "english": "img/animals/pusit.svg" }, // squid
-      ],
+      words.goToAnimalsGameImages,
       'games/js/imagesgame.js',
       'handleOptionsImages',
     );
@@ -498,24 +538,24 @@ function goToClothes() {
   fetchPage('games/html/clothes.html', 'mainSection', () => {
     fetchForGame(
       [
-        { "filipino": "sapatos", "english": "shoes" },
-        { "filipino": "damit", "english": "clothes" },
-        { "filipino": "kamiseta", "english": "shirt" },
-        { "filipino": "pantalon", "english": "pants" },
-        { "filipino": "bestida", "english": "dress" },
-        { "filipino": "palda", "english": "skirt" },
-        { "filipino": "medyas", "english": "socks" },
-        { "filipino": "sumbrero", "english": "hat" },
-        { "filipino": "dyaket", "english": "jacket" },
-        { "filipino": "kurbata", "english": "tie" },
-        { "filipino": "salamin sa mata", "english": "glasses" },
-        { "filipino": "sinturon", "english": "belt" },
-        { "filipino": "guwantes", "english": "gloves" },
-        { "filipino": "bota", "english": "boots" },
-        { "filipino": "sweter", "english": "sweater" },
-        { "filipino": "shorts", "english": "shorts" },
-        { "filipino": "panloob", "english": "underwear" },
-        { "filipino": "sandalyas", "english": "Sandals" },
+        { filipino: 'sapatos', english: 'shoes' },
+        { filipino: 'damit', english: 'clothes' },
+        { filipino: 'kamiseta', english: 'shirt' },
+        { filipino: 'pantalon', english: 'pants' },
+        { filipino: 'bestida', english: 'dress' },
+        { filipino: 'palda', english: 'skirt' },
+        { filipino: 'medyas', english: 'socks' },
+        { filipino: 'sumbrero', english: 'hat' },
+        { filipino: 'dyaket', english: 'jacket' },
+        { filipino: 'kurbata', english: 'tie' },
+        { filipino: 'salamin sa mata', english: 'glasses' },
+        { filipino: 'sinturon', english: 'belt' },
+        { filipino: 'guwantes', english: 'gloves' },
+        { filipino: 'bota', english: 'boots' },
+        { filipino: 'sweter', english: 'sweater' },
+        { filipino: 'shorts', english: 'shorts' },
+        { filipino: 'panloob', english: 'underwear' },
+        { filipino: 'sandalyas', english: 'Sandals' },
       ],
       'games/js/logicforpairsgame.js',
       'handleOptions_PAIR_GAME',
@@ -526,27 +566,7 @@ function goToClothes() {
 function goToClothesImages() {
   fetchPage('games/html/clothesimages.html', 'mainSection', () => {
     fetchForGame(
-      [
-        { "filipino": "sapatos", "english": "img/clothes/sapatos.svg" },
-        { "filipino": "damit", "english": "img/clothes/damit.svg" },
-        { "filipino": "kamiseta", "english": "img/clothes/kamiseta.svg" },
-        { "filipino": "pantalon", "english": "img/clothes/pantalon.svg" },
-        { "filipino": "bestida", "english": "img/clothes/bestida.svg" },
-        { "filipino": "palda", "english": "img/clothes/palda.svg" },
-        { "filipino": "medyas", "english": "img/clothes/medyas.svg" },
-        { "filipino": "sumbrero", "english": "img/clothes/sumbrero.svg" },
-        { "filipino": "dyaket", "english": "img/clothes/dyaket.svg" },
-        { "filipino": "kurbata", "english": "img/clothes/kurbata.svg" },
-        { "filipino": "salamin sa mata", "english": "img/clothes/salamin_sa_mata.svg" },
-        { "filipino": "sinturon", "english": "img/clothes/sinturon.svg" },
-        { "filipino": "guwantes", "english": "img/clothes/guwantes.svg" },
-        { "filipino": "bota", "english": "img/clothes/bota.svg" },
-        { "filipino": "sweter", "english": "img/clothes/sweter.svg" },
-        { "filipino": "shorts", "english": "img/clothes/shorts.svg" },
-        { "filipino": "panloob", "english": "img/clothes/panloob.svg" },
-        { "filipino": "sandalyas", "english": "img/clothes/sandalyas.svg" },
-      ]
-      ,
+      words.goToClothesImages,
       'games/js/imagesgame.js',
       'handleOptionsImages',
     );
