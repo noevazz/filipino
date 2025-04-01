@@ -15,10 +15,10 @@ function getRandomItem(array) {
   
   function handleOptionsImages(config) {
     const currentOption = config[position];
-    const wrongAnswers = config.filter((p) => p.english !== currentOption.english).map((p) => p.english);
+    const wrongAnswers = config.filter((p) => p.imgURL !== currentOption.imgURL).map((p) => p.imgURL);
     
     const opts = shuffle([
-      currentOption.english,
+      currentOption.imgURL,
       ...shuffle(wrongAnswers).slice(0, 2)
     ]);
   
@@ -38,7 +38,7 @@ function getRandomItem(array) {
       img.style.height = '100px';
       
       button.appendChild(img);
-      button.onclick = () => checkAnswer(option, currentOption.english, config);
+      button.onclick = () => checkAnswer(option, currentOption.imgURL, config);
       optionsContainer.appendChild(button);
     });
   }
