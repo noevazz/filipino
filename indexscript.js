@@ -60,10 +60,20 @@ const words = {
     { filipino: "panloob", english: "underwear", imgURL: "img/clothes/panloob.svg" },
     { filipino: "sandalyas", english: "Sandals", imgURL: "img/clothes/sandalyas.svg" }
   ],
+  food: [
+    { filipino: "tinapay", english: "bread", imgURL: "img/food/tinapay.svg" },
+    { filipino: "kanin", english: "rice", imgURL: "img/food/kanin.svg" },
+    { filipino: "mansanas", english: "apple", imgURL: "img/food/mansanas.svg" },
+    { filipino: "gatas", english: "milk", imgURL: "img/food/gatas.svg" },
+    { filipino: "tubig", english: "water", imgURL: "img/food/tubig.svg" },
+    { filipino: "itlog", english: "egg", imgURL: "img/food/itlog.svg" },
+    { filipino: "serbesa", english: "beer", imgURL: "img/food/serbesa.svg" },
+  ],
 };
 preloadImages(words.activities.map(item => item.imgURL));
 preloadImages(words.animals.map(item => item.imgURL));
 preloadImages(words.clothes.map(item => item.imgURL));
+preloadImages(words.food.map(item => item.imgURL));
 
 function updateOnpageChange() {
   if (typeof position !== 'undefined') {
@@ -478,6 +488,12 @@ function goToClothes() {
 function goToClothesImages() {
   fetchPage('games/html/clothesimages.html', 'mainSection', () => {
     fetchForGame(words.clothes, 'games/js/imagesgame.js', 'handleOptionsImages');
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
+function goToFoodImages() {
+  fetchPage('games/html/foodimages.html', 'mainSection', () => {
+    fetchForGame(words.food, 'games/js/imagesgame.js', 'handleOptionsImages');
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
