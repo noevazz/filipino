@@ -79,6 +79,9 @@ function updateOnpageChange() {
   if (typeof position !== 'undefined') {
     position = 0;
   }
+  if (typeof position_LFCG !== 'undefined') {
+    position_LFCG = 0;
+  }
   if (typeof selectedFilipino !== 'undefined') {
     selectedFilipino = null;
   }

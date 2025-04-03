@@ -10,14 +10,12 @@ function shuffle(array) {
   return array;
 }
 
-let position = 0;
-let config;
-
+let position_LFCG = 0;
 
 function langButton (reference) {
   reference.innerHTML == "filipino" ? reference.innerHTML = 'english' : reference.innerHTML = 'filipino';
-  if (typeof position != null)
-    position = 0;
+  if (typeof position_LFCG != null)
+    position_LFCG = 0;
   if (typeof window[currentGoTo] === 'function') {
     window[currentGoTo](reference.innerHTML);
   } else {
@@ -28,7 +26,7 @@ function langButton (reference) {
 
 function handleOptions(config, languageInGame = 'filipino') {
   document.getElementById('toggle-lang').innerHTML = languageInGame;
-  const currentOption = config[position];
+  const currentOption = config[position_LFCG];
   const oppositeLang = languageInGame;
   const wrongAnswers = config
     .filter((p) => p.english !== currentOption.english)
@@ -66,14 +64,14 @@ function checkAnswer(selected, correct, config) {
   if (selected === correct) {
     feedback.textContent = '✅ Correct!';
     feedback.className = 'text-success';
-    if (position != config.length-1)
+    if (position_LFCG != config.length-1)
       confetti({ particleCount: 50 })
     else
       confetti({ particleCount: 300 })
     setTimeout(() => {
-      position += 1;
-      if (position == config.length) {
-          position = 0;
+      position_LFCG += 1;
+      if (position_LFCG == config.length) {
+          position_LFCG = 0;
         var myModal = new bootstrap.Modal(
           document.getElementById('modalElement'),
         );
