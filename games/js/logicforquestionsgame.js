@@ -14,6 +14,7 @@ let position_LFCG = 0;
 
 function langButton (reference) {
   reference.innerHTML == "filipino" ? reference.innerHTML = 'english' : reference.innerHTML = 'filipino';
+  languageInGame = reference.innerHTML;
   if (typeof position_LFCG != null)
     position_LFCG = 0;
   if (typeof window[currentGoTo] === 'function') {
@@ -24,7 +25,7 @@ function langButton (reference) {
 }
 
 
-function handleOptions(config, languageInGame = 'filipino') {
+function handleOptions(config) {
   document.getElementById('toggle-lang').innerHTML = languageInGame;
   const currentOption = config[position_LFCG];
   const oppositeLang = languageInGame;
@@ -48,12 +49,12 @@ function handleOptions(config, languageInGame = 'filipino') {
     const button = document.createElement('button');
     button.className = 'btn btn-outline-primary my-2';
     button.textContent = option;
-    button.onclick = () => checkAnswer(option, currentOption[oppositeLang], config);
+    button.onclick = () => checkAnswerQuestions(option, currentOption[oppositeLang], config);
     optionsContainer.appendChild(button);
   });
 }
 
-function checkAnswer(selected, correct, config) {
+function checkAnswerQuestions(selected, correct, config) {
   const feedback = document.getElementById('feedback');
   const optionsContainer = document.getElementById('options');
 

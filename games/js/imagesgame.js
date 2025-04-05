@@ -38,12 +38,12 @@ function getRandomItem(array) {
       img.style.height = '100px';
       
       button.appendChild(img);
-      button.onclick = () => checkAnswer(option, currentOption.imgURL, config);
+      button.onclick = () => checkAnswerImages(option, currentOption.imgURL, config);
       optionsContainer.appendChild(button);
     });
   }
   
-  function checkAnswer(selected, correct, config) {
+  function checkAnswerImages(selected, correct, config) {
     const feedback = document.getElementById('feedback');
     const optionsContainer = document.getElementById('options');
   

@@ -109,6 +109,8 @@ function updateOnpageChange() {
     shuffledEnglish = [];
   }
 }
+let languageInGame = "filipino";
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -116,7 +118,7 @@ function shuffleArray(array) {
   }
   return array;
 }
-function loadScript(scriptName, functionName = null, config = null, languageInGame = null) {
+function loadScript(scriptName, functionName = null, config = null) {
   // Check if the script already exists
   let existingScript = document.querySelector(`script[data-name="${scriptName}"]`);
 
@@ -128,7 +130,7 @@ function loadScript(scriptName, functionName = null, config = null, languageInGa
 
     script.onload = () => {
       if (typeof window[functionName] === 'function') {
-        window[functionName](config, languageInGame);
+        window[functionName](config);
       }
     };
 
@@ -139,7 +141,7 @@ function loadScript(scriptName, functionName = null, config = null, languageInGa
     console.log(`script ${scriptName} already exist.`);
     // If script already exists, execute handleOptions immediately
     if (typeof window[functionName] === 'function') {
-      window[functionName](config, languageInGame);
+      window[functionName](config);
     }
   }
 }
@@ -154,8 +156,8 @@ function fetchPage(fileName, elementID, callBack = null) {
       if (typeof callBack == 'function' && callBack != null) callBack(); // always at the end cause some callbacks make use of elements on data
     });
 }
-function fetchForGame(optionsObject, scriptName, functionName, languageInGame = null) {
-  loadScript(scriptName, functionName, shuffleArray(optionsObject), languageInGame);
+function fetchForGame(optionsObject, scriptName, functionName) {
+  loadScript(scriptName, functionName, shuffleArray(optionsObject));
 }
 
 function goToHome() {
@@ -249,7 +251,7 @@ function goToPronounsGroup2() {
 function goToPronounsGroup3() {
   fetchPage('pronounsgroup3.html', 'mainSection');
 }
-function goToPronounsGameGroup1(languageInGame = 'filipino') {
+function goToPronounsGameGroup1() {
   fetchPage('games/html/pronounsgamegroup1.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -263,12 +265,11 @@ function goToPronounsGameGroup1(languageInGame = 'filipino') {
       ],
       'games/js/logicforquestionsgame.js',
       'handleOptions',
-      languageInGame,
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToPronounsGameGroup2(languageInGame = 'filipino') {
+function goToPronounsGameGroup2() {
   fetchPage('games/html/pronounsgamegroup2.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -290,13 +291,12 @@ function goToPronounsGameGroup2(languageInGame = 'filipino') {
         { filipino: 'Nila', english: 'Their/Theirs' },
       ],
       'games/js/logicforquestionsgame.js',
-      'handleOptions',
-      languageInGame,
+      'handleOptions'
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToPronounsGameGroup3(languageInGame = 'filipino') {
+function goToPronounsGameGroup3() {
   fetchPage('games/html/pronounsgamegroup3.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -318,8 +318,7 @@ function goToPronounsGameGroup3(languageInGame = 'filipino') {
         { filipino: 'Sa Kanila', english: 'To them' },
       ],
       'games/js/logicforquestionsgame.js',
-      'handleOptions',
-      languageInGame,
+      'handleOptions'
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
@@ -339,7 +338,7 @@ function goToIntroduceYourself() {
 function goToNumbers() {
   fetchPage('numbers.html', 'mainSection');
 }
-function goToNumbersGame0to10(languageInGame = 'filipino') {
+function goToNumbersGame0to10() {
   fetchPage('games/html/numbersgame0to10.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -356,13 +355,12 @@ function goToNumbersGame0to10(languageInGame = 'filipino') {
         { filipino: 'sampu', english: 'ten' },
       ],
       'games/js/logicforquestionsgame.js',
-      'handleOptions',
-      languageInGame,
+      'handleOptions'
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToNumbersGame11to19(languageInGame = 'filipino') {
+function goToNumbersGame11to19() {
   fetchPage('games/html/numbersgame11to19.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -377,8 +375,7 @@ function goToNumbersGame11to19(languageInGame = 'filipino') {
         { filipino: 'labinsiyam', english: 'nineteen' },
       ],
       'games/js/logicforquestionsgame.js',
-      'handleOptions',
-      languageInGame,
+      'handleOptions'
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
@@ -439,7 +436,7 @@ function goToGreetingsGame() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToNumbersGameTENS(languageInGame = 'filipino') {
+function goToNumbersGameTENS() {
   fetchPage('games/html/numbersgametens.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -454,8 +451,7 @@ function goToNumbersGameTENS(languageInGame = 'filipino') {
         { filipino: 'labinsiyam', english: 'nineteen' },
       ],
       'games/js/logicforquestionsgame.js',
-      'handleOptions',
-      languageInGame,
+      'handleOptions'
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
@@ -520,40 +516,37 @@ function goToFoodImages() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToColorsPairs(languageInGame = 'filipino') {
+function goToColorsPairs() {
   fetchPage('games/html/colorspairs.html', 'mainSection', () => {
     fetchForGame(
       words.colors,
       'games/js/logicforpairsgame.js',
-      'handleOptions_PAIR_GAME',
-      languageInGame,
+      'handleOptions_PAIR_GAME'
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToColorsImages(languageInGame = 'filipino') {
+function goToColorsImages() {
   fetchPage('games/html/colorsimages.html', 'mainSection', () => {
     fetchForGame(
       words.colors,
       'games/js/imagesgame.js',
-      'handleOptionsImages',
-      languageInGame,
+      'handleOptionsImages'
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToColorsQuestions(languageInGame = 'filipino') {
+function goToColorsQuestions() {
   fetchPage('games/html/colorsgamequestions.html', 'mainSection', () => {
     fetchForGame(
       words.colors,
       'games/js/logicforquestionsgame.js',
-      'handleOptions',
-      languageInGame,
+      'handleOptions'
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToDaysOfTheWeekQuestions(languageInGame = 'filipino') {
+function goToDaysOfTheWeekQuestions() {
   fetchPage('games/html/daysoftheweekquestions.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -566,13 +559,12 @@ function goToDaysOfTheWeekQuestions(languageInGame = 'filipino') {
         { filipino: 'Linggo', english: 'Sunday' },
       ],
       'games/js/logicforquestionsgame.js',
-      'handleOptions',
-      languageInGame,
+      'handleOptions'
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToMonthsOfTheYearQuestions(languageInGame = 'filipino') {
+function goToMonthsOfTheYearQuestions() {
   fetchPage('games/html/monthsoftheyearquestions.html', 'mainSection', () => {
     fetchForGame(
       [
@@ -590,8 +582,7 @@ function goToMonthsOfTheYearQuestions(languageInGame = 'filipino') {
         { filipino: 'Disyembre', english: 'December' },
       ],
       'games/js/logicforquestionsgame.js',
-      'handleOptions',
-      languageInGame,
+      'handleOptions'
     );
   });
   fetchPage('modalCompleted.html', 'modalElement');
