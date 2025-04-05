@@ -70,23 +70,24 @@ const words = {
     { filipino: "serbesa", english: "beer", imgURL: "img/food/serbesa.svg" },
   ],
   colors: [
-    { filipino: 'Pula', english: 'Red' },
-    { filipino: 'Asul', english: 'Blue' },
-    { filipino: 'Dilaw', english: 'Yellow' },
-    { filipino: 'Berde/Lunti', english: 'Green' },
-    { filipino: 'Kahel', english: 'Orange' },
-    { filipino: 'Lila/Ube', english: 'Purple' },
-    { filipino: 'Rosa', english: 'Pink' },
-    { filipino: 'Itim', english: 'Black' },
-    { filipino: 'Puti', english: 'White' },
-    { filipino: 'Abo/Abuhin', english: 'Gray' },
-    { filipino: 'Kayumanggi', english: 'Brown' },
+    { filipino: 'Pula', english: 'Red', imgURL: "img/colors/pula.svg" },
+    { filipino: 'Asul', english: 'Blue', imgURL: "img/colors/asul.svg" },
+    { filipino: 'Dilaw', english: 'Yellow', imgURL: "img/colors/dilaw.svg" },
+    { filipino: 'Berde/Lunti', english: 'Green', imgURL: "img/colors/berde_lunti.svg" },
+    { filipino: 'Kahel', english: 'Orange', imgURL: "img/colors/kahel.svg" },
+    { filipino: 'Lila/Ube', english: 'Purple', imgURL: "img/colors/lila_ube.svg" },
+    { filipino: 'Rosa', english: 'Pink', imgURL: "img/colors/rosa.svg" },
+    { filipino: 'Itim', english: 'Black', imgURL: "img/colors/itim.svg" },
+    { filipino: 'Puti', english: 'White', imgURL: "img/colors/puti.svg" },
+    { filipino: 'Abo/Abuhin', english: 'Gray', imgURL: "img/colors/abo_abuhin.svg" },
+    { filipino: 'Kayumanggi', english: 'Brown', imgURL: "img/colors/kayumanggi.svg" },
   ],
 };
 preloadImages(words.activities.map(item => item.imgURL));
 preloadImages(words.animals.map(item => item.imgURL));
 preloadImages(words.clothes.map(item => item.imgURL));
 preloadImages(words.food.map(item => item.imgURL));
+preloadImages(words.colors.map(item => item.imgURL));
 
 function updateOnpageChange() {
   if (typeof position !== 'undefined') {
@@ -525,6 +526,17 @@ function goToColorsPairs(languageInGame = 'filipino') {
       words.colors,
       'games/js/logicforpairsgame.js',
       'handleOptions_PAIR_GAME',
+      languageInGame,
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
+function goToColorsImages(languageInGame = 'filipino') {
+  fetchPage('games/html/colorsimages.html', 'mainSection', () => {
+    fetchForGame(
+      words.colors,
+      'games/js/imagesgame.js',
+      'handleOptionsImages',
       languageInGame,
     );
   });
