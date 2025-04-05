@@ -69,6 +69,19 @@ const words = {
     { filipino: "itlog", english: "egg", imgURL: "img/food/itlog.svg" },
     { filipino: "serbesa", english: "beer", imgURL: "img/food/serbesa.svg" },
   ],
+  colors: [
+    { filipino: 'Pula', english: 'Red' },
+    { filipino: 'Asul', english: 'Blue' },
+    { filipino: 'Dilaw', english: 'Yellow' },
+    { filipino: 'Berde/Lunti', english: 'Green' },
+    { filipino: 'Kahel', english: 'Orange' },
+    { filipino: 'Lila/Ube', english: 'Purple' },
+    { filipino: 'Rosa', english: 'Pink' },
+    { filipino: 'Itim', english: 'Black' },
+    { filipino: 'Puti', english: 'White' },
+    { filipino: 'Abo/Abuhin', english: 'Gray' },
+    { filipino: 'Kayumanggi', english: 'Brown' },
+  ],
 };
 preloadImages(words.activities.map(item => item.imgURL));
 preloadImages(words.animals.map(item => item.imgURL));
@@ -506,22 +519,21 @@ function goToFoodImages() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
+function goToColorsPairs(languageInGame = 'filipino') {
+  fetchPage('games/html/colorspairs.html', 'mainSection', () => {
+    fetchForGame(
+      words.colors,
+      'games/js/logicforpairsgame.js',
+      'handleOptions_PAIR_GAME',
+      languageInGame,
+    );
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
 function goToColorsQuestions(languageInGame = 'filipino') {
   fetchPage('games/html/colorsgamequestions.html', 'mainSection', () => {
     fetchForGame(
-      [
-        { filipino: 'Pula', english: 'Red' },
-        { filipino: 'Asul', english: 'Blue' },
-        { filipino: 'Dilaw', english: 'Yellow' },
-        { filipino: 'Berde/Lunti', english: 'Green' },
-        { filipino: 'Kahel', english: 'Orange' },
-        { filipino: 'Lila/Ube', english: 'Purple' },
-        { filipino: 'Rosa', english: 'Pink' },
-        { filipino: 'Itim', english: 'Black' },
-        { filipino: 'Puti', english: 'White' },
-        { filipino: 'Abo/Abuhin', english: 'Gray' },
-        { filipino: 'Kayumanggi', english: 'Brown' },
-      ],
+      words.colors,
       'games/js/logicforquestionsgame.js',
       'handleOptions',
       languageInGame,
