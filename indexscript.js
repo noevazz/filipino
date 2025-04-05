@@ -247,7 +247,7 @@ function goToPronounsGameGroup1(languageInGame = 'filipino') {
         { filipino: 'Kayo', english: 'You (plural)' },
         { filipino: 'Sila', english: 'They' },
       ],
-      'games/js/logicforcardsgame.js',
+      'games/js/logicforquestionsgame.js',
       'handleOptions',
       languageInGame,
     );
@@ -275,7 +275,7 @@ function goToPronounsGameGroup2(languageInGame = 'filipino') {
         },
         { filipino: 'Nila', english: 'Their/Theirs' },
       ],
-      'games/js/logicforcardsgame.js',
+      'games/js/logicforquestionsgame.js',
       'handleOptions',
       languageInGame,
     );
@@ -303,7 +303,7 @@ function goToPronounsGameGroup3(languageInGame = 'filipino') {
         },
         { filipino: 'Sa Kanila', english: 'To them' },
       ],
-      'games/js/logicforcardsgame.js',
+      'games/js/logicforquestionsgame.js',
       'handleOptions',
       languageInGame,
     );
@@ -341,7 +341,7 @@ function goToNumbersGame0to10(languageInGame = 'filipino') {
         { filipino: 'siyam', english: 'nine' },
         { filipino: 'sampu', english: 'ten' },
       ],
-      'games/js/logicforcardsgame.js',
+      'games/js/logicforquestionsgame.js',
       'handleOptions',
       languageInGame,
     );
@@ -362,7 +362,7 @@ function goToNumbersGame11to19(languageInGame = 'filipino') {
         { filipino: 'labingwalo', english: 'eighteen' },
         { filipino: 'labinsiyam', english: 'nineteen' },
       ],
-      'games/js/logicforcardsgame.js',
+      'games/js/logicforquestionsgame.js',
       'handleOptions',
       languageInGame,
     );
@@ -439,7 +439,7 @@ function goToNumbersGameTENS(languageInGame = 'filipino') {
         { filipino: 'labingwalo', english: 'eighteen' },
         { filipino: 'labinsiyam', english: 'nineteen' },
       ],
-      'games/js/logicforcardsgame.js',
+      'games/js/logicforquestionsgame.js',
       'handleOptions',
       languageInGame,
     );
@@ -516,7 +516,7 @@ function goToColorsGame(languageInGame = 'filipino') {
         { filipino: 'Abo/Abuhin', english: 'Gray' },
         { filipino: 'Kayumanggi', english: 'Brown' },
       ],
-      'games/js/logicforcardsgame.js',
+      'games/js/logicforquestionsgame.js',
       'handleOptions',
       languageInGame,
     );
@@ -535,7 +535,7 @@ function goToDaysOfTheWeek(languageInGame = 'filipino') {
         { filipino: 'Sabado', english: 'Saturday' },
         { filipino: 'Linggo', english: 'Sunday' },
       ],
-      'games/js/logicforcardsgame.js',
+      'games/js/logicforquestionsgame.js',
       'handleOptions',
       languageInGame,
     );
@@ -559,7 +559,7 @@ function goToMonthsOfTheYear(languageInGame = 'filipino') {
         { filipino: 'Nobyembre', english: 'November' },
         { filipino: 'Disyembre', english: 'December' },
       ],
-      'games/js/logicforcardsgame.js',
+      'games/js/logicforquestionsgame.js',
       'handleOptions',
       languageInGame,
     );
