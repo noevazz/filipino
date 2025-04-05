@@ -494,6 +494,12 @@ function goToClothesImages() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
+function goToFoodPairs() {
+  fetchPage('games/html/foodpairs.html', 'mainSection', () => {
+    fetchForGame(words.food, 'games/js/logicforpairsgame.js', 'handleOptions_PAIR_GAME');
+  });
+  fetchPage('modalCompleted.html', 'modalElement');
+}
 function goToFoodImages() {
   fetchPage('games/html/foodimages.html', 'mainSection', () => {
     fetchForGame(words.food, 'games/js/imagesgame.js', 'handleOptionsImages');

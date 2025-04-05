@@ -103,7 +103,6 @@ function select_PAIRGAME(div, language) {
         selectedEnglish.remove(); // since I am removing the elements here I do not need to call handleOptions again
         selectedFilipino.remove();
         options.splice(options.indexOf(englishItem), 1);
-        console.log(options);
         selectedFilipino = null;
         selectedEnglish = null;
         feedback.textContent = '';
