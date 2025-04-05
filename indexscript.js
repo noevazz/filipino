@@ -446,7 +446,7 @@ function goToNumbersGameTENS(languageInGame = 'filipino') {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToActivitesVocabulary() {
+function goToActivitesPairs() {
   fetchPage('games/html/activitiesvocabulary.html', 'mainSection', () => {
     fetchForGame(
       words.activities,
@@ -456,14 +456,14 @@ function goToActivitesVocabulary() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToActivitesVocabularyImages() {
-  fetchPage('games/html/activitiesvocabularyimages.html', 'mainSection', () => {
+function goToActivitesImages() {
+  fetchPage('games/html/activitiesimages.html', 'mainSection', () => {
     fetchForGame(words.activities, 'games/js/imagesgame.js', 'handleOptionsImages');
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToAnimalsGameCards() {
-  fetchPage('games/html/animalscards.html', 'mainSection', () => {
+function goToAnimalsGamePairs() {
+  fetchPage('games/html/animalspairs.html', 'mainSection', () => {
     fetchForGame(
       words.animals,
       'games/js/logicforpairsgame.js',
@@ -478,8 +478,8 @@ function goToAnimalsGameImages() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToClothes() {
-  fetchPage('games/html/clothes.html', 'mainSection', () => {
+function goToClothesPairs() {
+  fetchPage('games/html/clothespairs.html', 'mainSection', () => {
     fetchForGame(
       words.clothes,
       'games/js/logicforpairsgame.js',
@@ -500,8 +500,8 @@ function goToFoodImages() {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToColorsGame(languageInGame = 'filipino') {
-  fetchPage('games/html/colorsgame.html', 'mainSection', () => {
+function goToColorsQuestions(languageInGame = 'filipino') {
+  fetchPage('games/html/colorsgamequestions.html', 'mainSection', () => {
     fetchForGame(
       [
         { filipino: 'Pula', english: 'Red' },
@@ -523,8 +523,8 @@ function goToColorsGame(languageInGame = 'filipino') {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToDaysOfTheWeek(languageInGame = 'filipino') {
-  fetchPage('games/html/daysoftheweek.html', 'mainSection', () => {
+function goToDaysOfTheWeekQuestions(languageInGame = 'filipino') {
+  fetchPage('games/html/daysoftheweekquestions.html', 'mainSection', () => {
     fetchForGame(
       [
         { filipino: 'Lunes', english: 'Monday' },
@@ -542,8 +542,8 @@ function goToDaysOfTheWeek(languageInGame = 'filipino') {
   });
   fetchPage('modalCompleted.html', 'modalElement');
 }
-function goToMonthsOfTheYear(languageInGame = 'filipino') {
-  fetchPage('games/html/monthsoftheyear.html', 'mainSection', () => {
+function goToMonthsOfTheYearQuestions(languageInGame = 'filipino') {
+  fetchPage('games/html/monthsoftheyearquestions.html', 'mainSection', () => {
     fetchForGame(
       [
         { filipino: 'Enero', english: 'January' },
