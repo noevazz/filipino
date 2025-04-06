@@ -257,6 +257,9 @@ function goToPronounsGroup2() {
 function goToPronounsGroup3() {
   fetchPage('pronounsgroup3.html', 'mainSection');
 }
+function goToKita() {
+  fetchPage('kita.html', 'mainSection');
+}
 function goToPronounsGameGroup1() {
   fetchPage('games/html/pronounsgamegroup1.html', 'mainSection', () => {
     fetchForGame(
