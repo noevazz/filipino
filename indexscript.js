@@ -201,6 +201,9 @@ function goToSentenceStructure() {
 function goToVerbs() {
   fetchPage('verbs.html', 'mainSection', () => loadScript('togglepopover.js', 'togglepopover'));
 }
+function goToFocusVerbs() {
+  fetchPage('objectanfactorfocusverbs.html', 'mainSection', () => loadScript('togglepopover.js', 'togglepopover'));
+}
 function goToMarkers() {
   fetchPage('markers.html', 'mainSection', () => loadScript('togglepopover.js', 'togglepopover'));
 }
