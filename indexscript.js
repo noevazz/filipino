@@ -19,6 +19,7 @@ const words = {
     { filipino: 'lumalangoy', imgURL: 'img/lumalangoy.svg', english: "swimming" },
     { filipino: 'naglalakad', imgURL: 'img/naglalakad.svg', english: "walking" },
     { filipino: 'natutulog', imgURL: 'img/natutulog.svg', english: "sleeping" },
+    { filipino: 'magmamaneho', imgURL: 'img/magmamaneho.svg', english: "driving" },
   ],
   animals: [
     { filipino: 'aso', imgURL: 'img/animals/aso.svg', english: "dog" },
