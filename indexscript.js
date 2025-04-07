@@ -17,6 +17,8 @@ const words = {
     { filipino: 'umiinon', imgURL: 'img/umiinon.svg', english: "drinking" },
     { filipino: 'nagsusulat', imgURL: 'img/nagsusulat.svg', english: "writing" },
     { filipino: 'lumalangoy', imgURL: 'img/lumalangoy.svg', english: "swimming" },
+    { filipino: 'naglalakad', imgURL: 'img/naglalakad.svg', english: "walking" },
+    { filipino: 'natutulog', imgURL: 'img/natutulog.svg', english: "sleeping" },
   ],
   animals: [
     { filipino: 'aso', imgURL: 'img/animals/aso.svg', english: "dog" },
