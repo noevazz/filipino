@@ -815,7 +815,9 @@ window.routerNamespace = {
   },
   createSimpleNavItem: function (routeObj, route) {
     const li = document.createElement('li');
-    li.classList.add('nav-item');
+    li.classList.add('nav-item', 'd-block');
+    li.style.display = ("block");
+    li.style.width = "100%";
     const a = document.createElement('a');
     a.classList.add('nav-link', 'text-truncate', 'hover-text-primary');
     a.href = route;
