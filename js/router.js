@@ -847,7 +847,7 @@ window.routerNamespace = {
   },
   navigate: function () {
     function highlightActiveLink(path) {
-      document.querySelectorAll('nav a, .dropdown-btn').forEach(a => {
+      document.querySelectorAll('.nav-link,a').forEach(a => {
         a.classList.toggle('active', a.getAttribute('href') === path || a.textContent === path);
       });
     }
