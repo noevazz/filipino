@@ -699,11 +699,6 @@ window.routerNamespace = {
       },
       icon: 'bi-collection',
     },
-    '#/about': {
-      path: 'partials/about.html',
-      navbarName: 'About',
-      icon: 'bi-info-circle',
-    },
     '#/songs': {
       dropdown: {
         navbarName: 'Songs',
@@ -718,6 +713,11 @@ window.routerNamespace = {
         ],
       },
       icon: 'bi-file-earmark-music',
+    },
+    '#/about': {
+      path: 'partials/about.html',
+      navbarName: 'About',
+      icon: 'bi-info-circle',
     },
   },
   get_flat_routes: function () {
