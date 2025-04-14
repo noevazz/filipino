@@ -704,6 +704,21 @@ window.routerNamespace = {
       navbarName: 'About',
       icon: 'bi-info-circle',
     },
+    '#/songs': {
+      dropdown: {
+        navbarName: 'Songs',
+        accordionName: 'songs',
+        links: [
+          {
+            key: '#/songs-pasilyo',
+            path: 'partials/songs/pasilyo.html',
+            navbarName: 'Pasilyo',
+            icon: 'bi-file-earmark-music',
+          },
+        ],
+      },
+      icon: 'bi-file-earmark-music',
+    },
   },
   get_flat_routes: function () {
     let flatRoutes = {};
