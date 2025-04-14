@@ -29,7 +29,6 @@ const loadScriptNamespace = {
   },
 };
 
-
 function preloadImages(imageUrls) {
   imageUrls.forEach(url => {
     const img = new Image();
@@ -42,81 +41,81 @@ function preloadImages(imageUrls) {
 }
 const words = {
   activities: [
-    { filipino: 'nagluluto', imgURL: 'img/nagluluto.svg', english: "cooking" },
-    { filipino: 'kumakain', imgURL: 'img/kumakain.svg', english: "eating" },
-    { filipino: 'tumatakbo', imgURL: 'img/tumatakbo.svg', english: "running" },
-    { filipino: 'nagbabasa', imgURL: 'img/nagbabasa.svg', english: "reading" },
-    { filipino: 'umiinon', imgURL: 'img/umiinon.svg', english: "drinking" },
-    { filipino: 'nagsusulat', imgURL: 'img/nagsusulat.svg', english: "writing" },
-    { filipino: 'lumalangoy', imgURL: 'img/lumalangoy.svg', english: "swimming" },
-    { filipino: 'naglalakad', imgURL: 'img/naglalakad.svg', english: "walking" },
-    { filipino: 'natutulog', imgURL: 'img/natutulog.svg', english: "sleeping" },
-    { filipino: 'nagmamaneho', imgURL: 'img/nagmamaneho.svg', english: "driving" },
+    { filipino: 'nagluluto', imgURL: 'img/nagluluto.svg', english: 'cooking' },
+    { filipino: 'kumakain', imgURL: 'img/kumakain.svg', english: 'eating' },
+    { filipino: 'tumatakbo', imgURL: 'img/tumatakbo.svg', english: 'running' },
+    { filipino: 'nagbabasa', imgURL: 'img/nagbabasa.svg', english: 'reading' },
+    { filipino: 'umiinon', imgURL: 'img/umiinon.svg', english: 'drinking' },
+    { filipino: 'nagsusulat', imgURL: 'img/nagsusulat.svg', english: 'writing' },
+    { filipino: 'lumalangoy', imgURL: 'img/lumalangoy.svg', english: 'swimming' },
+    { filipino: 'naglalakad', imgURL: 'img/naglalakad.svg', english: 'walking' },
+    { filipino: 'natutulog', imgURL: 'img/natutulog.svg', english: 'sleeping' },
+    { filipino: 'nagmamaneho', imgURL: 'img/nagmamaneho.svg', english: 'driving' },
   ],
   animals: [
-    { filipino: 'aso', imgURL: 'img/animals/aso.svg', english: "dog" },
-    { filipino: 'pusa', imgURL: 'img/animals/pusa.svg', english: "cat" },
-    { filipino: 'ibon', imgURL: 'img/animals/ibon.svg', english: "bird" },
-    { filipino: 'isda', imgURL: 'img/animals/isda.svg', english: "fish" },
-    { filipino: 'baboy', imgURL: 'img/animals/baboy.svg', english: "pig" },
-    { filipino: 'baka', imgURL: 'img/animals/baka.svg', english: "cow" },
-    { filipino: 'kabayong', imgURL: 'img/animals/kabayong.svg', english: "horse" },
-    { filipino: 'kuneho', imgURL: 'img/animals/kuneho.svg', english: "rabbit" },
-    { filipino: 'unggoy', imgURL: 'img/animals/unggoy.svg', english: "monkey" },
-    { filipino: 'manok', imgURL: 'img/animals/manok.svg', english: "chicken" },
-    { filipino: 'kambing', imgURL: 'img/animals/kambing.svg', english: "goat" },
-    { filipino: 'elepante', imgURL: 'img/animals/elepante.svg', english: "elephant" },
-    { filipino: 'ahas', imgURL: 'img/animals/ahas.svg', english: "snake" },
-    { filipino: 'gagamba', imgURL: 'img/animals/gagamba.svg', english: "spider" },
-    { filipino: 'paruparo', imgURL: 'img/animals/paruparo.svg', english: "butterfly" },
-    { filipino: 'pating', imgURL: 'img/animals/pating.svg', english: "shark" },
-    { filipino: 'pagong', imgURL: 'img/animals/pagong.svg', english: "turtle" },
-    { filipino: 'hipon', imgURL: 'img/animals/hipon.svg', english: "shrimp" },
-    { filipino: 'tandang', imgURL: 'img/animals/tandang.svg', english: "rooster" },
-    { filipino: 'pusit', imgURL: 'img/animals/pusit.svg', english: "squid" },
+    { filipino: 'aso', imgURL: 'img/animals/aso.svg', english: 'dog' },
+    { filipino: 'pusa', imgURL: 'img/animals/pusa.svg', english: 'cat' },
+    { filipino: 'ibon', imgURL: 'img/animals/ibon.svg', english: 'bird' },
+    { filipino: 'isda', imgURL: 'img/animals/isda.svg', english: 'fish' },
+    { filipino: 'baboy', imgURL: 'img/animals/baboy.svg', english: 'pig' },
+    { filipino: 'baka', imgURL: 'img/animals/baka.svg', english: 'cow' },
+    { filipino: 'kabayong', imgURL: 'img/animals/kabayong.svg', english: 'horse' },
+    { filipino: 'kuneho', imgURL: 'img/animals/kuneho.svg', english: 'rabbit' },
+    { filipino: 'unggoy', imgURL: 'img/animals/unggoy.svg', english: 'monkey' },
+    { filipino: 'manok', imgURL: 'img/animals/manok.svg', english: 'chicken' },
+    { filipino: 'kambing', imgURL: 'img/animals/kambing.svg', english: 'goat' },
+    { filipino: 'elepante', imgURL: 'img/animals/elepante.svg', english: 'elephant' },
+    { filipino: 'ahas', imgURL: 'img/animals/ahas.svg', english: 'snake' },
+    { filipino: 'gagamba', imgURL: 'img/animals/gagamba.svg', english: 'spider' },
+    { filipino: 'paruparo', imgURL: 'img/animals/paruparo.svg', english: 'butterfly' },
+    { filipino: 'pating', imgURL: 'img/animals/pating.svg', english: 'shark' },
+    { filipino: 'pagong', imgURL: 'img/animals/pagong.svg', english: 'turtle' },
+    { filipino: 'hipon', imgURL: 'img/animals/hipon.svg', english: 'shrimp' },
+    { filipino: 'tandang', imgURL: 'img/animals/tandang.svg', english: 'rooster' },
+    { filipino: 'pusit', imgURL: 'img/animals/pusit.svg', english: 'squid' },
   ],
   clothes: [
-    { filipino: "sapatos", english: "shoes", imgURL: "img/clothes/sapatos.svg" },
-    { filipino: "damit", english: "clothes", imgURL: "img/clothes/damit.svg" },
-    { filipino: "kamiseta", english: "shirt", imgURL: "img/clothes/kamiseta.svg" },
-    { filipino: "pantalon", english: "pants", imgURL: "img/clothes/pantalon.svg" },
-    { filipino: "bestida", english: "dress", imgURL: "img/clothes/bestida.svg" },
-    { filipino: "palda", english: "skirt", imgURL: "img/clothes/palda.svg" },
-    { filipino: "medyas", english: "socks", imgURL: "img/clothes/medyas.svg" },
-    { filipino: "sumbrero", english: "hat", imgURL: "img/clothes/sumbrero.svg" },
-    { filipino: "dyaket", english: "jacket", imgURL: "img/clothes/dyaket.svg" },
-    { filipino: "kurbata", english: "tie", imgURL: "img/clothes/kurbata.svg" },
-    { filipino: "salamin sa mata", english: "glasses", imgURL: "img/clothes/salamin_sa_mata.svg" },
-    { filipino: "sinturon", english: "belt", imgURL: "img/clothes/sinturon.svg" },
-    { filipino: "guwantes", english: "gloves", imgURL: "img/clothes/guwantes.svg" },
-    { filipino: "bota", english: "boots", imgURL: "img/clothes/bota.svg" },
-    { filipino: "sweter", english: "sweater", imgURL: "img/clothes/sweter.svg" },
-    { filipino: "shorts", english: "shorts", imgURL: "img/clothes/shorts.svg" },
-    { filipino: "panloob", english: "underwear", imgURL: "img/clothes/panloob.svg" },
-    { filipino: "sandalyas", english: "Sandals", imgURL: "img/clothes/sandalyas.svg" }
+    { filipino: 'sapatos', english: 'shoes', imgURL: 'img/clothes/sapatos.svg' },
+    { filipino: 'damit', english: 'clothes', imgURL: 'img/clothes/damit.svg' },
+    { filipino: 'kamiseta', english: 'shirt', imgURL: 'img/clothes/kamiseta.svg' },
+    { filipino: 'pantalon', english: 'pants', imgURL: 'img/clothes/pantalon.svg' },
+    { filipino: 'bestida', english: 'dress', imgURL: 'img/clothes/bestida.svg' },
+    { filipino: 'palda', english: 'skirt', imgURL: 'img/clothes/palda.svg' },
+    { filipino: 'medyas', english: 'socks', imgURL: 'img/clothes/medyas.svg' },
+    { filipino: 'sumbrero', english: 'hat', imgURL: 'img/clothes/sumbrero.svg' },
+    { filipino: 'dyaket', english: 'jacket', imgURL: 'img/clothes/dyaket.svg' },
+    { filipino: 'kurbata', english: 'tie', imgURL: 'img/clothes/kurbata.svg' },
+    { filipino: 'salamin sa mata', english: 'glasses', imgURL: 'img/clothes/salamin_sa_mata.svg' },
+    { filipino: 'sinturon', english: 'belt', imgURL: 'img/clothes/sinturon.svg' },
+    { filipino: 'guwantes', english: 'gloves', imgURL: 'img/clothes/guwantes.svg' },
+    { filipino: 'bota', english: 'boots', imgURL: 'img/clothes/bota.svg' },
+    { filipino: 'sweter', english: 'sweater', imgURL: 'img/clothes/sweter.svg' },
+    { filipino: 'shorts', english: 'shorts', imgURL: 'img/clothes/shorts.svg' },
+    { filipino: 'panloob', english: 'underwear', imgURL: 'img/clothes/panloob.svg' },
+    { filipino: 'sandalyas', english: 'Sandals', imgURL: 'img/clothes/sandalyas.svg' },
   ],
   food: [
-    { filipino: "tinapay", english: "bread", imgURL: "img/food/tinapay.svg" },
-    { filipino: "kanin", english: "rice", imgURL: "img/food/kanin.svg" },
-    { filipino: "mansanas", english: "apple", imgURL: "img/food/mansanas.svg" },
-    { filipino: "gatas", english: "milk", imgURL: "img/food/gatas.svg" },
-    { filipino: "tubig", english: "water", imgURL: "img/food/tubig.svg" },
-    { filipino: "itlog", english: "egg", imgURL: "img/food/itlog.svg" },
-    { filipino: "serbesa", english: "beer", imgURL: "img/food/serbesa.svg" },
-    { filipino: "saging", english: "banana", imgURL: "img/food/saging.svg" },
+    { filipino: 'tinapay', english: 'bread', imgURL: 'img/food/tinapay.svg' },
+    { filipino: 'kanin', english: 'rice', imgURL: 'img/food/kanin.svg' },
+    { filipino: 'mansanas', english: 'apple', imgURL: 'img/food/mansanas.svg' },
+    { filipino: 'gatas', english: 'milk', imgURL: 'img/food/gatas.svg' },
+    { filipino: 'tubig', english: 'water', imgURL: 'img/food/tubig.svg' },
+    { filipino: 'itlog', english: 'egg', imgURL: 'img/food/itlog.svg' },
+    { filipino: 'serbesa', english: 'beer', imgURL: 'img/food/serbesa.svg' },
+    { filipino: 'saging', english: 'banana', imgURL: 'img/food/saging.svg' },
   ],
   colors: [
-    { filipino: 'Pula', english: 'Red', imgURL: "img/colors/pula.svg" },
-    { filipino: 'Asul', english: 'Blue', imgURL: "img/colors/asul.svg" },
-    { filipino: 'Dilaw', english: 'Yellow', imgURL: "img/colors/dilaw.svg" },
-    { filipino: 'Berde/Lunti', english: 'Green', imgURL: "img/colors/berde_lunti.svg" },
-    { filipino: 'Kahel', english: 'Orange', imgURL: "img/colors/kahel.svg" },
-    { filipino: 'Lila/Ube', english: 'Purple', imgURL: "img/colors/lila_ube.svg" },
-    { filipino: 'Rosa', english: 'Pink', imgURL: "img/colors/rosa.svg" },
-    { filipino: 'Itim', english: 'Black', imgURL: "img/colors/itim.svg" },
-    { filipino: 'Puti', english: 'White', imgURL: "img/colors/puti.svg" },
-    { filipino: 'Abo/Abuhin', english: 'Gray', imgURL: "img/colors/abo_abuhin.svg" },
-    { filipino: 'Kayumanggi', english: 'Brown', imgURL: "img/colors/kayumanggi.svg" },
+    { filipino: 'Pula', english: 'Red', imgURL: 'img/colors/pula.svg' },
+    { filipino: 'Asul', english: 'Blue', imgURL: 'img/colors/asul.svg' },
+    { filipino: 'Dilaw', english: 'Yellow', imgURL: 'img/colors/dilaw.svg' },
+    { filipino: 'Berde/Lunti', english: 'Green', imgURL: 'img/colors/berde_lunti.svg' },
+    { filipino: 'Kahel', english: 'Orange', imgURL: 'img/colors/kahel.svg' },
+    { filipino: 'Lila/Ube', english: 'Purple', imgURL: 'img/colors/lila_ube.svg' },
+    { filipino: 'Rosa', english: 'Pink', imgURL: 'img/colors/rosa.svg' },
+    { filipino: 'Itim', english: 'Black', imgURL: 'img/colors/itim.svg' },
+    { filipino: 'Puti', english: 'White', imgURL: 'img/colors/puti.svg' },
+    { filipino: 'Abo/Abuhin', english: 'Gray', imgURL: 'img/colors/abo_abuhin.svg' },
+    { filipino: 'Kayumanggi', english: 'Brown', imgURL: 'img/colors/kayumanggi.svg' },
   ],
 };
 preloadImages(words.activities.map(item => item.imgURL));
@@ -124,7 +123,6 @@ preloadImages(words.animals.map(item => item.imgURL));
 preloadImages(words.clothes.map(item => item.imgURL));
 preloadImages(words.food.map(item => item.imgURL));
 preloadImages(words.colors.map(item => item.imgURL));
-
 
 const games = {
   pronounsGroup1: [
@@ -366,7 +364,7 @@ window.routerNamespace = {
             game: {
               script: 'partials/games/js/questionoptions.js',
               config: games.pronounsGroup1,
-              config: {gameData: structuredClone(games.pronounsGroup1), gameTitle: "Game Group 1 | options"},
+              config: { gameData: structuredClone(games.pronounsGroup1), gameTitle: 'Game Group 1 | options' },
               nameSpace: 'questionOptionsNamespace',
             },
           },
@@ -378,7 +376,7 @@ window.routerNamespace = {
             game: {
               script: 'partials/games/js/questionoptions.js',
               config: games.pronounsGroup2,
-              config: {gameData: structuredClone(games.pronounsGroup2), gameTitle: "Game Group 2 | options"},
+              config: { gameData: structuredClone(games.pronounsGroup2), gameTitle: 'Game Group 2 | options' },
               nameSpace: 'questionOptionsNamespace',
             },
           },
@@ -386,11 +384,11 @@ window.routerNamespace = {
             key: '#/pronouns-game-group3',
             path: 'partials/games/html/questionoptions.html',
             navbarName: 'Game Group 3 | options',
-              icon: 'bi-controller',
+            icon: 'bi-controller',
             game: {
               script: 'partials/games/js/questionoptions.js',
               config: games.pronounsGroup3,
-              config: {gameData: structuredClone(games.seroToTen), gameTitle: "Game Group 3 | options"},
+              config: { gameData: structuredClone(games.seroToTen), gameTitle: 'Game Group 3 | options' },
               nameSpace: 'questionOptionsNamespace',
             },
           },
@@ -416,7 +414,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
-              config: {gameData: structuredClone(games.uminffix), gameTitle: "Game | UM Infix"},
+              config: { gameData: structuredClone(games.uminffix), gameTitle: 'Game | UM Infix' },
               nameSpace: 'pairsNamespace',
             },
           },
@@ -462,7 +460,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
-              config: {gameData: structuredClone(games.greetings), gameTitle: "Greetings | Pairs"},
+              config: { gameData: structuredClone(games.greetings), gameTitle: 'Greetings | Pairs' },
               nameSpace: 'pairsNamespace',
             },
           },
@@ -473,7 +471,10 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
-              config: {gameData: structuredClone(games.greetingTime), gameTitle: "Greetings Depending On Time | Pairs"},
+              config: {
+                gameData: structuredClone(games.greetingTime),
+                gameTitle: 'Greetings Depending On Time | Pairs',
+              },
               nameSpace: 'pairsNamespace',
             },
           },
@@ -504,7 +505,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/questionoptions.js',
-              config: {gameData: structuredClone(games.seroToTen), gameTitle: "Game 0 to 10 | options"},
+              config: { gameData: structuredClone(games.seroToTen), gameTitle: 'Game 0 to 10 | options' },
               nameSpace: 'questionOptionsNamespace',
             },
           },
@@ -515,7 +516,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/questionoptions.js',
-              config: {gameData: structuredClone(games.elevenToNineteen), gameTitle: "Game 11 to 19 | options"},
+              config: { gameData: structuredClone(games.elevenToNineteen), gameTitle: 'Game 11 to 19 | options' },
               nameSpace: 'questionOptionsNamespace',
             },
           },
@@ -526,7 +527,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/questionoptions.js',
-              config: {gameData: structuredClone(games.tens), gameTitle: "Game Tens | options"},
+              config: { gameData: structuredClone(games.tens), gameTitle: 'Game Tens | options' },
               nameSpace: 'questionOptionsNamespace',
             },
           },
@@ -537,7 +538,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
-              config: {gameData: structuredClone(games.hundres), gameTitle: "Game Hundreds | Pairs"},
+              config: { gameData: structuredClone(games.hundres), gameTitle: 'Game Hundreds | Pairs' },
               nameSpace: 'pairsNamespace',
             },
           },
@@ -545,7 +546,7 @@ window.routerNamespace = {
       },
       icon: 'bi-collection',
     },
-    
+
     '#/vocabulary': {
       dropdown: {
         navbarName: 'Vocabulary',
@@ -558,7 +559,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
-              config: {gameData: structuredClone(words.activities), gameTitle: "Vocabulary | pairs"},
+              config: { gameData: structuredClone(words.activities), gameTitle: 'Vocabulary | pairs' },
               nameSpace: 'pairsNamespace',
             },
           },
@@ -569,7 +570,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/images.js',
-              config: {gameData: structuredClone(words.activities), gameTitle: "Vocabulary | Images"},
+              config: { gameData: structuredClone(words.activities), gameTitle: 'Vocabulary | Images' },
               nameSpace: 'imagesNamespace',
             },
           },
@@ -580,7 +581,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
-              config: {gameData: structuredClone(words.animals), gameTitle: "Animals | pairs"},
+              config: { gameData: structuredClone(words.animals), gameTitle: 'Animals | pairs' },
               nameSpace: 'pairsNamespace',
             },
           },
@@ -591,7 +592,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/images.js',
-              config: {gameData: structuredClone(words.animals), gameTitle: "Animals | Images"},
+              config: { gameData: structuredClone(words.animals), gameTitle: 'Animals | Images' },
               nameSpace: 'imagesNamespace',
             },
           },
@@ -602,7 +603,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
-              config: {gameData: structuredClone(words.clothes), gameTitle: "Clothes | pairs"},
+              config: { gameData: structuredClone(words.clothes), gameTitle: 'Clothes | pairs' },
               nameSpace: 'pairsNamespace',
             },
           },
@@ -613,7 +614,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/images.js',
-              config: {gameData: structuredClone(words.clothes), gameTitle: "Clothes | Images"},
+              config: { gameData: structuredClone(words.clothes), gameTitle: 'Clothes | Images' },
               nameSpace: 'imagesNamespace',
             },
           },
@@ -624,7 +625,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
-              config: {gameData: structuredClone(words.food), gameTitle: "Food | pairs"},
+              config: { gameData: structuredClone(words.food), gameTitle: 'Food | pairs' },
               nameSpace: 'pairsNamespace',
             },
           },
@@ -635,7 +636,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/images.js',
-              config: {gameData: structuredClone(words.food), gameTitle: "Food | Images"},
+              config: { gameData: structuredClone(words.food), gameTitle: 'Food | Images' },
               nameSpace: 'imagesNamespace',
             },
           },
@@ -646,7 +647,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
-              config: {gameData: structuredClone(words.colors), gameTitle: "Colors | pairs"},
+              config: { gameData: structuredClone(words.colors), gameTitle: 'Colors | pairs' },
               nameSpace: 'pairsNamespace',
             },
           },
@@ -657,7 +658,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/images.js',
-              config: {gameData: structuredClone(words.colors), gameTitle: "Colors | Images"},
+              config: { gameData: structuredClone(words.colors), gameTitle: 'Colors | Images' },
               nameSpace: 'imagesNamespace',
             },
           },
@@ -668,7 +669,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/questionoptions.js',
-              config: {gameData: structuredClone(words.colors), gameTitle: "Colors | options"},
+              config: { gameData: structuredClone(words.colors), gameTitle: 'Colors | options' },
               nameSpace: 'questionOptionsNamespace',
             },
           },
@@ -679,7 +680,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/questionoptions.js',
-              config: {gameData: structuredClone(games.daysOfTheWeek), gameTitle: "Days Of The Week | options"},
+              config: { gameData: structuredClone(games.daysOfTheWeek), gameTitle: 'Days Of The Week | options' },
               nameSpace: 'questionOptionsNamespace',
             },
           },
@@ -690,7 +691,7 @@ window.routerNamespace = {
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/questionoptions.js',
-              config: {gameData: structuredClone(games.monthsOfTheYear), gameTitle: "Months Of The Year | options"},
+              config: { gameData: structuredClone(games.monthsOfTheYear), gameTitle: 'Months Of The Year | options' },
               nameSpace: 'questionOptionsNamespace',
             },
           },
@@ -852,16 +853,29 @@ window.routerNamespace = {
     }
     const path = routerNamespace.getHashRoute();
     const route = routerNamespace.get_flat_routes()[path].path || routerNamespace.get_flat_routes()['#/'].path;
-    htmx.ajax('GET', route, { target: '#mainSection', swap: 'innerHTML' });
+    swap = htmx.ajax('GET', route, { target: '#mainSection', swap: 'innerHTML' });
     highlightActiveLink(path);
     routerNamespace.currentPath = path;
-    if (routerNamespace.get_flat_routes()[path].game) {
-      loadScriptNamespace.load(
-        routerNamespace.get_flat_routes()[path].game.script,
-        routerNamespace.get_flat_routes()[path].game.nameSpace,
-        routerNamespace.get_flat_routes()[path].game.config,
-      );
-    }
+    swap.then(
+      value => {
+        console.log(`Swap completed for ${route}`)
+        if (routerNamespace.get_flat_routes()[path].game) {
+          console.log("loading game script")
+          loadScriptNamespace.load(
+            routerNamespace.get_flat_routes()[path].game.script,
+            routerNamespace.get_flat_routes()[path].game.nameSpace,
+            routerNamespace.get_flat_routes()[path].game.config,
+          );
+        }
+      },
+      error => {
+        console.log('Oops! something happend during the swap');
+        console.log(error);
+      },
+    );
+
+    // I want to run the next code only when the get above is donde
+    
   },
   setRouter: function () {
     routerNamespace.generate_sidebar();
