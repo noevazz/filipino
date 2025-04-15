@@ -14,10 +14,12 @@ toggleThemeNamespace = {
 
     if (htmlElement.getAttribute('data-bs-theme') === 'dark') {
       htmlElement.removeAttribute('data-bs-theme');
+      htmlElement.setAttribute('data-bs-theme', 'light');
       localStorage.setItem('theme', 'light');
       iconElement.classList.replace('bi-sun-fill', 'bi-moon-stars-fill');
       document.body.style.backgroundColor = '#FFFFFF';
     } else {
+      htmlElement.removeAttribute('data-bs-theme');
       htmlElement.setAttribute('data-bs-theme', 'dark');
       localStorage.setItem('theme', 'dark');
       iconElement.classList.replace('bi-moon-stars-fill', 'bi-sun-fill');

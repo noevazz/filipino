@@ -549,7 +549,7 @@ window.routerNamespace = {
 
     '#/vocabulary': {
       dropdown: {
-        navbarName: 'Vocabulary',
+        navbarName: 'Vocabulary Games',
         accordionName: 'vocabulary',
         links: [
           {

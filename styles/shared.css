@@ -86,3 +86,17 @@ html[data-bs-theme="dark"] img.invertible {
   filter: invert();
   mix-blend-mode: difference;
 }
+
+
+
+[data-bs-theme="light"] {
+  .nav-link:hover {
+    background-color: #d6e5fa;
+  }
+}
+
+[data-bs-theme="dark"] {
+  .nav-link:hover {
+    background-color: #3b3f55;
+  }
+}
