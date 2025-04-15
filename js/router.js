@@ -339,6 +339,15 @@ const games = {
     { filipino: 'Nobyembre', english: 'November' },
     { filipino: 'Disyembre', english: 'December' },
   ],
+  questions: [
+    { filipino: "bakit", english: "why"},
+    { filipino: "ano", english: "what"},
+    { filipino: "saan", english: "where"},
+    { filipino: "sino", english: "who"},
+    { filipino: "kailan", english: "when"},
+    { filipino: "paano", english: "how"},
+    { filipino: "alin", english: "which"},
+  ],
 };
 
 window.routerNamespace = {
@@ -726,6 +735,28 @@ window.routerNamespace = {
               script: 'partials/games/js/questionoptions.js',
               config: { gameData: structuredClone(games.monthsOfTheYear), gameTitle: 'Months Of The Year | options' },
               nameSpace: 'questionOptionsNamespace',
+            },
+          },
+          {
+            key: '#/vocabulary-game-questions-options',
+            path: 'partials/games/html/questionoptions.html',
+            navbarName: 'Questions | options',
+            icon: 'bi-controller',
+            game: {
+              script: 'partials/games/js/questionoptions.js',
+              config: { gameData: structuredClone(games.questions), gameTitle: 'Questions | options' },
+              nameSpace: 'questionOptionsNamespace',
+            },
+          },
+          {
+            key: '#/vocabulary-game-questions-pairs',
+            path: 'partials/games/html/pairs.html',
+            navbarName: 'Questions | pairs',
+            icon: 'bi-controller',
+            game: {
+              script: 'partials/games/js/pairs.js',
+              config: { gameData: structuredClone(games.questions), gameTitle: 'Questions | pairs' },
+              nameSpace: 'pairsNamespace',
             },
           },
         ],
