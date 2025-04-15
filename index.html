@@ -119,7 +119,7 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const hideStudentMessage = localStorage.getItem('hideStudentMessage');
-        if (!hideStudentMessage || hideStudentMessage === false) {
+        if (hideStudentMessage === null || hideStudentMessage === "false") {
           let myModal = new bootstrap.Modal(document.getElementById('message'));
           myModal.show();
         }
