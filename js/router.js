@@ -402,13 +402,13 @@ window.routerNamespace = {
         accordionName: 'rootandaffixes',
         links: [
           {
-            key: '#/pronouns-overview',
+            key: '#/rootandaffixes-overview',
             path: 'partials/rootsandaffixes/overview.html',
             navbarName: 'Overview',
             icon: 'bi-book',
           },
           {
-            key: '#/pronouns-um-inffix-game',
+            key: '#/rootandaffixes-um-inffix-game',
             path: 'partials/games/html/pairs.html',
             navbarName: 'Um Inffix | Pairs',
             icon: 'bi-controller',
