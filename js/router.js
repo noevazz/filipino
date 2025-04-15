@@ -30,13 +30,21 @@ const loadScriptNamespace = {
 };
 
 function preloadImages(imageUrls) {
+  function loadPromise(url) {
+    return new Promise(function (myResolve, MyReject) {
+      const img = new Image();
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        img.src = 'http://127.0.0.1:5500/' + url;
+      } else {
+        img.src = 'http://noevazz.github.io/filipino/' + url;
+      }
+      myResolve(`loaded ${url}`);
+    });
+  }
   imageUrls.forEach(url => {
-    const img = new Image();
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      img.src = 'http://127.0.0.1:5500/' + url;
-    } else {
-      img.src = 'http://noevazz.github.io/filipino/' + url;
-    }
+    loadPromise(url).then(value => {
+      console.log(value);
+    });
   });
 }
 const words = {
@@ -831,8 +839,8 @@ window.routerNamespace = {
   createSimpleNavItem: function (routeObj, route) {
     const li = document.createElement('li');
     li.classList.add('nav-item', 'd-block');
-    li.style.display = ("block");
-    li.style.width = "100%";
+    li.style.display = 'block';
+    li.style.width = '100%';
     const a = document.createElement('a');
     a.classList.add('nav-link', 'text-truncate', 'hover-text-primary');
     a.href = route;
@@ -875,9 +883,9 @@ window.routerNamespace = {
     routerNamespace.currentPath = path;
     swap.then(
       value => {
-        console.log(`Swap completed for ${route}`)
+        console.log(`Swap completed for ${route}`);
         if (routerNamespace.get_flat_routes()[path].game) {
-          console.log("loading game script")
+          console.log('loading game script');
           loadScriptNamespace.load(
             routerNamespace.get_flat_routes()[path].game.script,
             routerNamespace.get_flat_routes()[path].game.nameSpace,
@@ -892,7 +900,6 @@ window.routerNamespace = {
     );
 
     // I want to run the next code only when the get above is donde
-    
   },
   setRouter: function () {
     routerNamespace.generate_sidebar();
