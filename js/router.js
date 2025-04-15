@@ -340,26 +340,26 @@ window.routerNamespace = {
           {
             key: '#/pronouns-group1',
             path: 'partials/pronouns/pronounsgroup1.html',
-            navbarName: 'Pronouns Group 1',
+            navbarName: 'Pronouns Ang Group',
             icon: 'bi-book',
           },
           {
             key: '#/pronouns-group2',
             path: 'partials/pronouns/pronounsgroup2.html',
-            navbarName: 'Pronouns Group 2',
+            navbarName: 'Pronouns Ng Group',
             icon: 'bi-book',
           },
           {
             key: '#/pronouns-group3',
             path: 'partials/pronouns/pronounsgroup3.html',
-            navbarName: 'Pronouns Group 3',
+            navbarName: 'Pronouns Sa Group',
             icon: 'bi-book',
           },
           { key: '#/pronouns-kita', path: 'partials/pronouns/kita.html', navbarName: 'Kita', icon: 'bi-book' },
           {
             key: '#/pronouns-game-group1',
             path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Game Group 1 | options',
+            navbarName: 'Game Ang Group | options',
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/questionoptions.js',
@@ -371,7 +371,7 @@ window.routerNamespace = {
           {
             key: '#/pronouns-game-group2',
             path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Game Group 2 | options',
+            navbarName: 'Game Ng Group | options',
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/questionoptions.js',
@@ -383,7 +383,7 @@ window.routerNamespace = {
           {
             key: '#/pronouns-game-group3',
             path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Game Group 3 | options',
+            navbarName: 'Game Sa Group | options',
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/questionoptions.js',
@@ -410,7 +410,7 @@ window.routerNamespace = {
           {
             key: '#/rootandaffixes-um-inffix-game',
             path: 'partials/games/html/pairs.html',
-            navbarName: 'Um Inffix | Pairs',
+            navbarName: 'Game Um Inffix | Pairs',
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
