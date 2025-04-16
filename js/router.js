@@ -529,6 +529,11 @@ window.routerNamespace = {
       navbarName: 'Introduce Yourself',
       icon: 'bi-book',
     },
+    '#/family': {
+      path: 'partials/family.html',
+      navbarName: 'Family',
+      icon: 'bi-book',
+    },
     '#/numbers': {
       dropdown: {
         navbarName: 'Numbers',
