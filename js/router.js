@@ -600,25 +600,47 @@ window.routerNamespace = {
         accordionName: 'vocabulary',
         links: [
           {
+            key: '#/vocabulary-game-activities-answers',
+            path: 'partials/games/html/answers.html',
+            navbarName: 'Activities | answers',
+            icon: 'bi-book-fill',
+            game: {
+              script: 'partials/games/js/answers.js',
+              config: { gameData: structuredClone(words.activities), gameTitle: 'Activities | answers' },
+              nameSpace: 'wordsNamespace',
+            },
+          },
+          {
             key: '#/vocabulary-game-activities-pairs',
             path: 'partials/games/html/pairs.html',
-            navbarName: 'Vocabulary | pairs',
+            navbarName: 'Activities | pairs',
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/pairs.js',
-              config: { gameData: structuredClone(words.activities), gameTitle: 'Vocabulary | pairs' },
+              config: { gameData: structuredClone(words.activities), gameTitle: 'Activities | pairs' },
               nameSpace: 'pairsNamespace',
             },
           },
           {
             key: '#/vocabulary-game-activities-images',
             path: 'partials/games/html/images.html',
-            navbarName: 'Vocabulary | Images',
+            navbarName: 'Activities | Images',
             icon: 'bi-controller',
             game: {
               script: 'partials/games/js/images.js',
-              config: { gameData: structuredClone(words.activities), gameTitle: 'Vocabulary | Images' },
+              config: { gameData: structuredClone(words.activities), gameTitle: 'Activities | Images' },
               nameSpace: 'imagesNamespace',
+            },
+          },
+          {
+            key: '#/vocabulary-game-animals-answers',
+            path: 'partials/games/html/answers.html',
+            navbarName: 'Animals | answers',
+            icon: 'bi-book-fill',
+            game: {
+              script: 'partials/games/js/answers.js',
+              config: { gameData: structuredClone(words.animals), gameTitle: 'Animals | answers' },
+              nameSpace: 'wordsNamespace',
             },
           },
           {
@@ -644,6 +666,17 @@ window.routerNamespace = {
             },
           },
           {
+            key: '#/vocabulary-game-clothes-answers',
+            path: 'partials/games/html/answers.html',
+            navbarName: 'Clothes | answers',
+            icon: 'bi-book-fill',
+            game: {
+              script: 'partials/games/js/answers.js',
+              config: { gameData: structuredClone(words.clothes), gameTitle: 'Clothes | answers' },
+              nameSpace: 'wordsNamespace',
+            },
+          },
+          {
             key: '#/vocabulary-game-clothes-pairs',
             path: 'partials/games/html/pairs.html',
             navbarName: 'Clothes | pairs',
@@ -666,6 +699,17 @@ window.routerNamespace = {
             },
           },
           {
+            key: '#/vocabulary-game-food-answers',
+            path: 'partials/games/html/answers.html',
+            navbarName: 'Food | answers',
+            icon: 'bi-book-fill',
+            game: {
+              script: 'partials/games/js/answers.js',
+              config: { gameData: structuredClone(words.food), gameTitle: 'Food | answers' },
+              nameSpace: 'wordsNamespace',
+            },
+          },
+          {
             key: '#/vocabulary-game-food-pairs',
             path: 'partials/games/html/pairs.html',
             navbarName: 'Food | pairs',
@@ -685,6 +729,17 @@ window.routerNamespace = {
               script: 'partials/games/js/images.js',
               config: { gameData: structuredClone(words.food), gameTitle: 'Food | Images' },
               nameSpace: 'imagesNamespace',
+            },
+          },
+          {
+            key: '#/vocabulary-game-colors-answers',
+            path: 'partials/games/html/answers.html',
+            navbarName: 'Colors | answers',
+            icon: 'bi-book-fill',
+            game: {
+              script: 'partials/games/js/answers.js',
+              config: { gameData: structuredClone(words.colors), gameTitle: 'Colors | answers' },
+              nameSpace: 'wordsNamespace',
             },
           },
           {
@@ -721,6 +776,17 @@ window.routerNamespace = {
             },
           },
           {
+            key: '#/vocabulary-game-dow-answers',
+            path: 'partials/games/html/answers.html',
+            navbarName: 'Days Of The Week | answers',
+            icon: 'bi-book-fill',
+            game: {
+              script: 'partials/games/js/answers.js',
+              config: { gameData: structuredClone(games.daysOfTheWeek), gameTitle: 'Days Of The Week | answers' },
+              nameSpace: 'wordsNamespace',
+            },
+          },
+          {
             key: '#/vocabulary-game-dow-options',
             path: 'partials/games/html/questionoptions.html',
             navbarName: 'Days Of The Week | options',
@@ -729,6 +795,17 @@ window.routerNamespace = {
               script: 'partials/games/js/questionoptions.js',
               config: { gameData: structuredClone(games.daysOfTheWeek), gameTitle: 'Days Of The Week | options' },
               nameSpace: 'questionOptionsNamespace',
+            },
+          },
+          {
+            key: '#/vocabulary-game-moty-answers',
+            path: 'partials/games/html/answers.html',
+            navbarName: 'Months Of The Year | answers',
+            icon: 'bi-book-fill',
+            game: {
+              script: 'partials/games/js/answers.js',
+              config: { gameData: structuredClone(games.monthsOfTheYear), gameTitle: 'Months Of The Year | answers' },
+              nameSpace: 'wordsNamespace',
             },
           },
           {
@@ -751,6 +828,17 @@ window.routerNamespace = {
               script: 'partials/games/js/questionoptions.js',
               config: { gameData: structuredClone(games.questions), gameTitle: 'Questions | options' },
               nameSpace: 'questionOptionsNamespace',
+            },
+          },
+          {
+            key: '#/vocabulary-game-questions-answers',
+            path: 'partials/games/html/answers.html',
+            navbarName: 'Questions | answers',
+            icon: 'bi-book-fill',
+            game: {
+              script: 'partials/games/js/answers.js',
+              config: { gameData: structuredClone(games.questions), gameTitle: 'Questions | answers' },
+              nameSpace: 'wordsNamespace',
             },
           },
           {
