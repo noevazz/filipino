@@ -480,6 +480,11 @@ window.routerNamespace = {
       navbarName: 'Verbs',
       icon: 'bi-book',
     },
+    '#/ay-particle': {
+      path: 'partials/ay.html',
+      navbarName: 'Ay Particle',
+      icon: 'bi-book',
+    },
     '#/objectanfactorfocusverbs': {
       path: 'partials/objectanfactorfocusverbs.html',
       navbarName: 'Object/Actor Focus Verbs',
