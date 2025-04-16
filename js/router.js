@@ -81,6 +81,12 @@ const words = {
     { filipino: 'hipon', imgURL: 'img/animals/hipon.svg', english: 'shrimp' },
     { filipino: 'tandang', imgURL: 'img/animals/tandang.svg', english: 'rooster' },
     { filipino: 'pusit', imgURL: 'img/animals/pusit.svg', english: 'squid' },
+    { filipino: 'bubuyog', imgURL: 'img/animals/bubuyog.svg', english: 'bee' },
+    { filipino: 'langaw', imgURL: 'img/animals/langaw.svg', english: 'fly' },
+    { filipino: 'lumba-lumba', imgURL: 'img/animals/lumba-lumba.svg', english: 'dolphin' },
+    { filipino: 'panda', imgURL: 'img/animals/panda.svg', english: 'panda' },
+    { filipino: 'oso', imgURL: 'img/animals/oso.svg', english: 'bear' },
+    { filipino: 'daga', imgURL: 'img/animals/daga.svg', english: 'mouse' },
   ],
   clothes: [
     { filipino: 'sapatos', english: 'shoes', imgURL: 'img/clothes/sapatos.svg' },
