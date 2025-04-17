@@ -28,6 +28,7 @@ window.wordsNamespace = {
         const img = document.createElement('img');
         img.src = item.imgURL;
         img.className = "mx-auto d-block";
+        img.style.filter = "drop-shadow(3px 2.5px 4px #000A)";
         img.style.width = "50%";
         div.appendChild(img);
       }
