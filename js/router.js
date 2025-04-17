@@ -878,6 +878,12 @@ window.routerNamespace = {
             navbarName: 'Pasilyo',
             icon: 'bi-file-earmark-music',
           },
+          {
+            key: '#/songs-filipinas',
+            path: 'partials/songs/filipinas.html',
+            navbarName: 'Filipinas',
+            icon: 'bi-file-earmark-music',
+          },
         ],
       },
       icon: 'bi-file-earmark-music',
