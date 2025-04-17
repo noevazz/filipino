@@ -1,3 +1,11 @@
+#banner {
+  background-image: url(../img/background_banner.jpeg);
+  background-position: center ;
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.689);
+}
+
 .dotted-underline {
   text-decoration: underline;
   text-decoration-style: dotted;
