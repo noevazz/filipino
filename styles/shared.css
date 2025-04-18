@@ -25,7 +25,9 @@ body {
 }
 
 
-.jiggle:hover {
+
+
+.jiggle.animating {
   animation: jiggle 0.4s ease-in-out infinite;
 }
 
