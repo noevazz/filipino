@@ -30,7 +30,6 @@ window.wordsNamespace = {
         img.className = "mx-auto d-block jiggle";
         img.style.filter = "drop-shadow(3px 2.5px 4px #000A)";
         img.style.width = "50%";
-        img.title = `${item.filipino}/${item.english}`;
         img.alt = `${item.filipino}/${item.english}`;
         div.appendChild(img);
       }
