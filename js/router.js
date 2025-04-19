@@ -143,6 +143,7 @@ const words = {
     { filipino: "seresa", english: "cherry", imgURL: "img/food/seresa.svg" },
     { filipino: "abukado", english: "avocado", imgURL: "img/food/abukado.svg" },
     { filipino: "suka", english: "vinegar", imgURL: "img/food/suka.svg" },
+    { filipino: "rambutan", english: "rambutan", imgURL: "img/food/rambutan.svg" },
   ],
   colors: [
     { filipino: "Pula", english: "Red", imgURL: "img/colors/pula.svg" },
