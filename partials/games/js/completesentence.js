@@ -54,7 +54,12 @@ window.completeSentenceNamespace = {
     completeSentenceNamespace.sentences = config.gameData;
     completeSentenceNamespace.renderSentence();
   },
-
+  increaseProgressBar: function(yourArrayLength, currentPosition) {
+    const progressBar = document.getElementById("progressBar");
+    const percentage = ((currentPosition+1)/(yourArrayLength+1))*100;
+    progressBar.innerHTML = Math.ceil(percentage).toString() + "%";
+    progressBar.style.width = Math.ceil(percentage).toString() + "%";
+  },
   showAnswer: function () {
     const game = completeSentenceNamespace.sentences[completeSentenceNamespace.current];
     const words = game.filipino.split(" ");
@@ -70,7 +75,8 @@ window.completeSentenceNamespace = {
     document.getElementById("result").textContent = "Answer shown.";
   },
   showHint: function () {
-    document.getElementById("hint").textContent = "Hint: " + completeSentenceNamespace.sentences[completeSentenceNamespace.current].hint;
+    document.getElementById("hint").textContent =
+      "Hint: " + completeSentenceNamespace.sentences[completeSentenceNamespace.current].hint;
   },
   disableCurrentInputs: function () {
     const inputs = document.querySelectorAll("#filipinoSentence input");
@@ -99,8 +105,8 @@ window.completeSentenceNamespace = {
 
     document.getElementById("result").innerHTML =
       correct === inputs.length ? "✅ Correct!" : "❌ Some answers are incorrect.";
-    setTimeout(()=> {
-        document.getElementById("result").textContent = "";
+    setTimeout(() => {
+      document.getElementById("result").textContent = "";
     }, 2000);
 
     if (correct === inputs.length) {
@@ -109,6 +115,7 @@ window.completeSentenceNamespace = {
       document.getElementById("showHint").disabled = true;
       completeSentenceNamespace.disableCurrentInputs();
       completeSentenceNamespace.current += 1;
+      completeSentenceNamespace.increaseProgressBar(completeSentenceNamespace.sentences.length, completeSentenceNamespace.current)
       if (completeSentenceNamespace.current < completeSentenceNamespace.sentences.length) {
         confetti({ particleCount: 50 });
         setTimeout(() => {

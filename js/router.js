@@ -366,8 +366,14 @@ const sentences = {
       hint: "no hints, this one is easy!",
     },
     {
-      filipino: "Siya ay si Bob",
-      english: "This is Bob / He is Bob",
+      filipino: "tsaa na may asukal",
+      english: "tea with sugar",
+      completeIndex: [1],
+      hint: "The most common ligatures are: 'na'  used when the word ends in a consonant, 'ng' used when the word ends in a vowel.",
+    },
+    {
+      filipino: "Siya ay si Noe",
+      english: "This is Noe / He is Noe",
       completeIndex: [0, 2],
       hint: "Use the pronoun for he/she. Remember that personal nouns use 'si'",
     },
@@ -394,6 +400,12 @@ const sentences = {
       english: "my brother and my sister",
       completeIndex: [0, 3, 4],
       hint: "at means and",
+    },
+    {
+      filipino: "magkano ang halaga nito ?",
+      english: "How much is this",
+      completeIndex: [3],
+      hint: "'ito' means 'this', used to point something directly (ito ang libro/this book). 'nito' shows ownership or relationship, this is called genitive (possessive), but in simple words  it shows that something belongs to or is related to something else ('price' belong to 'this').",
     },
   ],
 };
