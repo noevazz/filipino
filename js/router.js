@@ -5,8 +5,8 @@ const loadScriptNamespace = {
     let existingScript = document.querySelector(`script[data-name="${url}"]`);
 
     if (!existingScript) {
-      const script = document.createElement('script');
-      script.setAttribute('data-name', url);
+      const script = document.createElement("script");
+      script.setAttribute("data-name", url);
       script.src = url;
       document.head.appendChild(script);
       script.onload = () => {
@@ -19,8 +19,8 @@ const loadScriptNamespace = {
         /*if the script hasn’t finished loading yet (even though the <script> tag exists),
         then window[nameSpaceName] will be undefined, and handleOptions doesn't get called,
         that's why Im adding an interval to check once the function is available */
-        if (window[nameSpaceName] && typeof window[nameSpaceName].handleOptions === 'function') {
-          console.log('function is now available');
+        if (window[nameSpaceName] && typeof window[nameSpaceName].handleOptions === "function") {
+          console.log("function is now available");
           clearInterval(interval);
           window[nameSpaceName].handleOptions(config);
         }
@@ -33,327 +33,327 @@ function preloadImages(imageUrls) {
   function loadPromise(url) {
     return new Promise(function (myResolve, MyReject) {
       const img = new Image();
-      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        img.src = 'http://127.0.0.1:5500/' + url;
+      if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+        img.src = "http://127.0.0.1:5500/" + url;
       } else {
-        img.src = 'http://noevazz.github.io/filipino/' + url;
+        img.src = "http://noevazz.github.io/filipino/" + url;
       }
       myResolve(`loaded ${url}`);
     });
   }
-  imageUrls.forEach(url => {
-    loadPromise(url).then(value => {
+  imageUrls.forEach((url) => {
+    loadPromise(url).then((value) => {
       console.log(value);
     });
   });
 }
 const words = {
   activities: [
-    { filipino: 'nagluluto', imgURL: 'img/nagluluto.svg', english: 'cooking' },
-    { filipino: 'kumakain', imgURL: 'img/kumakain.svg', english: 'eating' },
-    { filipino: 'tumatakbo', imgURL: 'img/tumatakbo.svg', english: 'running' },
-    { filipino: 'nagbabasa', imgURL: 'img/nagbabasa.svg', english: 'reading' },
-    { filipino: 'umiinon', imgURL: 'img/umiinon.svg', english: 'drinking' },
-    { filipino: 'nagsusulat', imgURL: 'img/nagsusulat.svg', english: 'writing' },
-    { filipino: 'lumalangoy', imgURL: 'img/lumalangoy.svg', english: 'swimming' },
-    { filipino: 'naglalakad', imgURL: 'img/naglalakad.svg', english: 'walking' },
-    { filipino: 'natutulog', imgURL: 'img/natutulog.svg', english: 'sleeping' },
-    { filipino: 'nagmamaneho', imgURL: 'img/nagmamaneho.svg', english: 'driving' },
+    { filipino: "nagluluto", imgURL: "img/nagluluto.svg", english: "cooking" },
+    { filipino: "kumakain", imgURL: "img/kumakain.svg", english: "eating" },
+    { filipino: "tumatakbo", imgURL: "img/tumatakbo.svg", english: "running" },
+    { filipino: "nagbabasa", imgURL: "img/nagbabasa.svg", english: "reading" },
+    { filipino: "umiinon", imgURL: "img/umiinon.svg", english: "drinking" },
+    { filipino: "nagsusulat", imgURL: "img/nagsusulat.svg", english: "writing" },
+    { filipino: "lumalangoy", imgURL: "img/lumalangoy.svg", english: "swimming" },
+    { filipino: "naglalakad", imgURL: "img/naglalakad.svg", english: "walking" },
+    { filipino: "natutulog", imgURL: "img/natutulog.svg", english: "sleeping" },
+    { filipino: "nagmamaneho", imgURL: "img/nagmamaneho.svg", english: "driving" },
   ],
   animals: [
-    { filipino: 'aso', imgURL: 'img/animals/aso.svg', english: 'dog' },
-    { filipino: 'pusa', imgURL: 'img/animals/pusa.svg', english: 'cat' },
-    { filipino: 'ibon', imgURL: 'img/animals/ibon.svg', english: 'bird' },
-    { filipino: 'isda', imgURL: 'img/animals/isda.svg', english: 'fish' },
-    { filipino: 'baboy', imgURL: 'img/animals/baboy.svg', english: 'pig' },
-    { filipino: 'baka', imgURL: 'img/animals/baka.svg', english: 'cow' },
-    { filipino: 'kabayong', imgURL: 'img/animals/kabayong.svg', english: 'horse' },
-    { filipino: 'kuneho', imgURL: 'img/animals/kuneho.svg', english: 'rabbit' },
-    { filipino: 'unggoy', imgURL: 'img/animals/unggoy.svg', english: 'monkey' },
-    { filipino: 'manok', imgURL: 'img/animals/manok.svg', english: 'chicken' },
-    { filipino: 'kambing', imgURL: 'img/animals/kambing.svg', english: 'goat' },
-    { filipino: 'elepante', imgURL: 'img/animals/elepante.svg', english: 'elephant' },
-    { filipino: 'ahas', imgURL: 'img/animals/ahas.svg', english: 'snake' },
-    { filipino: 'gagamba', imgURL: 'img/animals/gagamba.svg', english: 'spider' },
-    { filipino: 'paruparo', imgURL: 'img/animals/paruparo.svg', english: 'butterfly' },
-    { filipino: 'pating', imgURL: 'img/animals/pating.svg', english: 'shark' },
-    { filipino: 'pagong', imgURL: 'img/animals/pagong.svg', english: 'turtle' },
-    { filipino: 'hipon', imgURL: 'img/animals/hipon.svg', english: 'shrimp' },
-    { filipino: 'tandang', imgURL: 'img/animals/tandang.svg', english: 'rooster' },
-    { filipino: 'pusit', imgURL: 'img/animals/pusit.svg', english: 'squid' },
-    { filipino: 'bubuyog', imgURL: 'img/animals/bubuyog.svg', english: 'bee' },
-    { filipino: 'langaw', imgURL: 'img/animals/langaw.svg', english: 'fly' },
-    { filipino: 'lumba-lumba', imgURL: 'img/animals/lumba-lumba.svg', english: 'dolphin' },
-    { filipino: 'panda', imgURL: 'img/animals/panda.svg', english: 'panda' },
-    { filipino: 'oso', imgURL: 'img/animals/oso.svg', english: 'bear' },
-    { filipino: 'daga', imgURL: 'img/animals/daga.svg', english: 'mouse' },
+    { filipino: "aso", imgURL: "img/animals/aso.svg", english: "dog" },
+    { filipino: "pusa", imgURL: "img/animals/pusa.svg", english: "cat" },
+    { filipino: "ibon", imgURL: "img/animals/ibon.svg", english: "bird" },
+    { filipino: "isda", imgURL: "img/animals/isda.svg", english: "fish" },
+    { filipino: "baboy", imgURL: "img/animals/baboy.svg", english: "pig" },
+    { filipino: "baka", imgURL: "img/animals/baka.svg", english: "cow" },
+    { filipino: "kabayong", imgURL: "img/animals/kabayong.svg", english: "horse" },
+    { filipino: "kuneho", imgURL: "img/animals/kuneho.svg", english: "rabbit" },
+    { filipino: "unggoy", imgURL: "img/animals/unggoy.svg", english: "monkey" },
+    { filipino: "manok", imgURL: "img/animals/manok.svg", english: "chicken" },
+    { filipino: "kambing", imgURL: "img/animals/kambing.svg", english: "goat" },
+    { filipino: "elepante", imgURL: "img/animals/elepante.svg", english: "elephant" },
+    { filipino: "ahas", imgURL: "img/animals/ahas.svg", english: "snake" },
+    { filipino: "gagamba", imgURL: "img/animals/gagamba.svg", english: "spider" },
+    { filipino: "paruparo", imgURL: "img/animals/paruparo.svg", english: "butterfly" },
+    { filipino: "pating", imgURL: "img/animals/pating.svg", english: "shark" },
+    { filipino: "pagong", imgURL: "img/animals/pagong.svg", english: "turtle" },
+    { filipino: "hipon", imgURL: "img/animals/hipon.svg", english: "shrimp" },
+    { filipino: "tandang", imgURL: "img/animals/tandang.svg", english: "rooster" },
+    { filipino: "pusit", imgURL: "img/animals/pusit.svg", english: "squid" },
+    { filipino: "bubuyog", imgURL: "img/animals/bubuyog.svg", english: "bee" },
+    { filipino: "langaw", imgURL: "img/animals/langaw.svg", english: "fly" },
+    { filipino: "lumba-lumba", imgURL: "img/animals/lumba-lumba.svg", english: "dolphin" },
+    { filipino: "panda", imgURL: "img/animals/panda.svg", english: "panda" },
+    { filipino: "oso", imgURL: "img/animals/oso.svg", english: "bear" },
+    { filipino: "daga", imgURL: "img/animals/daga.svg", english: "mouse" },
   ],
   clothes: [
-    { filipino: 'sapatos', english: 'shoes', imgURL: 'img/clothes/sapatos.svg' },
-    { filipino: 'damit', english: 'clothes', imgURL: 'img/clothes/damit.svg' },
-    { filipino: 'kamiseta', english: 'shirt', imgURL: 'img/clothes/kamiseta.svg' },
-    { filipino: 'pantalon', english: 'pants', imgURL: 'img/clothes/pantalon.svg' },
-    { filipino: 'bestida', english: 'dress', imgURL: 'img/clothes/bestida.svg' },
-    { filipino: 'palda', english: 'skirt', imgURL: 'img/clothes/palda.svg' },
-    { filipino: 'medyas', english: 'socks', imgURL: 'img/clothes/medyas.svg' },
-    { filipino: 'sumbrero', english: 'hat', imgURL: 'img/clothes/sumbrero.svg' },
-    { filipino: 'dyaket', english: 'jacket', imgURL: 'img/clothes/dyaket.svg' },
-    { filipino: 'kurbata', english: 'tie', imgURL: 'img/clothes/kurbata.svg' },
-    { filipino: 'salamin sa mata', english: 'glasses', imgURL: 'img/clothes/salamin_sa_mata.svg' },
-    { filipino: 'sinturon', english: 'belt', imgURL: 'img/clothes/sinturon.svg' },
-    { filipino: 'guwantes', english: 'gloves', imgURL: 'img/clothes/guwantes.svg' },
-    { filipino: 'bota', english: 'boots', imgURL: 'img/clothes/bota.svg' },
-    { filipino: 'sweter', english: 'sweater', imgURL: 'img/clothes/sweter.svg' },
-    { filipino: 'shorts', english: 'shorts', imgURL: 'img/clothes/shorts.svg' },
-    { filipino: 'panloob', english: 'underwear', imgURL: 'img/clothes/panloob.svg' },
-    { filipino: 'sandalyas', english: 'Sandals', imgURL: 'img/clothes/sandalyas.svg' },
+    { filipino: "sapatos", english: "shoes", imgURL: "img/clothes/sapatos.svg" },
+    { filipino: "damit", english: "clothes", imgURL: "img/clothes/damit.svg" },
+    { filipino: "kamiseta", english: "shirt", imgURL: "img/clothes/kamiseta.svg" },
+    { filipino: "pantalon", english: "pants", imgURL: "img/clothes/pantalon.svg" },
+    { filipino: "bestida", english: "dress", imgURL: "img/clothes/bestida.svg" },
+    { filipino: "palda", english: "skirt", imgURL: "img/clothes/palda.svg" },
+    { filipino: "medyas", english: "socks", imgURL: "img/clothes/medyas.svg" },
+    { filipino: "sumbrero", english: "hat", imgURL: "img/clothes/sumbrero.svg" },
+    { filipino: "dyaket", english: "jacket", imgURL: "img/clothes/dyaket.svg" },
+    { filipino: "kurbata", english: "tie", imgURL: "img/clothes/kurbata.svg" },
+    { filipino: "salamin sa mata", english: "glasses", imgURL: "img/clothes/salamin_sa_mata.svg" },
+    { filipino: "sinturon", english: "belt", imgURL: "img/clothes/sinturon.svg" },
+    { filipino: "guwantes", english: "gloves", imgURL: "img/clothes/guwantes.svg" },
+    { filipino: "bota", english: "boots", imgURL: "img/clothes/bota.svg" },
+    { filipino: "sweter", english: "sweater", imgURL: "img/clothes/sweter.svg" },
+    { filipino: "shorts", english: "shorts", imgURL: "img/clothes/shorts.svg" },
+    { filipino: "panloob", english: "underwear", imgURL: "img/clothes/panloob.svg" },
+    { filipino: "sandalyas", english: "Sandals", imgURL: "img/clothes/sandalyas.svg" },
   ],
   food: [
-    { filipino: 'tinapay', english: 'bread', imgURL: 'img/food/tinapay.svg' },
-    { filipino: 'kanin', english: 'rice', imgURL: 'img/food/kanin.svg' },
-    { filipino: 'mansanas', english: 'apple', imgURL: 'img/food/mansanas.svg' },
-    { filipino: 'gatas', english: 'milk', imgURL: 'img/food/gatas.svg' },
-    { filipino: 'tubig', english: 'water', imgURL: 'img/food/tubig.svg' },
-    { filipino: 'itlog', english: 'egg', imgURL: 'img/food/itlog.svg' },
-    { filipino: 'serbesa', english: 'beer', imgURL: 'img/food/serbesa.svg' },
-    { filipino: 'saging', english: 'banana', imgURL: 'img/food/saging.svg' },
-    { filipino: 'yelo', english: 'ice', imgURL: 'img/food/yelo.svg' },
-    { filipino: 'sili', english: 'chilli', imgURL: 'img/food/sili.svg' },
-    { filipino: 'mais', english: 'corn', imgURL: 'img/food/mais.svg' },
-    { filipino: 'niyog', english: 'coconut', imgURL: 'img/food/niyog.svg' },
-    { filipino: 'melokoton', english: 'peach', imgURL: 'img/food/melokoton.svg' },
-    { filipino: 'mangga', english: 'mango', imgURL: 'img/food/mangga.svg' },
-    { filipino: 'pinya', english: 'pineapple', imgURL: 'img/food/pinya.svg' },
-    { filipino: 'limon', english: 'lime', imgURL: 'img/food/limon.svg' },
-    { filipino: 'dalanghita', english: 'tangerin', imgURL: 'img/food/dalanghita.svg' },
-    { filipino: 'pakwan', english: 'watermelon', imgURL: 'img/food/pakwan.svg' },
-    { filipino: 'ubas', english: 'grapes', imgURL: 'img/food/ubas.svg' },
-    { filipino: 'kamatis', english: 'tomato', imgURL: 'img/food/kamatis.svg' },
-    { filipino: 'kiwi', english: 'kiwi', imgURL: 'img/food/kiwi.svg' },
-    { filipino: 'tsaa', english: 'tea', imgURL: 'img/food/tsaa.svg' },
-    { filipino: 'kendi', english: 'candy', imgURL: 'img/food/kendi.svg' },
-    { filipino: 'keso', english: 'cheese', imgURL: 'img/food/keso.svg' },
-    { filipino: 'mani', english: 'peanut', imgURL: 'img/food/mani.svg' },
-    { filipino: 'kape', english: 'coffee', imgURL: 'img/food/kape.svg' },
-    { filipino: 'karot', english: 'carrot', imgURL: 'img/food/karot.svg' },
-    { filipino: 'litsugas', english: 'lettuce', imgURL: 'img/food/litsugas.svg' },
-    { filipino: 'bawang', english: 'garlic', imgURL: 'img/food/bawang.svg' },
-    { filipino: 'sibuyas', english: 'onion', imgURL: 'img/food/sibuyas.svg' },
-    { filipino: 'kabute', english: 'mushroom', imgURL: 'img/food/kabute.svg' },
-    { filipino: 'seresa', english: 'cherry', imgURL: 'img/food/seresa.svg' },
-    { filipino: 'abukado', english: 'avocado', imgURL: 'img/food/abukado.svg' },
-    { filipino: 'suka', english: 'vinegar', imgURL: 'img/food/suka.svg' },
+    { filipino: "tinapay", english: "bread", imgURL: "img/food/tinapay.svg" },
+    { filipino: "kanin", english: "rice", imgURL: "img/food/kanin.svg" },
+    { filipino: "mansanas", english: "apple", imgURL: "img/food/mansanas.svg" },
+    { filipino: "gatas", english: "milk", imgURL: "img/food/gatas.svg" },
+    { filipino: "tubig", english: "water", imgURL: "img/food/tubig.svg" },
+    { filipino: "itlog", english: "egg", imgURL: "img/food/itlog.svg" },
+    { filipino: "serbesa", english: "beer", imgURL: "img/food/serbesa.svg" },
+    { filipino: "saging", english: "banana", imgURL: "img/food/saging.svg" },
+    { filipino: "yelo", english: "ice", imgURL: "img/food/yelo.svg" },
+    { filipino: "sili", english: "chilli", imgURL: "img/food/sili.svg" },
+    { filipino: "mais", english: "corn", imgURL: "img/food/mais.svg" },
+    { filipino: "niyog", english: "coconut", imgURL: "img/food/niyog.svg" },
+    { filipino: "melokoton", english: "peach", imgURL: "img/food/melokoton.svg" },
+    { filipino: "mangga", english: "mango", imgURL: "img/food/mangga.svg" },
+    { filipino: "pinya", english: "pineapple", imgURL: "img/food/pinya.svg" },
+    { filipino: "limon", english: "lime", imgURL: "img/food/limon.svg" },
+    { filipino: "dalanghita", english: "tangerin", imgURL: "img/food/dalanghita.svg" },
+    { filipino: "pakwan", english: "watermelon", imgURL: "img/food/pakwan.svg" },
+    { filipino: "ubas", english: "grapes", imgURL: "img/food/ubas.svg" },
+    { filipino: "kamatis", english: "tomato", imgURL: "img/food/kamatis.svg" },
+    { filipino: "kiwi", english: "kiwi", imgURL: "img/food/kiwi.svg" },
+    { filipino: "tsaa", english: "tea", imgURL: "img/food/tsaa.svg" },
+    { filipino: "kendi", english: "candy", imgURL: "img/food/kendi.svg" },
+    { filipino: "keso", english: "cheese", imgURL: "img/food/keso.svg" },
+    { filipino: "mani", english: "peanut", imgURL: "img/food/mani.svg" },
+    { filipino: "kape", english: "coffee", imgURL: "img/food/kape.svg" },
+    { filipino: "karot", english: "carrot", imgURL: "img/food/karot.svg" },
+    { filipino: "litsugas", english: "lettuce", imgURL: "img/food/litsugas.svg" },
+    { filipino: "bawang", english: "garlic", imgURL: "img/food/bawang.svg" },
+    { filipino: "sibuyas", english: "onion", imgURL: "img/food/sibuyas.svg" },
+    { filipino: "kabute", english: "mushroom", imgURL: "img/food/kabute.svg" },
+    { filipino: "seresa", english: "cherry", imgURL: "img/food/seresa.svg" },
+    { filipino: "abukado", english: "avocado", imgURL: "img/food/abukado.svg" },
+    { filipino: "suka", english: "vinegar", imgURL: "img/food/suka.svg" },
   ],
   colors: [
-    { filipino: 'Pula', english: 'Red', imgURL: 'img/colors/pula.svg' },
-    { filipino: 'Asul', english: 'Blue', imgURL: 'img/colors/asul.svg' },
-    { filipino: 'Dilaw', english: 'Yellow', imgURL: 'img/colors/dilaw.svg' },
-    { filipino: 'Berde/Lunti', english: 'Green', imgURL: 'img/colors/berde_lunti.svg' },
-    { filipino: 'Kahel', english: 'Orange', imgURL: 'img/colors/kahel.svg' },
-    { filipino: 'Lila/Ube', english: 'Purple', imgURL: 'img/colors/lila_ube.svg' },
-    { filipino: 'Rosa', english: 'Pink', imgURL: 'img/colors/rosa.svg' },
-    { filipino: 'Itim', english: 'Black', imgURL: 'img/colors/itim.svg' },
-    { filipino: 'Puti', english: 'White', imgURL: 'img/colors/puti.svg' },
-    { filipino: 'Abo/Abuhin', english: 'Gray', imgURL: 'img/colors/abo_abuhin.svg' },
-    { filipino: 'Kayumanggi', english: 'Brown', imgURL: 'img/colors/kayumanggi.svg' },
+    { filipino: "Pula", english: "Red", imgURL: "img/colors/pula.svg" },
+    { filipino: "Asul", english: "Blue", imgURL: "img/colors/asul.svg" },
+    { filipino: "Dilaw", english: "Yellow", imgURL: "img/colors/dilaw.svg" },
+    { filipino: "Berde/Lunti", english: "Green", imgURL: "img/colors/berde_lunti.svg" },
+    { filipino: "Kahel", english: "Orange", imgURL: "img/colors/kahel.svg" },
+    { filipino: "Lila/Ube", english: "Purple", imgURL: "img/colors/lila_ube.svg" },
+    { filipino: "Rosa", english: "Pink", imgURL: "img/colors/rosa.svg" },
+    { filipino: "Itim", english: "Black", imgURL: "img/colors/itim.svg" },
+    { filipino: "Puti", english: "White", imgURL: "img/colors/puti.svg" },
+    { filipino: "Abo/Abuhin", english: "Gray", imgURL: "img/colors/abo_abuhin.svg" },
+    { filipino: "Kayumanggi", english: "Brown", imgURL: "img/colors/kayumanggi.svg" },
   ],
 };
-preloadImages(words.activities.map(item => item.imgURL));
-preloadImages(words.animals.map(item => item.imgURL));
-preloadImages(words.clothes.map(item => item.imgURL));
-preloadImages(words.food.map(item => item.imgURL));
-preloadImages(words.colors.map(item => item.imgURL));
+preloadImages(words.activities.map((item) => item.imgURL));
+preloadImages(words.animals.map((item) => item.imgURL));
+preloadImages(words.clothes.map((item) => item.imgURL));
+preloadImages(words.food.map((item) => item.imgURL));
+preloadImages(words.colors.map((item) => item.imgURL));
 
 const games = {
   pronounsGroup1: [
-    { filipino: 'Ako', english: 'I' },
-    { filipino: 'Ikaw/ka', english: 'You' },
-    { filipino: 'Siya', english: 'He/She' },
-    { filipino: 'Kami', english: 'We (exclusive)' },
-    { filipino: 'Tayo', english: 'We (inclusive)' },
-    { filipino: 'Kayo', english: 'You (plural)' },
-    { filipino: 'Sila', english: 'They' },
+    { filipino: "Ako", english: "I" },
+    { filipino: "Ikaw/ka", english: "You" },
+    { filipino: "Siya", english: "He/She" },
+    { filipino: "Kami", english: "We (exclusive)" },
+    { filipino: "Tayo", english: "We (inclusive)" },
+    { filipino: "Kayo", english: "You (plural)" },
+    { filipino: "Sila", english: "They" },
   ],
   pronounsGroup2: [
-    { filipino: 'Ko', english: 'My/Mine' },
-    { filipino: 'Mo', english: 'Your/Yours' },
-    { filipino: 'Niya', english: 'His/Her/Hers' },
+    { filipino: "Ko", english: "My/Mine" },
+    { filipino: "Mo", english: "Your/Yours" },
+    { filipino: "Niya", english: "His/Her/Hers" },
     {
-      filipino: 'Namin',
-      english: 'Our/Ours (exclusive)',
+      filipino: "Namin",
+      english: "Our/Ours (exclusive)",
     },
     {
-      filipino: 'Atin',
-      english: 'Our/Ours (inclusive)',
+      filipino: "Atin",
+      english: "Our/Ours (inclusive)",
     },
     {
-      filipino: 'Inyo',
-      english: 'Your/Yours (plural/singular polite)',
+      filipino: "Inyo",
+      english: "Your/Yours (plural/singular polite)",
     },
-    { filipino: 'Nila', english: 'Their/Theirs' },
+    { filipino: "Nila", english: "Their/Theirs" },
   ],
   pronounsGroup3: [
-    { filipino: 'Sa Akin', english: 'To me' },
-    { filipino: 'Sa Iyo', english: 'To you' },
-    { filipino: 'Sa Kanya', english: 'To him/her' },
+    { filipino: "Sa Akin", english: "To me" },
+    { filipino: "Sa Iyo", english: "To you" },
+    { filipino: "Sa Kanya", english: "To him/her" },
     {
-      filipino: 'Sa Amin',
-      english: 'To us (exclusive)',
+      filipino: "Sa Amin",
+      english: "To us (exclusive)",
     },
     {
-      filipino: 'Sa Atin',
-      english: 'To us (inclusive)',
+      filipino: "Sa Atin",
+      english: "To us (inclusive)",
     },
     {
-      filipino: 'Sa Inyo',
-      english: 'To you (plural/singular polite)',
+      filipino: "Sa Inyo",
+      english: "To you (plural/singular polite)",
     },
-    { filipino: 'Sa Kanila', english: 'To them' },
+    { filipino: "Sa Kanila", english: "To them" },
   ],
   uminffix: [
-    { filipino: 'takbo', english: 'run' },
-    { filipino: 'tatakbo', english: 'will run' },
-    { filipino: 'tumakbo', english: 'ran' },
-    { filipino: 'tumatakbo', english: 'running' },
-    { filipino: 'kain', english: 'eat' },
-    { filipino: 'kakain', english: 'will eat' },
-    { filipino: 'kumain', english: 'ate' },
-    { filipino: 'kumakain', english: 'eating' },
-    { filipino: 'inom', english: 'drink' },
-    { filipino: 'iinom', english: 'will drink' },
-    { filipino: 'uminom', english: 'drank' },
-    { filipino: 'umiinom', english: 'drinking' },
+    { filipino: "takbo", english: "run" },
+    { filipino: "tatakbo", english: "will run" },
+    { filipino: "tumakbo", english: "ran" },
+    { filipino: "tumatakbo", english: "running" },
+    { filipino: "kain", english: "eat" },
+    { filipino: "kakain", english: "will eat" },
+    { filipino: "kumain", english: "ate" },
+    { filipino: "kumakain", english: "eating" },
+    { filipino: "inom", english: "drink" },
+    { filipino: "iinom", english: "will drink" },
+    { filipino: "uminom", english: "drank" },
+    { filipino: "umiinom", english: "drinking" },
   ],
   greetings: [
     {
-      filipino: 'kumusta?',
-      english: 'how are you? (short version, used only with familiar people)',
+      filipino: "kumusta?",
+      english: "how are you? (short version, used only with familiar people)",
     },
     {
-      filipino: 'kumusta ka?',
-      english: 'how are you? (used only with familiar people)',
+      filipino: "kumusta ka?",
+      english: "how are you? (used only with familiar people)",
     },
     {
-      filipino: 'kumusta po?',
-      english: 'how are you? (short version, it shows respect)',
+      filipino: "kumusta po?",
+      english: "how are you? (short version, it shows respect)",
     },
     {
-      filipino: 'kumusta po kayo?',
-      english: 'how are you? (extended version, it shows respect, works with singular and plural)',
+      filipino: "kumusta po kayo?",
+      english: "how are you? (extended version, it shows respect, works with singular and plural)",
     },
     {
-      filipino: 'kumusta po sila?',
-      english: 'how are you? (EXTREME respect, works with singular and plural)',
+      filipino: "kumusta po sila?",
+      english: "how are you? (EXTREME respect, works with singular and plural)",
     },
-    { filipino: 'mabuti', english: 'good/fine' },
-    { filipino: 'mabuti rin', english: "I'm fine too" },
-    { filipino: 'magandang umaga', english: 'good morning' },
-    { filipino: 'magandang hapon', english: 'good afternoon' },
-    { filipino: 'magandang gabi', english: 'good night' },
+    { filipino: "mabuti", english: "good/fine" },
+    { filipino: "mabuti rin", english: "I'm fine too" },
+    { filipino: "magandang umaga", english: "good morning" },
+    { filipino: "magandang hapon", english: "good afternoon" },
+    { filipino: "magandang gabi", english: "good night" },
   ],
   greetingTime: [
     {
-      filipino: 'Magandang madaling araw',
-      english: 'Good early morning  (Dawn – 12:00 AM to ~5:00 AM)',
+      filipino: "Magandang madaling araw",
+      english: "Good early morning  (Dawn – 12:00 AM to ~5:00 AM)",
     },
     {
-      filipino: 'Magandang umaga',
-      english: 'Good morning (Morning – ~5:00 AM to 11:59 AM)',
+      filipino: "Magandang umaga",
+      english: "Good morning (Morning – ~5:00 AM to 11:59 AM)",
     },
     {
-      filipino: 'Magandang tanghali',
-      english: 'Good noon (Noon – 12:00 PM to ~1:00 PM)',
+      filipino: "Magandang tanghali",
+      english: "Good noon (Noon – 12:00 PM to ~1:00 PM)",
     },
     {
-      filipino: 'Magandang hapon',
-      english: 'Good afternoon (Afternoon – ~1:00 PM to 5:59 PM)',
+      filipino: "Magandang hapon",
+      english: "Good afternoon (Afternoon – ~1:00 PM to 5:59 PM)",
     },
     {
-      filipino: 'Magandang gabi',
-      english: 'Good evening/night (Evening – ~6:00 PM to 11:59 PM)',
+      filipino: "Magandang gabi",
+      english: "Good evening/night (Evening – ~6:00 PM to 11:59 PM)",
     },
     {
-      filipino: 'Magandang hatinggabi',
-      english: 'Good midnight (exactly 12 AM)',
+      filipino: "Magandang hatinggabi",
+      english: "Good midnight (exactly 12 AM)",
     },
   ],
   seroToTen: [
-    { filipino: 'sero', english: 'zero' },
-    { filipino: 'isa', english: 'one' },
-    { filipino: 'dalawa', english: 'two' },
-    { filipino: 'tatlo', english: 'three' },
-    { filipino: 'apat', english: 'four' },
-    { filipino: 'lima', english: 'five' },
-    { filipino: 'anim', english: 'six' },
-    { filipino: 'pito', english: 'seven' },
-    { filipino: 'walo', english: 'eight' },
-    { filipino: 'siyam', english: 'nine' },
-    { filipino: 'sampu', english: 'ten' },
+    { filipino: "sero", english: "zero" },
+    { filipino: "isa", english: "one" },
+    { filipino: "dalawa", english: "two" },
+    { filipino: "tatlo", english: "three" },
+    { filipino: "apat", english: "four" },
+    { filipino: "lima", english: "five" },
+    { filipino: "anim", english: "six" },
+    { filipino: "pito", english: "seven" },
+    { filipino: "walo", english: "eight" },
+    { filipino: "siyam", english: "nine" },
+    { filipino: "sampu", english: "ten" },
   ],
   elevenToNineteen: [
-    { filipino: 'labing-isa', english: 'eleven' },
-    { filipino: 'labindalawa', english: 'twelve' },
-    { filipino: 'labintatlo', english: 'thirteen' },
-    { filipino: 'labingapat', english: 'fourteen' },
-    { filipino: 'labinlima', english: 'fifteen' },
-    { filipino: 'labing-anim', english: 'sixteen' },
-    { filipino: 'labimpito', english: 'seventeen' },
-    { filipino: 'labingwalo', english: 'eighteen' },
-    { filipino: 'labinsiyam', english: 'nineteen' },
+    { filipino: "labing-isa", english: "eleven" },
+    { filipino: "labindalawa", english: "twelve" },
+    { filipino: "labintatlo", english: "thirteen" },
+    { filipino: "labingapat", english: "fourteen" },
+    { filipino: "labinlima", english: "fifteen" },
+    { filipino: "labing-anim", english: "sixteen" },
+    { filipino: "labimpito", english: "seventeen" },
+    { filipino: "labingwalo", english: "eighteen" },
+    { filipino: "labinsiyam", english: "nineteen" },
   ],
   tens: [
-    { filipino: 'labing-isa', english: 'eleven' },
-    { filipino: 'labindalawa', english: 'twelve' },
-    { filipino: 'labintatlo', english: 'thirteen' },
-    { filipino: 'labingapat', english: 'fourteen' },
-    { filipino: 'labinlima', english: 'fifteen' },
-    { filipino: 'labing-anim', english: 'sixteen' },
-    { filipino: 'labimpito', english: 'seventeen' },
-    { filipino: 'labingwalo', english: 'eighteen' },
-    { filipino: 'labinsiyam', english: 'nineteen' },
+    { filipino: "labing-isa", english: "eleven" },
+    { filipino: "labindalawa", english: "twelve" },
+    { filipino: "labintatlo", english: "thirteen" },
+    { filipino: "labingapat", english: "fourteen" },
+    { filipino: "labinlima", english: "fifteen" },
+    { filipino: "labing-anim", english: "sixteen" },
+    { filipino: "labimpito", english: "seventeen" },
+    { filipino: "labingwalo", english: "eighteen" },
+    { filipino: "labinsiyam", english: "nineteen" },
   ],
   hundres: [
-    { filipino: 'isang daan', english: 'one hundred' },
-    { filipino: 'dalawang daan', english: 'two hundred' },
-    { filipino: 'tatlong daan', english: 'three hundred' },
-    { filipino: 'apat na daan', english: 'four hundred' },
-    { filipino: 'limang daan', english: 'five hundred' },
-    { filipino: 'anim na daan', english: 'six hundred' },
-    { filipino: 'pitong daan', english: 'seven hundred' },
-    { filipino: 'walong daan', english: 'eight hundred' },
-    { filipino: 'siyam na daan', english: 'nine hundred' },
+    { filipino: "isang daan", english: "one hundred" },
+    { filipino: "dalawang daan", english: "two hundred" },
+    { filipino: "tatlong daan", english: "three hundred" },
+    { filipino: "apat na daan", english: "four hundred" },
+    { filipino: "limang daan", english: "five hundred" },
+    { filipino: "anim na daan", english: "six hundred" },
+    { filipino: "pitong daan", english: "seven hundred" },
+    { filipino: "walong daan", english: "eight hundred" },
+    { filipino: "siyam na daan", english: "nine hundred" },
   ],
   daysOfTheWeek: [
-    { filipino: 'Lunes', english: 'Monday' },
-    { filipino: 'Martes', english: 'Tuesday' },
-    { filipino: 'Miyerkules', english: 'Wednesday' },
-    { filipino: 'Huwebes', english: 'Thursday' },
-    { filipino: 'Biyernes', english: 'Friday' },
-    { filipino: 'Sabado', english: 'Saturday' },
-    { filipino: 'Linggo', english: 'Sunday' },
+    { filipino: "Lunes", english: "Monday" },
+    { filipino: "Martes", english: "Tuesday" },
+    { filipino: "Miyerkules", english: "Wednesday" },
+    { filipino: "Huwebes", english: "Thursday" },
+    { filipino: "Biyernes", english: "Friday" },
+    { filipino: "Sabado", english: "Saturday" },
+    { filipino: "Linggo", english: "Sunday" },
   ],
   monthsOfTheYear: [
-    { filipino: 'Enero', english: 'January' },
-    { filipino: 'Pebrero', english: 'February' },
-    { filipino: 'Marso', english: 'March' },
-    { filipino: 'Abril', english: 'April' },
-    { filipino: 'Mayo', english: 'May' },
-    { filipino: 'Hunyo', english: 'June' },
-    { filipino: 'Hulyo', english: 'July' },
-    { filipino: 'Agosto', english: 'August' },
-    { filipino: 'Setyembre', english: 'September' },
-    { filipino: 'Oktubre', english: 'October' },
-    { filipino: 'Nobyembre', english: 'November' },
-    { filipino: 'Disyembre', english: 'December' },
+    { filipino: "Enero", english: "January" },
+    { filipino: "Pebrero", english: "February" },
+    { filipino: "Marso", english: "March" },
+    { filipino: "Abril", english: "April" },
+    { filipino: "Mayo", english: "May" },
+    { filipino: "Hunyo", english: "June" },
+    { filipino: "Hulyo", english: "July" },
+    { filipino: "Agosto", english: "August" },
+    { filipino: "Setyembre", english: "September" },
+    { filipino: "Oktubre", english: "October" },
+    { filipino: "Nobyembre", english: "November" },
+    { filipino: "Disyembre", english: "December" },
   ],
   questions: [
-    { filipino: "bakit", english: "why"},
-    { filipino: "ano", english: "what"},
-    { filipino: "saan", english: "where"},
-    { filipino: "sino", english: "who"},
-    { filipino: "kailan", english: "when"},
-    { filipino: "paano", english: "how"},
-    { filipino: "alin", english: "which"},
+    { filipino: "bakit", english: "why" },
+    { filipino: "ano", english: "what" },
+    { filipino: "saan", english: "where" },
+    { filipino: "sino", english: "who" },
+    { filipino: "kailan", english: "when" },
+    { filipino: "paano", english: "how" },
+    { filipino: "alin", english: "which" },
   ],
 };
 
@@ -363,586 +363,586 @@ const sentences = {
       filipino: "ang aking nanay ay mula sa Mexico",
       english: "my mom is from Mexico",
       completeIndex: [0, 3, 6],
-      hint: "use the inverse structure with ay, do not use tildes"
+      hint: "use the inverse structure with ay, do not use tildes",
     },
     {
       filipino: "aking babaeng kapatid",
       english: "my sister",
       completeIndex: [-1], // All words replaced with inputs when -1
-      hint: "aking means my, kapatid means sibling"
+      hint: "'aking' means 'my'. 'kapatid' means 'sibling'. 'My sister' is an incomplete sentence (there's not predicate) so you do not need to use 'ang'.",
     },
     {
       filipino: "aking lalaking kapatid",
       english: "my brother",
       completeIndex: [1],
-      hint: "aking means my, lalaki means man"
+      hint: "aking means my, lalaki means man. also remember that in Filipino, when you connect a modifier (like an adjective or descriptive word, e.g male + sibling) to the word it modifies, you often need a ligature to make the sentence flow better. The most common ligatures are: 'na'  used when the word ends in a consonant, 'ng' used when the word ends in a vowel",
     },
     {
       filipino: "aking lalaking kapatid at aking babaeng kapatid",
       english: "my brother and my sister",
       completeIndex: [0, 3, 4],
-      hint: "at means and"
-    }
-  ]
-}
+      hint: "at means and",
+    },
+  ],
+};
 
 window.routerNamespace = {
-  currentPath: '#/',
+  currentPath: "#/",
   routes_obj: {
-    '#/': {
-      path: 'partials/home.html',
-      navbarName: 'Home',
-      icon: 'bi-house-fill',
+    "#/": {
+      path: "partials/home.html",
+      navbarName: "Home",
+      icon: "bi-house-fill",
     },
-    '#/vowels': {
-      path: 'partials/vowels.html',
-      navbarName: 'Vowels',
-      icon: 'bi-book',
+    "#/vowels": {
+      path: "partials/vowels.html",
+      navbarName: "Vowels",
+      icon: "bi-book",
     },
-    '#/alphabet': {
-      path: 'partials/alphabet.html',
-      navbarName: 'Alphabet',
-      icon: 'bi-book',
+    "#/alphabet": {
+      path: "partials/alphabet.html",
+      navbarName: "Alphabet",
+      icon: "bi-book",
     },
-    '#/pronouns': {
+    "#/pronouns": {
       dropdown: {
-        navbarName: 'Pronouns',
-        accordionName: 'pronouns',
+        navbarName: "Pronouns",
+        accordionName: "pronouns",
         links: [
           {
-            key: '#/pronouns-overview',
-            path: 'partials/pronouns/overview.html',
-            navbarName: 'Overview',
-            icon: 'bi-book',
+            key: "#/pronouns-overview",
+            path: "partials/pronouns/overview.html",
+            navbarName: "Overview",
+            icon: "bi-book",
           },
           {
-            key: '#/pronouns-group1',
-            path: 'partials/pronouns/pronounsgroup1.html',
-            navbarName: 'Pronouns Ang Group',
-            icon: 'bi-book',
+            key: "#/pronouns-group1",
+            path: "partials/pronouns/pronounsgroup1.html",
+            navbarName: "Pronouns Ang Group",
+            icon: "bi-book",
           },
           {
-            key: '#/pronouns-group2',
-            path: 'partials/pronouns/pronounsgroup2.html',
-            navbarName: 'Pronouns Ng Group',
-            icon: 'bi-book',
+            key: "#/pronouns-group2",
+            path: "partials/pronouns/pronounsgroup2.html",
+            navbarName: "Pronouns Ng Group",
+            icon: "bi-book",
           },
           {
-            key: '#/pronouns-group3',
-            path: 'partials/pronouns/pronounsgroup3.html',
-            navbarName: 'Pronouns Sa Group',
-            icon: 'bi-book',
+            key: "#/pronouns-group3",
+            path: "partials/pronouns/pronounsgroup3.html",
+            navbarName: "Pronouns Sa Group",
+            icon: "bi-book",
           },
-          { key: '#/pronouns-kita', path: 'partials/pronouns/kita.html', navbarName: 'Kita', icon: 'bi-book' },
+          { key: "#/pronouns-kita", path: "partials/pronouns/kita.html", navbarName: "Kita", icon: "bi-book" },
           {
-            key: '#/pronouns-game-group1',
-            path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Game Ang Group | options',
-            icon: 'bi-controller',
+            key: "#/pronouns-game-group1",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Game Ang Group | options",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/questionoptions.js',
+              script: "partials/games/js/questionoptions.js",
               config: games.pronounsGroup1,
-              config: { gameData: structuredClone(games.pronounsGroup1), gameTitle: 'Game Group 1 | options' },
-              nameSpace: 'questionOptionsNamespace',
+              config: { gameData: structuredClone(games.pronounsGroup1), gameTitle: "Game Group 1 | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
           {
-            key: '#/pronouns-game-group2',
-            path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Game Ng Group | options',
-            icon: 'bi-controller',
+            key: "#/pronouns-game-group2",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Game Ng Group | options",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/questionoptions.js',
+              script: "partials/games/js/questionoptions.js",
               config: games.pronounsGroup2,
-              config: { gameData: structuredClone(games.pronounsGroup2), gameTitle: 'Game Group 2 | options' },
-              nameSpace: 'questionOptionsNamespace',
+              config: { gameData: structuredClone(games.pronounsGroup2), gameTitle: "Game Group 2 | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
           {
-            key: '#/pronouns-game-group3',
-            path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Game Sa Group | options',
-            icon: 'bi-controller',
+            key: "#/pronouns-game-group3",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Game Sa Group | options",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/questionoptions.js',
+              script: "partials/games/js/questionoptions.js",
               config: games.pronounsGroup3,
-              config: { gameData: structuredClone(games.seroToTen), gameTitle: 'Game Group 3 | options' },
-              nameSpace: 'questionOptionsNamespace',
+              config: { gameData: structuredClone(games.seroToTen), gameTitle: "Game Group 3 | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
         ],
       },
-      icon: 'bi-collection',
+      icon: "bi-collection",
     },
-    '#/rootandaffixes': {
+    "#/rootandaffixes": {
       dropdown: {
-        navbarName: 'Roots & Affixes',
-        accordionName: 'rootandaffixes',
+        navbarName: "Roots & Affixes",
+        accordionName: "rootandaffixes",
         links: [
           {
-            key: '#/rootandaffixes-overview',
-            path: 'partials/rootsandaffixes/overview.html',
-            navbarName: 'Overview',
-            icon: 'bi-book',
+            key: "#/rootandaffixes-overview",
+            path: "partials/rootsandaffixes/overview.html",
+            navbarName: "Overview",
+            icon: "bi-book",
           },
           {
-            key: '#/rootandaffixes-um-inffix-game',
-            path: 'partials/games/html/pairs.html',
-            navbarName: 'Game Um Inffix | Pairs',
-            icon: 'bi-controller',
+            key: "#/rootandaffixes-um-inffix-game",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Game Um Inffix | Pairs",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/pairs.js',
-              config: { gameData: structuredClone(games.uminffix), gameTitle: 'Game | UM Infix' },
-              nameSpace: 'pairsNamespace',
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(games.uminffix), gameTitle: "Game | UM Infix" },
+              nameSpace: "pairsNamespace",
             },
           },
         ],
       },
-      icon: 'bi-collection',
+      icon: "bi-collection",
     },
-    '#/markers': {
-      path: 'partials/markers.html',
-      navbarName: 'Markers',
-      icon: 'bi-book',
+    "#/markers": {
+      path: "partials/markers.html",
+      navbarName: "Markers",
+      icon: "bi-book",
     },
-    '#/verbs': {
-      path: 'partials/verbs.html',
-      navbarName: 'Verbs',
-      icon: 'bi-book',
+    "#/verbs": {
+      path: "partials/verbs.html",
+      navbarName: "Verbs",
+      icon: "bi-book",
     },
-    '#/ay-particle': {
-      path: 'partials/ay.html',
-      navbarName: 'Ay Particle',
-      icon: 'bi-book',
+    "#/ay-particle": {
+      path: "partials/ay.html",
+      navbarName: "Ay Particle",
+      icon: "bi-book",
     },
-    '#/objectanfactorfocusverbs': {
-      path: 'partials/objectanfactorfocusverbs.html',
-      navbarName: 'Object/Actor Focus Verbs',
-      icon: 'bi-book',
+    "#/objectanfactorfocusverbs": {
+      path: "partials/objectanfactorfocusverbs.html",
+      navbarName: "Object/Actor Focus Verbs",
+      icon: "bi-book",
     },
-    '#/sentencestructure': {
+    "#/sentencestructure": {
       dropdown: {
-        navbarName: 'Sentence Structure',
-        accordionName: 'sentencestructure',
+        navbarName: "Sentence Structure",
+        accordionName: "sentencestructure",
         links: [
           {
-            key: '#/sentencestructure-overview',
-            path: 'partials/sentencestructure.html',
-            navbarName: 'Overview',
-            icon: 'bi-book',
+            key: "#/sentencestructure-overview",
+            path: "partials/sentencestructure.html",
+            navbarName: "Overview",
+            icon: "bi-book",
           },
           {
-            key: '#/sentencestructure-game',
-            path: 'partials/games/html/completesentence.html',
-            navbarName: 'Complete the sentence',
-            icon: 'bi-controller',
+            key: "#/sentencestructure-game",
+            path: "partials/games/html/completesentence.html",
+            navbarName: "Complete the sentence",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/completesentence.js',
-              config: { gameData: sentences.common, gameTitle: 'Complete the sentence' },
-              nameSpace: 'completeSentenceNamespace',
+              script: "partials/games/js/completesentence.js",
+              config: { gameData: sentences.common, gameTitle: "Complete the sentence" },
+              nameSpace: "completeSentenceNamespace",
             },
           },
         ],
       },
-      icon: 'bi-collection',
+      icon: "bi-collection",
     },
-    '#/greetings': {
+    "#/greetings": {
       dropdown: {
-        navbarName: 'Greetings',
-        accordionName: 'greetings',
+        navbarName: "Greetings",
+        accordionName: "greetings",
         links: [
           {
-            key: '#/greetings-overview',
-            path: 'partials/greetings/overview.html',
-            navbarName: 'Overview',
-            icon: 'bi-book',
+            key: "#/greetings-overview",
+            path: "partials/greetings/overview.html",
+            navbarName: "Overview",
+            icon: "bi-book",
           },
           {
-            key: '#/greetings-game',
-            path: 'partials/games/html/pairs.html',
-            navbarName: 'Greetings | Pairs',
-            icon: 'bi-controller',
+            key: "#/greetings-game",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Greetings | Pairs",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/pairs.js',
-              config: { gameData: structuredClone(games.greetings), gameTitle: 'Greetings | Pairs' },
-              nameSpace: 'pairsNamespace',
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(games.greetings), gameTitle: "Greetings | Pairs" },
+              nameSpace: "pairsNamespace",
             },
           },
           {
-            key: '#/greetings-game-time',
-            path: 'partials/games/html/pairs.html',
-            navbarName: 'Greetings Depending On Time | Pairs',
-            icon: 'bi-controller',
+            key: "#/greetings-game-time",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Greetings Depending On Time | Pairs",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/pairs.js',
+              script: "partials/games/js/pairs.js",
               config: {
                 gameData: structuredClone(games.greetingTime),
-                gameTitle: 'Greetings Depending On Time | Pairs',
+                gameTitle: "Greetings Depending On Time | Pairs",
               },
-              nameSpace: 'pairsNamespace',
+              nameSpace: "pairsNamespace",
             },
           },
         ],
       },
-      icon: 'bi-collection',
+      icon: "bi-collection",
     },
-    '#/introduce-yourself': {
-      path: 'partials/introduceyourself.html',
-      navbarName: 'Introduce Yourself',
-      icon: 'bi-book',
+    "#/introduce-yourself": {
+      path: "partials/introduceyourself.html",
+      navbarName: "Introduce Yourself",
+      icon: "bi-book",
     },
-    '#/family': {
-      path: 'partials/family.html',
-      navbarName: 'Family',
-      icon: 'bi-book',
+    "#/family": {
+      path: "partials/family.html",
+      navbarName: "Family",
+      icon: "bi-book",
     },
-    '#/numbers': {
+    "#/numbers": {
       dropdown: {
-        navbarName: 'Numbers',
-        accordionName: 'numbers',
+        navbarName: "Numbers",
+        accordionName: "numbers",
         links: [
           {
-            key: '#/numbers-numbers',
-            path: 'partials/numbers.html',
-            navbarName: 'Overview',
-            icon: 'bi-book',
+            key: "#/numbers-numbers",
+            path: "partials/numbers.html",
+            navbarName: "Overview",
+            icon: "bi-book",
           },
           {
-            key: '#/numbers-game-0to10',
-            path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Game 0 to 10 | options',
-            icon: 'bi-controller',
+            key: "#/numbers-game-0to10",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Game 0 to 10 | options",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/questionoptions.js',
-              config: { gameData: structuredClone(games.seroToTen), gameTitle: 'Game 0 to 10 | options' },
-              nameSpace: 'questionOptionsNamespace',
+              script: "partials/games/js/questionoptions.js",
+              config: { gameData: structuredClone(games.seroToTen), gameTitle: "Game 0 to 10 | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
           {
-            key: '#/numbers-game-11to19',
-            path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Game 11 to 19 | options',
-            icon: 'bi-controller',
+            key: "#/numbers-game-11to19",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Game 11 to 19 | options",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/questionoptions.js',
-              config: { gameData: structuredClone(games.elevenToNineteen), gameTitle: 'Game 11 to 19 | options' },
-              nameSpace: 'questionOptionsNamespace',
+              script: "partials/games/js/questionoptions.js",
+              config: { gameData: structuredClone(games.elevenToNineteen), gameTitle: "Game 11 to 19 | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
           {
-            key: '#/numbers-game-tens',
-            path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Game Tens | options',
-            icon: 'bi-controller',
+            key: "#/numbers-game-tens",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Game Tens | options",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/questionoptions.js',
-              config: { gameData: structuredClone(games.tens), gameTitle: 'Game Tens | options' },
-              nameSpace: 'questionOptionsNamespace',
+              script: "partials/games/js/questionoptions.js",
+              config: { gameData: structuredClone(games.tens), gameTitle: "Game Tens | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
           {
-            key: '#/numbers-game-hundreds',
-            path: 'partials/games/html/pairs.html',
-            navbarName: 'Game Hundreds | Pairs',
-            icon: 'bi-controller',
+            key: "#/numbers-game-hundreds",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Game Hundreds | Pairs",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/pairs.js',
-              config: { gameData: structuredClone(games.hundres), gameTitle: 'Game Hundreds | Pairs' },
-              nameSpace: 'pairsNamespace',
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(games.hundres), gameTitle: "Game Hundreds | Pairs" },
+              nameSpace: "pairsNamespace",
             },
           },
         ],
       },
-      icon: 'bi-collection',
+      icon: "bi-collection",
     },
 
-    '#/vocabulary': {
+    "#/vocabulary": {
       dropdown: {
-        navbarName: 'Vocabulary Games',
-        accordionName: 'vocabulary',
+        navbarName: "Vocabulary Games",
+        accordionName: "vocabulary",
         links: [
           {
-            key: '#/vocabulary-game-activities-answers',
-            path: 'partials/games/html/answers.html',
-            navbarName: 'Activities | answers',
-            icon: 'bi-book-fill',
+            key: "#/vocabulary-game-activities-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Activities | answers",
+            icon: "bi-book-fill",
             game: {
-              script: 'partials/games/js/answers.js',
-              config: { gameData: structuredClone(words.activities), gameTitle: 'Activities | answers' },
-              nameSpace: 'wordsNamespace',
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(words.activities), gameTitle: "Activities | answers" },
+              nameSpace: "wordsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-activities-pairs',
-            path: 'partials/games/html/pairs.html',
-            navbarName: 'Activities | pairs',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-activities-pairs",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Activities | pairs",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/pairs.js',
-              config: { gameData: structuredClone(words.activities), gameTitle: 'Activities | pairs' },
-              nameSpace: 'pairsNamespace',
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(words.activities), gameTitle: "Activities | pairs" },
+              nameSpace: "pairsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-activities-images',
-            path: 'partials/games/html/images.html',
-            navbarName: 'Activities | Images',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-activities-images",
+            path: "partials/games/html/images.html",
+            navbarName: "Activities | Images",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/images.js',
-              config: { gameData: structuredClone(words.activities), gameTitle: 'Activities | Images' },
-              nameSpace: 'imagesNamespace',
+              script: "partials/games/js/images.js",
+              config: { gameData: structuredClone(words.activities), gameTitle: "Activities | Images" },
+              nameSpace: "imagesNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-animals-answers',
-            path: 'partials/games/html/answers.html',
-            navbarName: 'Animals | answers',
-            icon: 'bi-book-fill',
+            key: "#/vocabulary-game-animals-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Animals | answers",
+            icon: "bi-book-fill",
             game: {
-              script: 'partials/games/js/answers.js',
-              config: { gameData: structuredClone(words.animals), gameTitle: 'Animals | answers' },
-              nameSpace: 'wordsNamespace',
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(words.animals), gameTitle: "Animals | answers" },
+              nameSpace: "wordsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-animals-pairs',
-            path: 'partials/games/html/pairs.html',
-            navbarName: 'Animals | pairs',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-animals-pairs",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Animals | pairs",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/pairs.js',
-              config: { gameData: structuredClone(words.animals), gameTitle: 'Animals | pairs' },
-              nameSpace: 'pairsNamespace',
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(words.animals), gameTitle: "Animals | pairs" },
+              nameSpace: "pairsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-animals-images',
-            path: 'partials/games/html/images.html',
-            navbarName: 'Animals | Images',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-animals-images",
+            path: "partials/games/html/images.html",
+            navbarName: "Animals | Images",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/images.js',
-              config: { gameData: structuredClone(words.animals), gameTitle: 'Animals | Images' },
-              nameSpace: 'imagesNamespace',
+              script: "partials/games/js/images.js",
+              config: { gameData: structuredClone(words.animals), gameTitle: "Animals | Images" },
+              nameSpace: "imagesNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-clothes-answers',
-            path: 'partials/games/html/answers.html',
-            navbarName: 'Clothes | answers',
-            icon: 'bi-book-fill',
+            key: "#/vocabulary-game-clothes-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Clothes | answers",
+            icon: "bi-book-fill",
             game: {
-              script: 'partials/games/js/answers.js',
-              config: { gameData: structuredClone(words.clothes), gameTitle: 'Clothes | answers' },
-              nameSpace: 'wordsNamespace',
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(words.clothes), gameTitle: "Clothes | answers" },
+              nameSpace: "wordsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-clothes-pairs',
-            path: 'partials/games/html/pairs.html',
-            navbarName: 'Clothes | pairs',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-clothes-pairs",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Clothes | pairs",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/pairs.js',
-              config: { gameData: structuredClone(words.clothes), gameTitle: 'Clothes | pairs' },
-              nameSpace: 'pairsNamespace',
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(words.clothes), gameTitle: "Clothes | pairs" },
+              nameSpace: "pairsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-clothes-images',
-            path: 'partials/games/html/images.html',
-            navbarName: 'Clothes | Images',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-clothes-images",
+            path: "partials/games/html/images.html",
+            navbarName: "Clothes | Images",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/images.js',
-              config: { gameData: structuredClone(words.clothes), gameTitle: 'Clothes | Images' },
-              nameSpace: 'imagesNamespace',
+              script: "partials/games/js/images.js",
+              config: { gameData: structuredClone(words.clothes), gameTitle: "Clothes | Images" },
+              nameSpace: "imagesNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-food-answers',
-            path: 'partials/games/html/answers.html',
-            navbarName: 'Food | answers',
-            icon: 'bi-book-fill',
+            key: "#/vocabulary-game-food-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Food | answers",
+            icon: "bi-book-fill",
             game: {
-              script: 'partials/games/js/answers.js',
-              config: { gameData: structuredClone(words.food), gameTitle: 'Food | answers' },
-              nameSpace: 'wordsNamespace',
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(words.food), gameTitle: "Food | answers" },
+              nameSpace: "wordsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-food-pairs',
-            path: 'partials/games/html/pairs.html',
-            navbarName: 'Food | pairs',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-food-pairs",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Food | pairs",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/pairs.js',
-              config: { gameData: structuredClone(words.food), gameTitle: 'Food | pairs' },
-              nameSpace: 'pairsNamespace',
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(words.food), gameTitle: "Food | pairs" },
+              nameSpace: "pairsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-food-images',
-            path: 'partials/games/html/images.html',
-            navbarName: 'Food | Images',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-food-images",
+            path: "partials/games/html/images.html",
+            navbarName: "Food | Images",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/images.js',
-              config: { gameData: structuredClone(words.food), gameTitle: 'Food | Images' },
-              nameSpace: 'imagesNamespace',
+              script: "partials/games/js/images.js",
+              config: { gameData: structuredClone(words.food), gameTitle: "Food | Images" },
+              nameSpace: "imagesNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-colors-answers',
-            path: 'partials/games/html/answers.html',
-            navbarName: 'Colors | answers',
-            icon: 'bi-book-fill',
+            key: "#/vocabulary-game-colors-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Colors | answers",
+            icon: "bi-book-fill",
             game: {
-              script: 'partials/games/js/answers.js',
-              config: { gameData: structuredClone(words.colors), gameTitle: 'Colors | answers' },
-              nameSpace: 'wordsNamespace',
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(words.colors), gameTitle: "Colors | answers" },
+              nameSpace: "wordsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-colors-pairs',
-            path: 'partials/games/html/pairs.html',
-            navbarName: 'Colors | pairs',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-colors-pairs",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Colors | pairs",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/pairs.js',
-              config: { gameData: structuredClone(words.colors), gameTitle: 'Colors | pairs' },
-              nameSpace: 'pairsNamespace',
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(words.colors), gameTitle: "Colors | pairs" },
+              nameSpace: "pairsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-colors-images',
-            path: 'partials/games/html/images.html',
-            navbarName: 'Colors | Images',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-colors-images",
+            path: "partials/games/html/images.html",
+            navbarName: "Colors | Images",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/images.js',
-              config: { gameData: structuredClone(words.colors), gameTitle: 'Colors | Images' },
-              nameSpace: 'imagesNamespace',
+              script: "partials/games/js/images.js",
+              config: { gameData: structuredClone(words.colors), gameTitle: "Colors | Images" },
+              nameSpace: "imagesNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-colors-options',
-            path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Colors | options',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-colors-options",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Colors | options",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/questionoptions.js',
-              config: { gameData: structuredClone(words.colors), gameTitle: 'Colors | options' },
-              nameSpace: 'questionOptionsNamespace',
+              script: "partials/games/js/questionoptions.js",
+              config: { gameData: structuredClone(words.colors), gameTitle: "Colors | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-dow-answers',
-            path: 'partials/games/html/answers.html',
-            navbarName: 'Days Of The Week | answers',
-            icon: 'bi-book-fill',
+            key: "#/vocabulary-game-dow-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Days Of The Week | answers",
+            icon: "bi-book-fill",
             game: {
-              script: 'partials/games/js/answers.js',
-              config: { gameData: structuredClone(games.daysOfTheWeek), gameTitle: 'Days Of The Week | answers' },
-              nameSpace: 'wordsNamespace',
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(games.daysOfTheWeek), gameTitle: "Days Of The Week | answers" },
+              nameSpace: "wordsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-dow-options',
-            path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Days Of The Week | options',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-dow-options",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Days Of The Week | options",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/questionoptions.js',
-              config: { gameData: structuredClone(games.daysOfTheWeek), gameTitle: 'Days Of The Week | options' },
-              nameSpace: 'questionOptionsNamespace',
+              script: "partials/games/js/questionoptions.js",
+              config: { gameData: structuredClone(games.daysOfTheWeek), gameTitle: "Days Of The Week | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-moty-answers',
-            path: 'partials/games/html/answers.html',
-            navbarName: 'Months Of The Year | answers',
-            icon: 'bi-book-fill',
+            key: "#/vocabulary-game-moty-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Months Of The Year | answers",
+            icon: "bi-book-fill",
             game: {
-              script: 'partials/games/js/answers.js',
-              config: { gameData: structuredClone(games.monthsOfTheYear), gameTitle: 'Months Of The Year | answers' },
-              nameSpace: 'wordsNamespace',
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(games.monthsOfTheYear), gameTitle: "Months Of The Year | answers" },
+              nameSpace: "wordsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-moty-options',
-            path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Months Of The Year | options',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-moty-options",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Months Of The Year | options",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/questionoptions.js',
-              config: { gameData: structuredClone(games.monthsOfTheYear), gameTitle: 'Months Of The Year | options' },
-              nameSpace: 'questionOptionsNamespace',
+              script: "partials/games/js/questionoptions.js",
+              config: { gameData: structuredClone(games.monthsOfTheYear), gameTitle: "Months Of The Year | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-questions-options',
-            path: 'partials/games/html/questionoptions.html',
-            navbarName: 'Questions | options',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-questions-options",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Questions | options",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/questionoptions.js',
-              config: { gameData: structuredClone(games.questions), gameTitle: 'Questions | options' },
-              nameSpace: 'questionOptionsNamespace',
+              script: "partials/games/js/questionoptions.js",
+              config: { gameData: structuredClone(games.questions), gameTitle: "Questions | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-questions-answers',
-            path: 'partials/games/html/answers.html',
-            navbarName: 'Questions | answers',
-            icon: 'bi-book-fill',
+            key: "#/vocabulary-game-questions-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Questions | answers",
+            icon: "bi-book-fill",
             game: {
-              script: 'partials/games/js/answers.js',
-              config: { gameData: structuredClone(games.questions), gameTitle: 'Questions | answers' },
-              nameSpace: 'wordsNamespace',
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(games.questions), gameTitle: "Questions | answers" },
+              nameSpace: "wordsNamespace",
             },
           },
           {
-            key: '#/vocabulary-game-questions-pairs',
-            path: 'partials/games/html/pairs.html',
-            navbarName: 'Questions | pairs',
-            icon: 'bi-controller',
+            key: "#/vocabulary-game-questions-pairs",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Questions | pairs",
+            icon: "bi-controller",
             game: {
-              script: 'partials/games/js/pairs.js',
-              config: { gameData: structuredClone(games.questions), gameTitle: 'Questions | pairs' },
-              nameSpace: 'pairsNamespace',
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(games.questions), gameTitle: "Questions | pairs" },
+              nameSpace: "pairsNamespace",
             },
           },
         ],
       },
-      icon: 'bi-collection',
+      icon: "bi-collection",
     },
-    '#/songs': {
+    "#/songs": {
       dropdown: {
-        navbarName: 'Songs',
-        accordionName: 'songs',
+        navbarName: "Songs",
+        accordionName: "songs",
         links: [
           {
-            key: '#/songs-pasilyo',
-            path: 'partials/songs/pasilyo.html',
-            navbarName: 'Pasilyo',
-            icon: 'bi-file-earmark-music',
+            key: "#/songs-pasilyo",
+            path: "partials/songs/pasilyo.html",
+            navbarName: "Pasilyo",
+            icon: "bi-file-earmark-music",
           },
           {
-            key: '#/songs-filipinas',
-            path: 'partials/songs/filipinas.html',
-            navbarName: 'Filipinas',
-            icon: 'bi-file-earmark-music',
+            key: "#/songs-filipinas",
+            path: "partials/songs/filipinas.html",
+            navbarName: "Filipinas",
+            icon: "bi-file-earmark-music",
           },
         ],
       },
-      icon: 'bi-file-earmark-music',
+      icon: "bi-file-earmark-music",
     },
-    '#/about': {
-      path: 'partials/about.html',
-      navbarName: 'About',
-      icon: 'bi-info-circle',
+    "#/about": {
+      path: "partials/about.html",
+      navbarName: "About",
+      icon: "bi-info-circle",
     },
   },
   get_flat_routes: function () {
@@ -960,23 +960,23 @@ window.routerNamespace = {
   },
 
   getHashRoute: function () {
-    return location.hash || '#/';
+    return location.hash || "#/";
   },
   createPronounsNavItem: function (obj) {
     const createElement = (tag, attrs = {}, children = []) => {
       const el = document.createElement(tag);
       for (const [key, value] of Object.entries(attrs)) {
-        if (key === 'class') el.className = value;
-        else if (key === 'style') el.style.cssText = value;
-        else if (key === 'key') el.href = value;
+        if (key === "class") el.className = value;
+        else if (key === "style") el.style.cssText = value;
+        else if (key === "key") el.href = value;
         else el.setAttribute(key, value);
-        if (el.tagName === 'A') {
-          el.dataset.bsDismiss = 'offcanvas';
-          el.setAttribute('data-link', '');
+        if (el.tagName === "A") {
+          el.dataset.bsDismiss = "offcanvas";
+          el.setAttribute("data-link", "");
         }
       }
-      children.forEach(child => {
-        if (typeof child === 'string') {
+      children.forEach((child) => {
+        if (typeof child === "string") {
           el.appendChild(document.createTextNode(child));
         } else {
           el.appendChild(child);
@@ -988,64 +988,64 @@ window.routerNamespace = {
     const listItems = obj.dropdown.links;
 
     const ulList = createElement(
-      'ul',
-      { class: 'list-unstyled' },
-      listItems.map(item =>
-        createElement('li', { class: 'nav-item' }, [
+      "ul",
+      { class: "list-unstyled" },
+      listItems.map((item) =>
+        createElement("li", { class: "nav-item" }, [
           createElement(
-            'a',
+            "a",
             {
-              class: 'nav-link text-truncate hover-text-primary',
+              class: "nav-link text-truncate hover-text-primary",
               href: item.key,
               onclick: item.onclick,
-              'data-bs-dismiss': 'offcanvas',
+              "data-bs-dismiss": "offcanvas",
             },
             [
-              createElement('i', { class: `fs-5 ${item.icon}` }),
-              createElement('span', { class: 'ms-1 d-inline text-wrap' }, [item.navbarName]),
+              createElement("i", { class: `fs-5 ${item.icon}` }),
+              createElement("span", { class: "ms-1 d-inline text-wrap" }, [item.navbarName]),
             ],
           ),
         ]),
       ),
     );
 
-    const li = createElement('li', { class: 'nav-item container-fluid w- p-0' }, [
-      createElement('div', { class: 'accordion p-0 m-0', id: `${obj.dropdown.accordionName}Accordion` }, [
-        createElement('div', { class: 'accordion-item border-0' }, [
-          createElement('h2', { class: 'accordion-header' }, [
+    const li = createElement("li", { class: "nav-item container-fluid w- p-0" }, [
+      createElement("div", { class: "accordion p-0 m-0", id: `${obj.dropdown.accordionName}Accordion` }, [
+        createElement("div", { class: "accordion-item border-0" }, [
+          createElement("h2", { class: "accordion-header" }, [
             createElement(
-              'button',
+              "button",
               {
-                class: 'accordion-button collapsed nav-link text-truncate p-3',
-                type: 'button',
-                'data-bs-toggle': 'collapse',
-                'data-bs-target': `#collapse${obj.dropdown.accordionName}`,
-                'aria-expanded': 'false',
-                'aria-controls': `collapse${obj.dropdown.accordionName}`,
+                class: "accordion-button collapsed nav-link text-truncate p-3",
+                type: "button",
+                "data-bs-toggle": "collapse",
+                "data-bs-target": `#collapse${obj.dropdown.accordionName}`,
+                "aria-expanded": "false",
+                "aria-controls": `collapse${obj.dropdown.accordionName}`,
               },
               [
                 createElement(
-                  'span',
+                  "span",
                   {
-                    style: 'text-decoration: none',
-                    class: 'hover-text-primary text-primary',
+                    style: "text-decoration: none",
+                    class: "hover-text-primary text-primary",
                   },
                   [
-                    createElement('i', { class: 'fs-5 bi-collection' }),
-                    createElement('span', { class: 'ms-1 d-sm-inline' }, [obj.dropdown.navbarName]),
+                    createElement("i", { class: "fs-5 bi-collection" }),
+                    createElement("span", { class: "ms-1 d-sm-inline" }, [obj.dropdown.navbarName]),
                   ],
                 ),
               ],
             ),
           ]),
           createElement(
-            'div',
+            "div",
             {
               id: `collapse${obj.dropdown.accordionName}`,
-              class: 'accordion-collapse collapse',
-              'data-bs-parent': `#${obj.dropdown.accordionName}Accordion`,
+              class: "accordion-collapse collapse",
+              "data-bs-parent": `#${obj.dropdown.accordionName}Accordion`,
             },
-            [createElement('div', { class: 'accordion-body' }, [ulList])],
+            [createElement("div", { class: "accordion-body" }, [ulList])],
           ),
         ]),
       ]),
@@ -1054,30 +1054,30 @@ window.routerNamespace = {
     return li;
   },
   createSimpleNavItem: function (routeObj, route) {
-    const li = document.createElement('li');
-    li.classList.add('nav-item', 'd-block');
-    li.style.display = 'block';
-    li.style.width = '100%';
-    const a = document.createElement('a');
-    a.classList.add('nav-link', 'text-truncate', 'hover-text-primary');
+    const li = document.createElement("li");
+    li.classList.add("nav-item", "d-block");
+    li.style.display = "block";
+    li.style.width = "100%";
+    const a = document.createElement("a");
+    a.classList.add("nav-link", "text-truncate", "hover-text-primary");
     a.href = route;
-    a.dataset.bsDismiss = 'offcanvas';
-    const i = document.createElement('i');
-    i.classList.add('fs-5', routeObj.icon);
-    const span = document.createElement('span');
-    span.classList.add('ms-1', 'd-inline', 'text-wrap');
+    a.dataset.bsDismiss = "offcanvas";
+    const i = document.createElement("i");
+    i.classList.add("fs-5", routeObj.icon);
+    const span = document.createElement("span");
+    span.classList.add("ms-1", "d-inline", "text-wrap");
     span.innerHTML = routeObj.navbarName;
 
     li.appendChild(a);
     a.appendChild(i);
     a.appendChild(span);
 
-    a.setAttribute('data-link', '');
+    a.setAttribute("data-link", "");
     return li;
   },
   generate_sidebar: function () {
-    Object.keys(routerNamespace.routes_obj).forEach(route => {
-      const navbar = document.getElementById('sidebarUl');
+    Object.keys(routerNamespace.routes_obj).forEach((route) => {
+      const navbar = document.getElementById("sidebarUl");
       const routeObj = routerNamespace.routes_obj[route];
       if (routeObj.dropdown) {
         navbar.appendChild(routerNamespace.createPronounsNavItem(routeObj));
@@ -1089,20 +1089,20 @@ window.routerNamespace = {
   },
   navigate: function () {
     function highlightActiveLink(path) {
-      document.querySelectorAll('.nav-link,a').forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === path || a.textContent === path);
+      document.querySelectorAll(".nav-link,a").forEach((a) => {
+        a.classList.toggle("active", a.getAttribute("href") === path || a.textContent === path);
       });
     }
     const path = routerNamespace.getHashRoute();
-    const route = routerNamespace.get_flat_routes()[path].path || routerNamespace.get_flat_routes()['#/'].path;
-    swap = htmx.ajax('GET', route, { target: '#mainSection', swap: 'innerHTML' });
+    const route = routerNamespace.get_flat_routes()[path].path || routerNamespace.get_flat_routes()["#/"].path;
+    swap = htmx.ajax("GET", route, { target: "#mainSection", swap: "innerHTML" });
     highlightActiveLink(path);
     routerNamespace.currentPath = path;
     swap.then(
-      value => {
+      (value) => {
         console.log(`Swap completed for ${route}`);
         if (routerNamespace.get_flat_routes()[path].game) {
-          console.log('loading game script');
+          console.log("loading game script");
           loadScriptNamespace.load(
             routerNamespace.get_flat_routes()[path].game.script,
             routerNamespace.get_flat_routes()[path].game.nameSpace,
@@ -1110,8 +1110,8 @@ window.routerNamespace = {
           );
         }
       },
-      error => {
-        console.log('Oops! something happend during the swap');
+      (error) => {
+        console.log("Oops! something happend during the swap");
         console.log(error);
       },
     );
@@ -1122,15 +1122,15 @@ window.routerNamespace = {
     routerNamespace.generate_sidebar();
 
     // Detectar clics en enlaces (incluyendo dropdowns)
-    document.body.addEventListener('click', e => {
-      const link = e.target.closest('a[data-link], .dropdown-btn');
+    document.body.addEventListener("click", (e) => {
+      const link = e.target.closest("a[data-link], .dropdown-btn");
       if (link) {
         e.preventDefault();
-        location.hash = link.getAttribute('href') || `#${link.textContent.toLowerCase().replace(/\s+/g, '-')}`;
+        location.hash = link.getAttribute("href") || `#${link.textContent.toLowerCase().replace(/\s+/g, "-")}`;
       }
     });
     // Detectar cambios en el hash (atrás/adelante, navegación)
-    window.addEventListener('hashchange', window.routerNamespace.navigate);
+    window.addEventListener("hashchange", window.routerNamespace.navigate);
     // Load initial view
     window.routerNamespace.navigate();
   },
