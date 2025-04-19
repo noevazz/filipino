@@ -1,0 +1,26 @@
+<div class="responsive-width mx-auto">
+  <h2 id="gameTitle"></h2>
+  <div class="container py-5">
+    <h2 class="mb-4 text-center" id="gameTitle"></h2>
+
+    <div id="game" class="mb-4">
+      <p class="mb-2"><strong class="bg-primary pill rounded p-1">English:</strong></p>
+      <p class="mb-4"><span id="englishSentence"></span></p>
+      
+      <div>
+        <p><strong class="bg-success pill rounded p-1">Filipino:</strong></p>
+        <p>
+            <span id="filipinoSentence"></span>
+
+        </p>
+      </div>
+    </div>
+
+    <button class="btn btn-primary me-2" onclick="completeSentenceNamespace.checkAnswers()" id="checkAnswers">Check Answers</button>
+    <button class="btn btn-danger me-2" onclick="completeSentenceNamespace.showAnswer()" id="showAnswer">Show Answer</button>
+    <button class="btn btn-warning" onclick="completeSentenceNamespace.showHint()" id="showHint">Show Hint</button>
+
+    <div id="result" class="mt-3 fw-bold"></div>
+    <div id="hint" class="mt-3 fw-bold"></div>
+  </div>
+</div>

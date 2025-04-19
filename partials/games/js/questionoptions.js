@@ -4,6 +4,11 @@ function but not explicitly on window, it won’t be added to the
 window object, even if it seems "global."
 */
 
+const sentences = [
+  {filipino: "ang aking nanay ay mulasa Mexico", english: "my mom is from france", completeIndex: [0, 4]},
+  {filipino: "aking babaeng kapatid", english: "my sister", completeIndex: [-1]} // user needs to provide all
+]
+
 window.questionOptionsNamespace = {
   vars: {
     position: 0,

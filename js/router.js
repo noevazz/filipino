@@ -357,6 +357,35 @@ const games = {
   ],
 };
 
+const sentences = {
+  common: [
+    {
+      filipino: "ang aking nanay ay mula sa Mexico",
+      english: "my mom is from Mexico",
+      completeIndex: [0, 3, 6],
+      hint: "use the inverse structure with ay, do not use tildes"
+    },
+    {
+      filipino: "aking babaeng kapatid",
+      english: "my sister",
+      completeIndex: [-1], // All words replaced with inputs when -1
+      hint: "aking means my, kapatid means sibling"
+    },
+    {
+      filipino: "aking lalaking kapatid",
+      english: "my brother",
+      completeIndex: [1],
+      hint: "aking means my, lalaki means man"
+    },
+    {
+      filipino: "aking lalaking kapatid at aking babaeng kapatid",
+      english: "my brother and my sister",
+      completeIndex: [0, 3, 4],
+      hint: "at means and"
+    }
+  ]
+}
+
 window.routerNamespace = {
   currentPath: '#/',
   routes_obj: {
@@ -492,9 +521,30 @@ window.routerNamespace = {
       icon: 'bi-book',
     },
     '#/sentencestructure': {
-      path: 'partials/sentencestructure.html',
-      navbarName: 'Sentences Structure',
-      icon: 'bi-book',
+      dropdown: {
+        navbarName: 'Sentence Structure',
+        accordionName: 'sentencestructure',
+        links: [
+          {
+            key: '#/sentencestructure-overview',
+            path: 'partials/sentencestructure.html',
+            navbarName: 'Overview',
+            icon: 'bi-book',
+          },
+          {
+            key: '#/sentencestructure-game',
+            path: 'partials/games/html/completesentence.html',
+            navbarName: 'Complete the sentence',
+            icon: 'bi-controller',
+            game: {
+              script: 'partials/games/js/completesentence.js',
+              config: { gameData: sentences.common, gameTitle: 'Complete the sentence' },
+              nameSpace: 'completeSentenceNamespace',
+            },
+          },
+        ],
+      },
+      icon: 'bi-collection',
     },
     '#/greetings': {
       dropdown: {
