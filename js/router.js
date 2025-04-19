@@ -360,6 +360,18 @@ const games = {
 const sentences = {
   common: [
     {
+      filipino: "paalam",
+      english: "goodbye",
+      completeIndex: [-1],
+      hint: "no hints, this one is easy!",
+    },
+    {
+      filipino: "Siya ay si Bob",
+      english: "This is Bob / He is Bob",
+      completeIndex: [0, 2],
+      hint: "Use the pronoun for he/she. Remember that personal nouns use 'si'",
+    },
+    {
       filipino: "ang aking nanay ay mula sa Mexico",
       english: "my mom is from Mexico",
       completeIndex: [0, 3, 6],
