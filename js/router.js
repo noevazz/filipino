@@ -551,6 +551,27 @@ window.routerNamespace = {
       navbarName: "Object/Actor Focus Verbs",
       icon: "bi-book",
     },
+    "#/particles": {
+      dropdown: {
+        navbarName: "Particles",
+        accordionName: "particles",
+        links: [
+          {
+            key: "#/particles-overview",
+            path: "partials/particles/overview.html",
+            navbarName: "Overview",
+            icon: "bi-book",
+          },
+          {
+            key: "#/particles-ba",
+            path: "partials/particles/ba.html",
+            navbarName: "Ba",
+            icon: "bi-book",
+          },
+        ],
+      },
+      icon: "bi-collection",
+    },
     "#/sentencestructure": {
       dropdown: {
         navbarName: "Sentence Structure",
