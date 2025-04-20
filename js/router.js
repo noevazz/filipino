@@ -370,7 +370,7 @@ const sentences = {
       filipino: "tsaa na may asukal",
       english: "tea with sugar",
       completeIndex: [1],
-      hint: "The most common ligatures are: 'na'  used when the word ends in a consonant, 'ng' used when the word ends in a vowel. HOWEVER,  'ng' is used when you're linking a noun and an adjective directly BUT 'ay asukal' is a full phrase ('has sugar) not a single word/adejctive, therefore 'na' is used used to connect the noun ('tsaa') with the whole descriptive phrase."
+      hint: "The most common ligatures are: 'na'  used when the word ends in a consonant, 'ng' used when the word ends in a vowel. HOWEVER,  'ng' is used when you're linking a noun and an adjective directly BUT 'may asukal' is a full phrase ('has sugar) not a single word/adejctive, therefore 'na' is used used to connect the noun ('tsaa') with the whole descriptive phrase."
     },
     {
       filipino: "Siya ay si Noe",
