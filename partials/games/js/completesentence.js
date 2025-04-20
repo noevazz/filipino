@@ -2,6 +2,7 @@ window.completeSentenceNamespace = {
   vars: {
     current: 0,
     sentences: null,
+    firstInput: null,
   },
   createStyledInput: function (index, word) {
     const input = document.createElement("input");
@@ -28,6 +29,7 @@ window.completeSentenceNamespace = {
     if (game.completeIndex[0] === -1) {
       for (let i = 0; i < words.length; i++) {
         const input = completeSentenceNamespace.createStyledInput(i, words[i]);
+        if (i === 0) completeSentenceNamespace.vars.firstInput = input;
         container.appendChild(input);
       }
     } else {
@@ -35,6 +37,7 @@ window.completeSentenceNamespace = {
         if (game.completeIndex.includes(i)) {
           const input = completeSentenceNamespace.createStyledInput(i, words[i]);
           container.appendChild(input);
+          if (game.completeIndex[0] === i) completeSentenceNamespace.vars.firstInput = input;
         } else {
           const span = document.createElement("span");
           span.textContent = words[i];
@@ -46,17 +49,19 @@ window.completeSentenceNamespace = {
 
     document.getElementById("englishSentence").textContent = game.english;
     document.getElementById("result").textContent = "";
+    completeSentenceNamespace.vars.firstInput.focus();
   },
 
   handleOptions: function (config) {
     document.getElementById("gameTitle").innerHTML = config.gameTitle;
     completeSentenceNamespace.current = 0;
     completeSentenceNamespace.sentences = config.gameData;
+    completeSentenceNamespace.vars.firstInput = null;
     completeSentenceNamespace.renderSentence();
   },
-  increaseProgressBar: function(yourArrayLength, currentPosition) {
+  increaseProgressBar: function (yourArrayLength, currentPosition) {
     const progressBar = document.getElementById("progressBar");
-    const percentage = ((currentPosition+1)/(yourArrayLength+1))*100;
+    const percentage = ((currentPosition + 1) / (yourArrayLength + 1)) * 100;
     progressBar.innerHTML = Math.ceil(percentage).toString() + "%";
     progressBar.style.width = Math.ceil(percentage).toString() + "%";
   },
@@ -115,7 +120,10 @@ window.completeSentenceNamespace = {
       document.getElementById("showHint").disabled = true;
       completeSentenceNamespace.disableCurrentInputs();
       completeSentenceNamespace.current += 1;
-      completeSentenceNamespace.increaseProgressBar(completeSentenceNamespace.sentences.length, completeSentenceNamespace.current)
+      completeSentenceNamespace.increaseProgressBar(
+        completeSentenceNamespace.sentences.length,
+        completeSentenceNamespace.current,
+      );
       if (completeSentenceNamespace.current < completeSentenceNamespace.sentences.length) {
         confetti({ particleCount: 50 });
         setTimeout(() => {
