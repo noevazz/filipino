@@ -25,17 +25,24 @@ window.completeSentenceNamespace = {
     const words = game.filipino.split(" ");
     const container = document.getElementById("filipinoSentence");
     container.innerHTML = "";
+    const triggerAnswerCheck = event => {
+      if (event.key === "Enter") {
+        completeSentenceNamespace.checkAnswers();
+      }
+    };
 
     if (game.completeIndex[0] === -1) {
       for (let i = 0; i < words.length; i++) {
         const input = completeSentenceNamespace.createStyledInput(i, words[i]);
         if (i === 0) completeSentenceNamespace.vars.firstInput = input;
+        input.addEventListener("keypress", triggerAnswerCheck);
         container.appendChild(input);
       }
     } else {
       for (let i = 0; i < words.length; i++) {
         if (game.completeIndex.includes(i)) {
           const input = completeSentenceNamespace.createStyledInput(i, words[i]);
+          input.addEventListener("keypress", triggerAnswerCheck);
           container.appendChild(input);
           if (game.completeIndex[0] === i) completeSentenceNamespace.vars.firstInput = input;
         } else {
