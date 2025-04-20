@@ -385,6 +385,12 @@ const sentences = {
       hint: "use the inverse structure with ay, do not use tildes",
     },
     {
+      filipino: "ako ay mula sa Mexico",
+      english: "I am from Mexico",
+      completeIndex: [0, 1],
+      hint: "You don't need 'ang' when the subject is a personal pronoun like siya (he/she), ako (I), or sila (they).",
+    },
+    {
       filipino: "aking babaeng kapatid",
       english: "my sister",
       completeIndex: [-1], // All words replaced with inputs when -1
