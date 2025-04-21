@@ -48,6 +48,20 @@ function preloadImages(imageUrls) {
   });
 }
 const words = {
+  body: [
+    { filipino: "ilong", imgURL: "img/body/ilong.svg", english: "nose" },
+    { filipino: "mata", imgURL: "img/body/mata.svg", english: "eye" },
+    { filipino: "paa", imgURL: "img/body/paa.svg", english: "foot" },
+    { filipino: "puso", imgURL: "img/body/puso.svg", english: "heart" },
+    { filipino: "tenga", imgURL: "img/body/tenga.svg", english: "ears" },
+    { filipino: "ulo", imgURL: "img/body/ulo.svg", english: "head" },
+    { filipino: "kamay", imgURL: "img/body/kamay.svg", english: "hand" },
+    { filipino: "braso", imgURL: "img/body/braso.svg", english: "arm" },
+    { filipino: "hita", imgURL: "img/body/hita.svg", english: "leg" },
+    { filipino: "buto", imgURL: "img/body/buto.svg", english: "bone" },
+    { filipino: "bibig", imgURL: "img/body/bibig.svg", english: "mouth" },
+    { filipino: "dila", imgURL: "img/body/dila.svg", english: "tongue" },
+  ],
   activities: [
     { filipino: "nagluluto", imgURL: "img/nagluluto.svg", english: "cooking" },
     { filipino: "kumakain", imgURL: "img/kumakain.svg", english: "eating" },
@@ -164,6 +178,7 @@ preloadImages(words.animals.map((item) => item.imgURL));
 preloadImages(words.clothes.map((item) => item.imgURL));
 preloadImages(words.food.map((item) => item.imgURL));
 preloadImages(words.colors.map((item) => item.imgURL));
+preloadImages(words.body.map((item) => item.imgURL));
 
 const games = {
   pronounsGroup1: [
@@ -744,6 +759,39 @@ window.routerNamespace = {
             game: {
               script: "partials/games/js/images.js",
               config: { gameData: structuredClone(words.activities), gameTitle: "Activities | Images" },
+              nameSpace: "imagesNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-body-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Body | answers",
+            icon: "bi-book-fill",
+            game: {
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(words.body), gameTitle: "Body | answers" },
+              nameSpace: "wordsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-body-pairs",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Body | pairs",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(words.body), gameTitle: "Body | pairs" },
+              nameSpace: "pairsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-body-images",
+            path: "partials/games/html/images.html",
+            navbarName: "Body | Images",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/images.js",
+              config: { gameData: structuredClone(words.body), gameTitle: "Body | Images" },
               nameSpace: "imagesNamespace",
             },
           },
