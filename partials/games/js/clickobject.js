@@ -32,6 +32,7 @@ window.clickobjectNamespace = {
 
       setTimeout(() => {
         if (clickobjectNamespace.vars.position == clickobjectNamespace.vars.gameData.length) {
+            document.getElementById("question").textContent = "Congratulations!, click in the parts if you want to review."
             var myModal = new bootstrap.Modal(document.getElementById('modalGame'));
             myModal.show();
         } else {
