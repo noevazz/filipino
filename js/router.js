@@ -385,7 +385,7 @@ const sentences = {
       filipino: "tsaa na may asukal",
       english: "tea with sugar",
       completeIndex: [1],
-      hint: "The most common ligatures are: 'na'  used when the word ends in a consonant, 'ng' used when the word ends in a vowel. HOWEVER,  'ng' is used when you're linking a noun and an adjective directly BUT 'may asukal' is a full phrase ('has sugar) not a single word/adejctive, therefore 'na' is used used to connect the noun ('tsaa') with the whole descriptive phrase."
+      hint: "The most common ligatures are: 'na'  used when the word ends in a consonant, 'ng' used when the word ends in a vowel. HOWEVER,  'ng' is used when you're linking a noun and an adjective directly BUT 'may asukal' is a full phrase ('has sugar) not a single word/adejctive, therefore 'na' is used used to connect the noun ('tsaa') with the whole descriptive phrase.",
     },
     {
       filipino: "Siya ay si Noe",
@@ -429,6 +429,20 @@ const sentences = {
       completeIndex: [3],
       hint: "'ito' means 'this', used to point something directly (ito ang libro/this book). 'nito' shows ownership or relationship, this is called genitive (possessive), but in simple words  it shows that something belongs to or is related to something else ('price' belong to 'this').",
     },
+  ],
+};
+
+const image_clicks = {
+  body: [
+    "braso", //arm
+    "ulo", //head
+    "kamay", //hand
+    "binti", //leg
+    "paa", //foot
+    "mata", //eye
+    "ilong", //nose
+    "bibig", //mouth
+    "tainga", //ear
   ],
 };
 
@@ -487,7 +501,6 @@ window.routerNamespace = {
             icon: "bi-controller",
             game: {
               script: "partials/games/js/questionoptions.js",
-              config: games.pronounsGroup1,
               config: { gameData: structuredClone(games.pronounsGroup1), gameTitle: "Game Group 1 | options" },
               nameSpace: "questionOptionsNamespace",
             },
@@ -793,6 +806,17 @@ window.routerNamespace = {
               script: "partials/games/js/images.js",
               config: { gameData: structuredClone(words.body), gameTitle: "Body | Images" },
               nameSpace: "imagesNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-body-click",
+            path: "partials/games/html/body.html",
+            navbarName: "Body | Click",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/clickobject.js",
+              config: { gameData: image_clicks.body, gameTitle: "Body | Click" },
+              nameSpace: "clickobjectNamespace",
             },
           },
           {
