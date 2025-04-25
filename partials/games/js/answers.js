@@ -27,8 +27,9 @@ window.wordsNamespace = {
       const spanFilipino = document.createElement("span");
       const spanEnglish = document.createElement("span");
 
-      div.className = "m-2 p-4 card shadow text-center d-flex flex-column align-items-center";
+      div.className = "m-2 border rounded p-4 shadow text-center d-flex flex-column align-items-center jiggle";
       div.style.width = "200px";
+      div.style.backdropFilter = "blur(3px)"
       if (item.imgURL !== undefined) {
         div.style.height = "200px";
       } else {
@@ -44,7 +45,7 @@ window.wordsNamespace = {
       if (item.imgURL !== undefined) {
         const img = document.createElement("img");
         img.src = item.imgURL;
-        img.className = "mx-auto d-block jiggle";
+        img.className = "mx-auto d-block";
         img.style.filter = "drop-shadow(3px 2.5px 4px #000A)";
         img.style.width = "50%";
         img.alt = `${item.filipino}/${item.english}`;
