@@ -172,6 +172,17 @@ const words = {
     { filipino: "Abo/Abuhin", english: "Gray", imgURL: "img/colors/abo_abuhin.svg" },
     { filipino: "Kayumanggi", english: "Brown", imgURL: "img/colors/kayumanggi.svg" },
   ],
+  places: [
+    { filipino: "bangko", english: "bank", imgURL: "img/places/bangko.svg" },
+    { filipino: "banyo", english: "bathroom", imgURL: "img/places/banyo.svg" },
+    { filipino: "parke", english: "park", imgURL: "img/places/parke.svg" },
+    { filipino: "lugsod/siyudad", english: "city", imgURL: "img/places/lungsod.svg" },
+    { filipino: "hotel", english: "hotel", imgURL: "img/places/hotel.svg" },
+    { filipino: "bahay", english: "house", imgURL: "img/places/bahay.svg" },
+    { filipino: "paaralan", english: "school", imgURL: "img/places/paaralan.svg" },
+    { filipino: "simbahan/iglesia", english: "church", imgURL: "img/places/simbahan.svg" },
+    { filipino: "restawran", english: "restaurant", imgURL: "img/places/restawran.svg" },
+  ]
 };
 preloadImages(words.activities.map((item) => item.imgURL));
 preloadImages(words.animals.map((item) => item.imgURL));
@@ -179,6 +190,7 @@ preloadImages(words.clothes.map((item) => item.imgURL));
 preloadImages(words.food.map((item) => item.imgURL));
 preloadImages(words.colors.map((item) => item.imgURL));
 preloadImages(words.body.map((item) => item.imgURL));
+preloadImages(words.places.map((item) => item.imgURL));
 
 const games = {
   pronounsGroup1: [
@@ -963,6 +975,50 @@ window.routerNamespace = {
             },
           },
           {
+            key: "#/vocabulary-game-places-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Places | answers",
+            icon: "bi-book-fill",
+            game: {
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(words.places), gameTitle: "Places | answers" },
+              nameSpace: "wordsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-places-pairs",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Places | pairs",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(words.places), gameTitle: "Places | pairs" },
+              nameSpace: "pairsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-places-images",
+            path: "partials/games/html/images.html",
+            navbarName: "Places | Images",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/images.js",
+              config: { gameData: structuredClone(words.places), gameTitle: "Places | Images" },
+              nameSpace: "imagesNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-places-options",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Places | options",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/questionoptions.js",
+              config: { gameData: structuredClone(words.places), gameTitle: "Places | options" },
+              nameSpace: "questionOptionsNamespace",
+            },
+          },
+          {
             key: "#/vocabulary-game-dow-answers",
             path: "partials/games/html/answers.html",
             navbarName: "Days Of The Week | answers",
@@ -1007,17 +1063,6 @@ window.routerNamespace = {
             },
           },
           {
-            key: "#/vocabulary-game-questions-options",
-            path: "partials/games/html/questionoptions.html",
-            navbarName: "Questions | options",
-            icon: "bi-controller",
-            game: {
-              script: "partials/games/js/questionoptions.js",
-              config: { gameData: structuredClone(games.questions), gameTitle: "Questions | options" },
-              nameSpace: "questionOptionsNamespace",
-            },
-          },
-          {
             key: "#/vocabulary-game-questions-answers",
             path: "partials/games/html/answers.html",
             navbarName: "Questions | answers",
@@ -1026,6 +1071,17 @@ window.routerNamespace = {
               script: "partials/games/js/answers.js",
               config: { gameData: structuredClone(games.questions), gameTitle: "Questions | answers" },
               nameSpace: "wordsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-questions-options",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Questions | options",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/questionoptions.js",
+              config: { gameData: structuredClone(games.questions), gameTitle: "Questions | options" },
+              nameSpace: "questionOptionsNamespace",
             },
           },
           {
