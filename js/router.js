@@ -386,6 +386,50 @@ const games = {
 };
 
 const sentences = {
+  questions: [
+    {
+      filipino: "Bakit hindi mo alam?",
+      english: "Why don't you know?",
+      completeIndex: [0, 2],
+      hint: "Use the possesive personal pronoun",
+    },
+    {
+      filipino: "Ano ang nangyari?",
+      english: "What happened?",
+      completeIndex: [0],
+      hint: "no hints, this one is easy!",
+    },
+    {
+      filipino: "Saan ito naganap?",
+      english: "Where did it happen?",
+      completeIndex: [0, 1],
+      hint: "Use the word for 'this'.",
+    },
+    {
+      filipino: "Sino ang kasama mo ?",
+      english: "Who was with you?",
+      completeIndex: [0, 3],
+      hint: "Use the possesive personal pronoun",
+    },
+    {
+      filipino: "Kailan ito nangyari?",
+      english: "When did it happen?",
+      completeIndex: [0, 1],
+      hint: "Use the word for 'this'.",
+    },
+    {
+      filipino: "Paano ito nagsimula?",
+      english: "How did it start?",
+      completeIndex: [0, 1],
+      hint: "Use the word for 'this'.",
+    },
+    {
+      filipino: "Alin sa mga ito ang totoo?",
+      english: "Which of these is true?",
+      completeIndex: [0, 2],
+      hint: "Use the word to make plural.",
+    },
+  ],  
   common: [
     {
       filipino: "paalam",
@@ -1093,6 +1137,17 @@ window.routerNamespace = {
               script: "partials/games/js/pairs.js",
               config: { gameData: structuredClone(games.questions), gameTitle: "Questions | pairs" },
               nameSpace: "pairsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-questions-sentences",
+            path: "partials/games/html/completesentence.html",
+            navbarName: "Questions | sentences",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/completesentence.js",
+              config: { gameData: sentences.questions, gameTitle: "Questions | sentences" },
+              nameSpace: "completeSentenceNamespace",
             },
           },
         ],
