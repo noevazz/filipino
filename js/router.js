@@ -57,7 +57,7 @@ const words = {
     { filipino: "ulo", imgURL: "img/body/ulo.svg", english: "head" },
     { filipino: "kamay", imgURL: "img/body/kamay.svg", english: "hand" },
     { filipino: "braso", imgURL: "img/body/braso.svg", english: "arm" },
-    { filipino: "hita", imgURL: "img/body/hita.svg", english: "leg" },
+    { filipino: "binti", imgURL: "img/body/binti.svg", english: "leg" },
     { filipino: "buto", imgURL: "img/body/buto.svg", english: "bone" },
     { filipino: "bibig", imgURL: "img/body/bibig.svg", english: "mouth" },
     { filipino: "dila", imgURL: "img/body/dila.svg", english: "tongue" },
