@@ -107,7 +107,7 @@ window.pairsNamespace = {
       if (pairsNamespace.vars.options.length != 1)
         confetti({ particleCount: 50 })
       else
-        confetti({ particleCount: 300 })
+        confetti({ particleCount: 300 });
       setTimeout(() => {
         pairsNamespace.vars.selectedEnglish.remove(); // since I am removing the elements here I do not need to call handleOptions again
         pairsNamespace.vars.selectedFilipino.remove();
@@ -120,6 +120,7 @@ window.pairsNamespace = {
             document.getElementById('modalGame'),
           );
           myModal.show();
+          document.getElementById("imageCompleted").style.display = "inline";
         }
         pairsNamespace.disableOpts(false);
       }, 1000);
