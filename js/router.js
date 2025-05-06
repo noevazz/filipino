@@ -581,6 +581,17 @@ window.routerNamespace = {
             },
           },
           {
+            key: "#/pronouns-game-pairs-group1",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Game Ang Group | Pairs",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(games.pronounsGroup1), gameTitle: "Game Group 1 | options" },
+              nameSpace: "pairsNamespace",
+            },
+          },
+          {
             key: "#/pronouns-game-group2",
             path: "partials/games/html/questionoptions.html",
             navbarName: "Game Ng Group | options",
@@ -593,6 +604,18 @@ window.routerNamespace = {
             },
           },
           {
+            key: "#/pronouns-game-pairs-group2",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Game Ng Group | Pairs",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/pairs.js",
+              config: games.pronounsGroup2,
+              config: { gameData: structuredClone(games.pronounsGroup2), gameTitle: "Game Group 2 | options" },
+              nameSpace: "pairsNamespace",
+            },
+          },
+          {
             key: "#/pronouns-game-group3",
             path: "partials/games/html/questionoptions.html",
             navbarName: "Game Sa Group | options",
@@ -602,6 +625,18 @@ window.routerNamespace = {
               config: games.pronounsGroup3,
               config: { gameData: structuredClone(games.seroToTen), gameTitle: "Game Group 3 | options" },
               nameSpace: "questionOptionsNamespace",
+            },
+          },
+          {
+            key: "#/pronouns-game-pairs-group3",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Game Sa Group | Pairs",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/pairs.js",
+              config: games.pronounsGroup3,
+              config: { gameData: structuredClone(games.seroToTen), gameTitle: "Game Group 3 | options" },
+              nameSpace: "pairsNamespace",
             },
           },
         ],
