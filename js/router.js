@@ -43,7 +43,7 @@ function preloadImages(imageUrls) {
   }
   imageUrls.forEach((url) => {
     loadPromise(url).then((value) => {
-      console.log(value);
+      console.debug(value);
     });
   });
 }
@@ -197,13 +197,9 @@ const words = {
     { filipino: "trombon", english: "trombone", imgURL: "img/instruments/trombon.svg" },
   ],
 };
-preloadImages(words.activities.map((item) => item.imgURL));
-preloadImages(words.animals.map((item) => item.imgURL));
-preloadImages(words.clothes.map((item) => item.imgURL));
-preloadImages(words.food.map((item) => item.imgURL));
-preloadImages(words.colors.map((item) => item.imgURL));
-preloadImages(words.body.map((item) => item.imgURL));
-preloadImages(words.places.map((item) => item.imgURL));
+for (const [key, value] of Object.entries(words)) {
+  preloadImages(value.map((item) => item.imgURL));
+};
 
 const games = {
   pronounsGroup1: [
