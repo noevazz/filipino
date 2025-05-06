@@ -182,7 +182,20 @@ const words = {
     { filipino: "paaralan", english: "school", imgURL: "img/places/paaralan.svg" },
     { filipino: "simbahan/iglesia", english: "church", imgURL: "img/places/simbahan.svg" },
     { filipino: "restawran", english: "restaurant", imgURL: "img/places/restawran.svg" },
-  ]
+  ],
+  instruments: [
+    { filipino: "biyulin", english: "violin", imgURL: "img/instruments/biyulin.svg" },
+    { filipino: "gitara", english: "guitar", imgURL: "img/instruments/gitara.svg" },
+    { filipino: "marakas", english: "maracas", imgURL: "img/instruments/marakas.svg" },
+    { filipino: "piyano", english: "piano", imgURL: "img/instruments/piyano.svg" },
+    { filipino: "plawta", english: "flute", imgURL: "img/instruments/plawta.svg" },
+    { filipino: "saksopon", english: "saxophone", imgURL: "img/instruments/saksopon.svg" },
+    { filipino: "tambol", english: "drum", imgURL: "img/instruments/tambol.svg" },
+    { filipino: "trompeta", english: "trumpet", imgURL: "img/instruments/trompeta.svg" },
+    { filipino: "mikropono", english: "microphone", imgURL: "img/instruments/mikropono.svg" },
+    { filipino: "akurdyon", english: "accordion", imgURL: "img/instruments/akurdyon.svg" },
+    { filipino: "trombon", english: "trombone", imgURL: "img/instruments/trombon.svg" },
+  ],
 };
 preloadImages(words.activities.map((item) => item.imgURL));
 preloadImages(words.animals.map((item) => item.imgURL));
@@ -784,6 +797,39 @@ window.routerNamespace = {
             game: {
               script: "partials/games/js/images.js",
               config: { gameData: structuredClone(words.activities), gameTitle: "Activities | Images" },
+              nameSpace: "imagesNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-instruments-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Instruments | answers",
+            icon: "bi-book-fill",
+            game: {
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(words.instruments), gameTitle: "Instruments | answers" },
+              nameSpace: "wordsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-instruments-pairs",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Instruments | pairs",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(words.instruments), gameTitle: "Instruments | pairs" },
+              nameSpace: "pairsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-instruments-images",
+            path: "partials/games/html/images.html",
+            navbarName: "Instruments | Images",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/images.js",
+              config: { gameData: structuredClone(words.instruments), gameTitle: "Instruments | Images" },
               nameSpace: "imagesNamespace",
             },
           },
