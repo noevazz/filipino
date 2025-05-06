@@ -745,6 +745,12 @@ window.routerNamespace = {
             icon: "bi-book",
           },
           {
+            key: "#/greetings-introduce-yourself",
+            path: "partials/greetings/introduceyourself.html",
+            navbarName: "Introduce Yourself",
+            icon: "bi-book",
+          },
+          {
             key: "#/greetings-game",
             path: "partials/games/html/pairs.html",
             navbarName: "Greetings | Pairs",
@@ -773,15 +779,25 @@ window.routerNamespace = {
       },
       icon: "bi-collection",
     },
-    "#/introduce-yourself": {
-      path: "partials/introduceyourself.html",
-      navbarName: "Introduce Yourself",
-      icon: "bi-book",
-    },
-    "#/family": {
-      path: "partials/family.html",
-      navbarName: "Family",
-      icon: "bi-book",
+    "#/miscellaneous": {
+      dropdown: {
+        navbarName: "Miscellaneous",
+        accordionName: "miscellaneous",
+        links: [
+          {
+            key: "#/misc-family",
+            path: "partials/misc/family.html",
+            navbarName: "Family",
+            icon: "bi-book",
+          },
+          {
+            key: "#/misc-rid-din",
+            path: "partials/misc/rindin.html",
+            navbarName: "How To Say 'Also'",
+            icon: "bi-book",
+          },
+        ]
+      }
     },
     "#/numbers": {
       dropdown: {
