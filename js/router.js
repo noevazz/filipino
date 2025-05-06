@@ -196,6 +196,19 @@ const words = {
     { filipino: "akurdyon", english: "accordion", imgURL: "img/instruments/akurdyon.svg" },
     { filipino: "trombon", english: "trombone", imgURL: "img/instruments/trombon.svg" },
   ],
+  seroToTen: [
+    { filipino: "sero", english: "zero", imgURL: "img/numbers0to10/sero.svg" },
+    { filipino: "isa", english: "one", imgURL: "img/numbers0to10/isa.svg" },
+    { filipino: "dalawa", english: "two", imgURL: "img/numbers0to10/dalawa.svg" },
+    { filipino: "tatlo", english: "three", imgURL: "img/numbers0to10/tatlo.svg" },
+    { filipino: "apat", english: "four", imgURL: "img/numbers0to10/apat.svg" },
+    { filipino: "lima", english: "five", imgURL: "img/numbers0to10/lima.svg" },
+    { filipino: "anim", english: "six", imgURL: "img/numbers0to10/anim.svg" },
+    { filipino: "pito", english: "seven", imgURL: "img/numbers0to10/pito.svg" },
+    { filipino: "walo", english: "eight", imgURL: "img/numbers0to10/walo.svg" },
+    { filipino: "siyam", english: "nine", imgURL: "img/numbers0to10/siyam.svg" },
+    { filipino: "sampu", english: "ten", imgURL: "img/numbers0to10/sampu.svg" },
+  ]
 };
 for (const [key, value] of Object.entries(words)) {
   preloadImages(value.map((item) => item.imgURL));
@@ -313,19 +326,6 @@ const games = {
       filipino: "Magandang hatinggabi",
       english: "Good midnight (exactly 12 AM)",
     },
-  ],
-  seroToTen: [
-    { filipino: "sero", english: "zero" },
-    { filipino: "isa", english: "one" },
-    { filipino: "dalawa", english: "two" },
-    { filipino: "tatlo", english: "three" },
-    { filipino: "apat", english: "four" },
-    { filipino: "lima", english: "five" },
-    { filipino: "anim", english: "six" },
-    { filipino: "pito", english: "seven" },
-    { filipino: "walo", english: "eight" },
-    { filipino: "siyam", english: "nine" },
-    { filipino: "sampu", english: "ten" },
   ],
   elevenToNineteen: [
     { filipino: "labing-isa", english: "eleven" },
@@ -594,7 +594,6 @@ window.routerNamespace = {
             icon: "bi-controller",
             game: {
               script: "partials/games/js/questionoptions.js",
-              config: games.pronounsGroup2,
               config: { gameData: structuredClone(games.pronounsGroup2), gameTitle: "Game Group 2 | options" },
               nameSpace: "questionOptionsNamespace",
             },
@@ -606,7 +605,6 @@ window.routerNamespace = {
             icon: "bi-controller",
             game: {
               script: "partials/games/js/pairs.js",
-              config: games.pronounsGroup2,
               config: { gameData: structuredClone(games.pronounsGroup2), gameTitle: "Game Group 2 | options" },
               nameSpace: "pairsNamespace",
             },
@@ -618,8 +616,7 @@ window.routerNamespace = {
             icon: "bi-controller",
             game: {
               script: "partials/games/js/questionoptions.js",
-              config: games.pronounsGroup3,
-              config: { gameData: structuredClone(games.seroToTen), gameTitle: "Game Group 3 | options" },
+              config: { gameData: structuredClone(games.pronounsGroup3), gameTitle: "Game Group 3 | options" },
               nameSpace: "questionOptionsNamespace",
             },
           },
@@ -630,8 +627,7 @@ window.routerNamespace = {
             icon: "bi-controller",
             game: {
               script: "partials/games/js/pairs.js",
-              config: games.pronounsGroup3,
-              config: { gameData: structuredClone(games.seroToTen), gameTitle: "Game Group 3 | options" },
+              config: { gameData: structuredClone(games.pronounsGroup3), gameTitle: "Game Group 3 | pairs" },
               nameSpace: "pairsNamespace",
             },
           },
@@ -811,14 +807,25 @@ window.routerNamespace = {
             icon: "bi-book",
           },
           {
-            key: "#/numbers-game-0to10",
+            key: "#/numbers-game-0to10-options",
             path: "partials/games/html/questionoptions.html",
             navbarName: "Game 0 to 10 | options",
             icon: "bi-controller",
             game: {
               script: "partials/games/js/questionoptions.js",
-              config: { gameData: structuredClone(games.seroToTen), gameTitle: "Game 0 to 10 | options" },
+              config: { gameData: structuredClone(words.seroToTen), gameTitle: "Game 0 to 10 | options" },
               nameSpace: "questionOptionsNamespace",
+            },
+          },
+          {
+            key: "#/numbers-game-0to10-images",
+            path: "partials/games/html/images.html",
+            navbarName: "Game 0 to 10 | images",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/images.js",
+              config: { gameData: structuredClone(words.seroToTen), gameTitle: "Game 0 to 10 | images" },
+              nameSpace: "imagesNamespace",
             },
           },
           {

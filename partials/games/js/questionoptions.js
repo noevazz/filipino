@@ -20,10 +20,12 @@ window.questionOptionsNamespace = {
 
   langButton: function (reference) {
     questionOptionsNamespace.shuffle(questionOptionsNamespace.vars.config);
+    document.getElementById('feedback').textContent = "";
     questionOptionsNamespace.vars.position = 0;
     reference.innerHTML == 'filipino' ? (reference.innerHTML = 'english') : (reference.innerHTML = 'filipino');
     questionOptionsNamespace.vars.languageInGame = reference.innerHTML;
-    questionOptionsNamespace.next(questionOptionsNamespace.vars.config)
+    questionOptionsNamespace.next(questionOptionsNamespace.vars.config);
+    questionOptionsNamespace.increaseProgressBar(questionOptionsNamespace.vars.config.length, questionOptionsNamespace.vars.position);
   },
 
   next: function (config) {
@@ -56,10 +58,16 @@ window.questionOptionsNamespace = {
   handleOptions: function (config) {
     questionOptionsNamespace.vars.option = 0;
     document.getElementById("gameTitle").innerHTML = config.gameTitle;
-    questionOptionsNamespace.vars.config = structuredClone(config.gameData);
+    questionOptionsNamespace.vars.config = questionOptionsNamespace.shuffle(structuredClone(config.gameData));
     questionOptionsNamespace.vars.languageInGame = 'filipino';
     document.getElementById('toggle-lang').innerHTML = questionOptionsNamespace.vars.languageInGame;
     questionOptionsNamespace.next(questionOptionsNamespace.vars.config);
+  },
+  increaseProgressBar: function (yourArrayLength, currentPosition) {
+    const progressBar = document.getElementById("progressBar");
+    const percentage = ((currentPosition) / (yourArrayLength)) * 100;
+    progressBar.innerHTML = Math.ceil(percentage).toString() + "%";
+    progressBar.style.width = Math.ceil(percentage).toString() + "%";
   },
 
   checkAnswerQuestions: function (selected, correct, config) {
@@ -73,6 +81,7 @@ window.questionOptionsNamespace = {
     if (selected === correct) {
       feedback.textContent = '✅ Correct!';
       feedback.className = 'text-success';
+      questionOptionsNamespace.increaseProgressBar(questionOptionsNamespace.vars.config.length, questionOptionsNamespace.vars.position+1);
       if (questionOptionsNamespace.vars.position != config.length - 1) confetti({ particleCount: 50 });
       else confetti({ particleCount: 300 });
       setTimeout(() => {
