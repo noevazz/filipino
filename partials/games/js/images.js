@@ -11,8 +11,8 @@ window.imagesNamespace = {
     return array;
   },
   next: function() {
-    const currentOption = imagesNamespace.config[imagesNamespace.vars.position];
-    const wrongAnswers = imagesNamespace.config.filter(p => p.imgURL !== currentOption.imgURL).map(p => p.imgURL);
+    const currentOption = imagesNamespace.vars.config[imagesNamespace.vars.position];
+    const wrongAnswers = imagesNamespace.vars.config.filter(p => p.imgURL !== currentOption.imgURL).map(p => p.imgURL);
 
     const opts = imagesNamespace.shuffle([currentOption.imgURL, ...imagesNamespace.shuffle(wrongAnswers).slice(0, 2)]);
 
@@ -32,15 +32,21 @@ window.imagesNamespace = {
       img.style.height = '100px';
 
       button.appendChild(img);
-      button.onclick = () => imagesNamespace.checkAnswerImages(option, currentOption.imgURL, imagesNamespace.config);
+      button.onclick = () => imagesNamespace.checkAnswerImages(option, currentOption.imgURL, imagesNamespace.vars.config);
       optionsContainer.appendChild(button);
     });
   },
   handleOptions: function (config) {
     document.getElementById("gameTitle").innerHTML = config.gameTitle;
-    imagesNamespace.config = structuredClone(imagesNamespace.shuffle(config.gameData));
+    imagesNamespace.vars.config = structuredClone(imagesNamespace.shuffle(config.gameData));
     imagesNamespace.vars.position = 0;
     imagesNamespace.next()
+  },
+  increaseProgressBar: function (yourArrayLength, currentPosition) {
+    const progressBar = document.getElementById("progressBar");
+    const percentage = ((currentPosition) / (yourArrayLength)) * 100;
+    progressBar.innerHTML = Math.ceil(percentage).toString() + "%";
+    progressBar.style.width = Math.ceil(percentage).toString() + "%";
   },
 
   checkAnswerImages: function (selected, correct, config) {
@@ -55,7 +61,7 @@ window.imagesNamespace = {
       feedback.className = 'text-success';
       if (imagesNamespace.vars.position != config.length - 1) confetti({ particleCount: 50 });
       else confetti({ particleCount: 300 });
-
+      imagesNamespace.increaseProgressBar(imagesNamespace.vars.config.length, imagesNamespace.vars.position+1);
       setTimeout(() => {
         imagesNamespace.vars.position += 1;
         if (imagesNamespace.vars.position == config.length) {

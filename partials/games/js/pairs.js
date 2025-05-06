@@ -5,6 +5,7 @@ window.pairsNamespace = {
     shuffledFilipino: [],
     shuffledEnglish: [],
     options: null,
+    dataSize: null
   },
   shuffle: function (array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -35,6 +36,7 @@ window.pairsNamespace = {
   handleOptions: function (config) {
     document.getElementById("gameTitle").innerHTML = config.gameTitle;
     pairsNamespace.vars.options = structuredClone(config.gameData);
+    pairsNamespace.vars.dataSize = config.gameData.length;
     shuffledFilipino = pairsNamespace.shuffle([...pairsNamespace.vars.options]);
     shuffledEnglish = pairsNamespace.shuffle([...pairsNamespace.vars.options]);
     const filipinoColumn = document.getElementById('filipino-options');
@@ -65,7 +67,12 @@ window.pairsNamespace = {
       englishColumn.appendChild(div);
     });
   },
-
+  increaseProgressBar: function (yourArrayLength, currentPosition) {
+    const progressBar = document.getElementById("progressBar");
+    const percentage = ((currentPosition) / (yourArrayLength)) * 100;
+    progressBar.innerHTML = Math.ceil(percentage).toString() + "%";
+    progressBar.style.width = Math.ceil(percentage).toString() + "%";
+  },
 
   select: function (div, language) {
   if (language === 'filipino') {
@@ -96,10 +103,11 @@ window.pairsNamespace = {
     if (btn_filipinoValue === btn_englishValue) {
       feedback.textContent = '✅ Correct!';
       feedback.className = 'text-success';
+      pairsNamespace.increaseProgressBar(pairsNamespace.vars.dataSize, pairsNamespace.vars.dataSize+1-pairsNamespace.vars.options.length);
       if (pairsNamespace.vars.options.length != 1)
         confetti({ particleCount: 50 })
       else
-        confetti({ particleCount: 300 })
+        confetti({ particleCount: 300 });
       setTimeout(() => {
         pairsNamespace.vars.selectedEnglish.remove(); // since I am removing the elements here I do not need to call handleOptions again
         pairsNamespace.vars.selectedFilipino.remove();
@@ -112,6 +120,7 @@ window.pairsNamespace = {
             document.getElementById('modalGame'),
           );
           myModal.show();
+          document.getElementById("imageCompleted").style.display = "inline";
         }
         pairsNamespace.disableOpts(false);
       }, 1000);

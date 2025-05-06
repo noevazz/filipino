@@ -29,6 +29,7 @@ window.clickobjectNamespace = {
 
       if (clickobjectNamespace.vars.position != clickobjectNamespace.vars.gameData.length) confetti({ particleCount: 50 });
       else confetti({ particleCount: 300 });
+      clickobjectNamespace.increaseProgressBar(clickobjectNamespace.vars.gameData.length, clickobjectNamespace.vars.position);
 
       setTimeout(() => {
         if (clickobjectNamespace.vars.position == clickobjectNamespace.vars.gameData.length) {
@@ -65,6 +66,14 @@ window.clickobjectNamespace = {
       });
     });
   },
+
+  increaseProgressBar: function (yourArrayLength, currentPosition) {
+    const progressBar = document.getElementById("progressBar");
+    const percentage = ((currentPosition) / (yourArrayLength)) * 100;
+    progressBar.innerHTML = Math.ceil(percentage).toString() + "%";
+    progressBar.style.width = Math.ceil(percentage).toString() + "%";
+  },
+
   setStyles: function () {
     const style = document.createElement("style");
     style.textContent =

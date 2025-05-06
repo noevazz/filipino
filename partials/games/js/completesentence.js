@@ -4,6 +4,13 @@ window.completeSentenceNamespace = {
     sentences: null,
     firstInput: null,
   },
+  shuffle: function (array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  },
   createStyledInput: function (index, word) {
     const input = document.createElement("input");
     input.type = "text";
@@ -62,7 +69,7 @@ window.completeSentenceNamespace = {
   handleOptions: function (config) {
     document.getElementById("gameTitle").innerHTML = config.gameTitle;
     completeSentenceNamespace.current = 0;
-    completeSentenceNamespace.sentences = config.gameData;
+    completeSentenceNamespace.sentences = completeSentenceNamespace.shuffle(config.gameData);
     completeSentenceNamespace.vars.firstInput = null;
     completeSentenceNamespace.renderSentence();
   },
