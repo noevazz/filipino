@@ -415,7 +415,7 @@ const sentences = {
       hint: "Use the word for 'this'.",
     },
     {
-      filipino: "Saan mo gustong pumunta?",
+      filipino: "Saan mo ba gustong pumunta?",
       english: "Where you wanna go?",
       completeIndex: [0, 1],
       hint: "Use the possesive personal pronoun.",
