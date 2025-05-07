@@ -81,7 +81,7 @@ const words = {
     { filipino: "isda", imgURL: "img/animals/isda.svg", english: "fish" },
     { filipino: "baboy", imgURL: "img/animals/baboy.svg", english: "pig" },
     { filipino: "baka", imgURL: "img/animals/baka.svg", english: "cow" },
-    { filipino: "kabayong", imgURL: "img/animals/kabayong.svg", english: "horse" },
+    { filipino: "kabayo", imgURL: "img/animals/kabayo.svg", english: "horse" },
     { filipino: "kuneho", imgURL: "img/animals/kuneho.svg", english: "rabbit" },
     { filipino: "unggoy", imgURL: "img/animals/unggoy.svg", english: "monkey" },
     { filipino: "manok", imgURL: "img/animals/manok.svg", english: "chicken" },
