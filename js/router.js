@@ -444,6 +444,12 @@ const sentences = {
       completeIndex: [0, 2],
       hint: "Use the word to make plural.",
     },
+    {
+      filipino: "Alin ang paborito mo?",
+      english: "Which is your favorite?",
+      completeIndex: [0, 2],
+      hint: "",
+    },
   ],  
   common: [
     {
