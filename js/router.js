@@ -146,6 +146,7 @@ const words = {
     { filipino: "niyog", english: "coconut", imgURL: "img/food/niyog.svg" },
     { filipino: "pakwan", english: "watermelon", imgURL: "img/food/pakwan.svg" },
     { filipino: "pinya", english: "pineapple", imgURL: "img/food/pinya.svg" },
+    { filipino: "pipino", english: "cucumber", imgURL: "img/food/pipino.svg" },
     { filipino: "presa", english: "strawberry", imgURL: "img/food/presa.svg" },
     { filipino: "rambutan", english: "rambutan", imgURL: "img/food/rambutan.svg" },
     { filipino: "saging", english: "banana", imgURL: "img/food/saging.svg" },
