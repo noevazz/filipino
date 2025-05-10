@@ -403,6 +403,24 @@ const games = {
   ],
 };
 
+const dialogues = {
+  simpleConversation: [
+    { person: "personA", filipino: "👨🏻: Magandang umaga po", english: "Good morning" },
+    { person: "personB", filipino: "👩🏽: Aba, marunong ka ba ng Tagalog?", english: "Wow, do you speak tagalog?" },
+    { person: "personA", filipino: "👨🏻: Kaunti lang po", english: "Just a little" },
+    { person: "personB", filipino: "👩🏽: Taga-saan ka?, Taga-Pilipino?", english: "Where are you from?, from the Phillipines?" },
+    { person: "personA", filipino: "👨🏻: Hindi po, taga-Mexico po 🇲🇽, estudyante po ako rito.", english: "no, I am from Mexico, I am a student here." },
+    { person: "personB", filipino: "👩🏽: Talaga?", english: "really?" },
+    { person: "personA", filipino: "👨🏻: opo", english: "yes" },
+    { person: "personB", filipino: "👩🏽: Ano'ng pangalan mo?", english: "what is your name?" },
+    { person: "personA", filipino: "👨🏻: Ako po ay si Noe", english: "I am Noe" },
+    { person: "personA", filipino: "👨🏻: Kinagagalak ko kayong makilala", english: "I'm glad to meet you" },
+    { person: "personB", filipino: "👩🏽: Ako rin", english: "I'm glad to meet you too" },
+    { person: "personA", filipino: "👨🏻: Paalam na po", english: "Good-bye" },
+    { person: "personB", filipino: "👩🏽: O sige, Magkita ulit tayo!", english: "All right, See you again" },
+  ]
+}
+
 const sentences = {
   questions: [
     {
@@ -886,6 +904,17 @@ window.routerNamespace = {
         navbarName: "Vocabulary Games",
         accordionName: "vocabulary",
         links: [
+          {
+            key: "#/vocabulary-game-dialogue-simple-chat",
+            path: "partials/games/html/chat.html",
+            navbarName: "Simple Chat | Dialogue",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/chat.js",
+              config: { gameData: dialogues.simpleConversation, gameTitle: "Simple Chat | Dialogue" },
+              nameSpace: "chatNamespace",
+            },
+          },
           {
             key: "#/vocabulary-game-activities-answers",
             path: "partials/games/html/answers.html",
