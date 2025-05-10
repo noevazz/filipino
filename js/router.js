@@ -789,12 +789,6 @@ window.routerNamespace = {
         accordionName: "miscellaneous",
         links: [
           {
-            key: "#/misc-si-ang",
-            path: "partials/misc/siang.html",
-            navbarName: "Si and Ang",
-            icon: "bi-book",
-          },
-          {
             key: "#/misc-family",
             path: "partials/misc/family.html",
             navbarName: "Family",
