@@ -102,6 +102,13 @@ const words = {
     { filipino: "tandang", imgURL: "img/animals/tandang.svg", english: "rooster" },
     { filipino: "unggoy", imgURL: "img/animals/unggoy.svg", english: "monkey" },
   ],
+  flavors: [
+    { filipino: "maalat", english: "salty", imgURL: "img/flavors/maalat.svg" },
+    { filipino: "maanghang", english: "spicy", imgURL: "img/flavors/maanghang.svg" },
+    { filipino: "maasim", english: "sour", imgURL: "img/flavors/maasim.svg" },
+    { filipino: "mapait", english: "bitter", imgURL: "img/flavors/mapait.svg" },
+    { filipino: "matamis", english: "sweet", imgURL: "img/flavors/matamis.svg" },
+  ],
   clothes: [
     { filipino: "bestida", english: "dress", imgURL: "img/clothes/bestida.svg" },
     { filipino: "bota", english: "boots", imgURL: "img/clothes/bota.svg" },
@@ -1173,6 +1180,50 @@ window.routerNamespace = {
             game: {
               script: "partials/games/js/questionoptions.js",
               config: { gameData: structuredClone(words.places), gameTitle: "Places | options" },
+              nameSpace: "questionOptionsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-flavors-answers",
+            path: "partials/games/html/answers.html",
+            navbarName: "Flavors | answers",
+            icon: "bi-book-fill",
+            game: {
+              script: "partials/games/js/answers.js",
+              config: { gameData: structuredClone(words.flavors), gameTitle: "Flavors | answers" },
+              nameSpace: "wordsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-flavors-pairs",
+            path: "partials/games/html/pairs.html",
+            navbarName: "Flavors | pairs",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/pairs.js",
+              config: { gameData: structuredClone(words.flavors), gameTitle: "Flavors | pairs" },
+              nameSpace: "pairsNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-flavors-images",
+            path: "partials/games/html/images.html",
+            navbarName: "Flavors | Images",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/images.js",
+              config: { gameData: structuredClone(words.flavors), gameTitle: "Flavors | Images" },
+              nameSpace: "imagesNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-flavors-options",
+            path: "partials/games/html/questionoptions.html",
+            navbarName: "Flavors | options",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/questionoptions.js",
+              config: { gameData: structuredClone(words.flavors), gameTitle: "Flavors | options" },
               nameSpace: "questionOptionsNamespace",
             },
           },
