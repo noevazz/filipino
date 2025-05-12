@@ -404,6 +404,17 @@ const games = {
 };
 
 const dialogues = {
+  questions: [
+    { person: "personA", filipino: "🧑🏻‍🦱: Ano ang pangalan mo?", english: "What is your name?" },
+    { person: "personB", filipino: "👱🏻‍♀️: Ako si Maria. Ikaw, ano ang pangalan mo?", english: "I'm Maria. And you, what's your name?" },
+    { person: "personA", filipino: "🧑🏻‍🦱: Ako si John. Saan ka nakatira?", english: "I'm John. Where do you live?" },
+    { person: "personB", filipino: "👱🏻‍♀️: Nakatira ako sa Maynila. Ikaw?", english: "I live in Manila. And you?" },
+    { person: "personA", filipino: "🧑🏻‍🦱: Sa Cebu ako nakatira. Kailan ka pumunta sa Maynila?", english: "I live in Cebu. When did you go to Manila?" },
+    { person: "personB", filipino: "👱🏻‍♀️: Noong isang taon pa. Bakit mo naitanong?", english: "Since last year. Why do you ask?" },
+    { person: "personA", filipino: "🧑🏻‍🦱: Gusto ko kasing bumisita. Alin ang magandang puntahan doon?", english: "Because I want to visit. Which places are good to go there?" },
+    { person: "personB", filipino: "👱🏻‍♀️: Marami! Pumunta ka sa Intramuros. Paano ka pupunta rito?", english: "Many! You should visit Intramuros. How will you get here?" },
+    { person: "personA", filipino: "🧑🏻‍🦱: Baka sumakay ako ng eroplano.", english: "Maybe I’ll take a plane." }
+  ],
   simpleConversation: [
     { person: "personA", filipino: "👨🏻: Magandang umaga po", english: "Good morning" },
     { person: "personB", filipino: "👩🏽: Aba, marunong ka ba ng Tagalog?", english: "Wow, do you speak tagalog?" },
@@ -912,6 +923,17 @@ window.routerNamespace = {
             game: {
               script: "partials/games/js/chat.js",
               config: { gameData: dialogues.simpleConversation, gameTitle: "Simple Chat | Dialogue" },
+              nameSpace: "chatNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-dialogue-questions",
+            path: "partials/games/html/chat.html",
+            navbarName: "Questions | Dialogue",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/chat.js",
+              config: { gameData: dialogues.questions, gameTitle: "Questions | Dialogue" },
               nameSpace: "chatNamespace",
             },
           },
