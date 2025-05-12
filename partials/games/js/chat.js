@@ -40,7 +40,7 @@ window.chatNamespace = {
                 messageDiv.className = `message d-flex flex-column ${person}`;
 
                 messageDiv.innerHTML = `
-                    <div class="card p-3">
+                    <div class="card p-3 notorious-shadow">
                     <small class="translation-muted fst-italic">✓ ${chatNamespace.getCurrentTime()}</small>
                     <p class="mb-1"><strong>${filipino}</strong></p>
                     <small class="translation-muted">${english}</small>

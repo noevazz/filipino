@@ -12,6 +12,9 @@
   text-decoration-style: dotted;
 }
 
+.notorious-shadow {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.629);
+}
 
 
 [data-bs-theme="light"] {
