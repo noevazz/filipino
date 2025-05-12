@@ -4,6 +4,19 @@ window.chatNamespace = {
         dialogue: null
     },
 
+    getCurrentTime: function () {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes();
+        const ampm = hours >= 12 ? 'pm' : 'am';
+      
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 0 becomes 12
+        const minutesFormatted = minutes < 10 ? '0' + minutes : minutes;
+      
+        return `${hours}:${minutesFormatted} ${ampm}`;
+    },
+
     increaseProgressBar: function (yourArrayLength, currentPosition) {
         const progressBar = document.getElementById("progressBar");
         const percentage = ((currentPosition) / (yourArrayLength)) * 100;
@@ -28,6 +41,7 @@ window.chatNamespace = {
 
                 messageDiv.innerHTML = `
                     <div class="card p-3">
+                    <small class="translation-muted fst-italic">✓ ${chatNamespace.getCurrentTime()}</small>
                     <p class="mb-1"><strong>${filipino}</strong></p>
                     <small class="translation-muted">${english}</small>
                     </div>
