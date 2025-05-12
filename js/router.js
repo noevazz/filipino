@@ -836,6 +836,12 @@ window.routerNamespace = {
             navbarName: "How To Say 'Also'",
             icon: "bi-book",
           },
+          {
+            key: "#/misc-may-wala",
+            path: "partials/misc/maywala.html",
+            navbarName: "May/Wala",
+            icon: "bi-book",
+          },
         ]
       }
     },
