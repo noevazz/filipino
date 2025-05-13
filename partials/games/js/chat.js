@@ -23,11 +23,22 @@ window.chatNamespace = {
         progressBar.innerHTML = Math.ceil(percentage).toString() + "%";
         progressBar.style.width = Math.ceil(percentage).toString() + "%";
     },
+    addDictionary: function (_dictionary) {
+        const dictionary = document.getElementById("dictionary");
+        const ul = document.createElement("lu");
+        Object.entries(_dictionary).forEach(entry => {
+            const li = document.createElement("li");
+            li.innerHTML = `<span class="fw-bold">${entry[0]}</span>: ${entry[1]}`
+            ul.appendChild(li);
+        });
+        dictionary.appendChild(ul);
+    },
 
     handleOptions: function (config) {
         document.getElementById("gameTitle").innerHTML = config.gameTitle;
-        chatNamespace.vars.dialogue = config.gameData;
+        chatNamespace.vars.dialogue = config.gameData.dialogue;
         chatNamespace.vars.position = 0;
+        chatNamespace.addDictionary(config.gameData._dictionary);
 
         const chatContainer = document.getElementById("chat");
         const nextBtn = document.getElementById("nextBtn");

@@ -217,11 +217,11 @@ const words = {
     { filipino: "siyam", english: "nine", imgURL: "img/numbers0to10/siyam.svg" },
     { filipino: "tatlo", english: "three", imgURL: "img/numbers0to10/tatlo.svg" },
     { filipino: "walo", english: "eight", imgURL: "img/numbers0to10/walo.svg" },
-  ]
+  ],
 };
 for (const [key, value] of Object.entries(words)) {
   preloadImages(value.map((item) => item.imgURL));
-};
+}
 
 const games = {
   pronounsGroup1: [
@@ -403,34 +403,76 @@ const games = {
   ],
 };
 
+const dictionary = {
+  aba: "is an expression or interjection, not a formal word with a strict definition. It's used to express surprise, disbelief, admiration, or emphasis, similar to how we use 'oh', 'wow', 'hey', or 'well!' in English.",
+  marunong: "'to know' or 'to have skill' in something",
+};
+
 const dialogues = {
-  questions: [
-    { person: "personA", filipino: "🧑🏻‍🦱: Ano ang pangalan mo?", english: "What is your name?" },
-    { person: "personB", filipino: "👱🏻‍♀️: Ako si Maria. Ikaw, ano ang pangalan mo?", english: "I'm Maria. And you, what's your name?" },
-    { person: "personA", filipino: "🧑🏻‍🦱: Ako si John. Saan ka nakatira?", english: "I'm John. Where do you live?" },
-    { person: "personB", filipino: "👱🏻‍♀️: Nakatira ako sa Maynila. Ikaw?", english: "I live in Manila. And you?" },
-    { person: "personA", filipino: "🧑🏻‍🦱: Sa Cebu ako nakatira. Kailan ka pumunta sa Maynila?", english: "I live in Cebu. When did you go to Manila?" },
-    { person: "personB", filipino: "👱🏻‍♀️: Noong isang taon pa. Bakit mo naitanong?", english: "Since last year. Why do you ask?" },
-    { person: "personA", filipino: "🧑🏻‍🦱: Gusto ko kasing bumisita. Alin ang magandang puntahan doon?", english: "Because I want to visit. Which places are good to go there?" },
-    { person: "personB", filipino: "👱🏻‍♀️: Marami! Pumunta ka sa Intramuros. Paano ka pupunta rito?", english: "Many! You should visit Intramuros. How will you get here?" },
-    { person: "personA", filipino: "🧑🏻‍🦱: Baka sumakay ako ng eroplano.", english: "Maybe I’ll take a plane." }
-  ],
-  simpleConversation: [
-    { person: "personA", filipino: "👨🏻: Magandang umaga po", english: "Good morning" },
-    { person: "personB", filipino: "👩🏽: Aba, marunong ka ba ng Tagalog?", english: "Wow, do you speak tagalog?" },
-    { person: "personA", filipino: "👨🏻: Kaunti lang po", english: "Just a little" },
-    { person: "personB", filipino: "👩🏽: Taga-saan ka?, Taga-Pilipino?", english: "Where are you from?, from the Phillipines?" },
-    { person: "personA", filipino: "👨🏻: Hindi po, taga-Mexico po 🇲🇽, estudyante po ako rito.", english: "no, I am from Mexico, I am a student here." },
-    { person: "personB", filipino: "👩🏽: Talaga?", english: "really?" },
-    { person: "personA", filipino: "👨🏻: opo", english: "yes" },
-    { person: "personB", filipino: "👩🏽: Ano'ng pangalan mo?", english: "what is your name?" },
-    { person: "personA", filipino: "👨🏻: Ako po ay si Noe", english: "I am Noe" },
-    { person: "personA", filipino: "👨🏻: Kinagagalak ko kayong makilala", english: "I'm glad to meet you" },
-    { person: "personB", filipino: "👩🏽: Ako rin", english: "I'm glad to meet you too" },
-    { person: "personA", filipino: "👨🏻: Paalam na po", english: "Good-bye" },
-    { person: "personB", filipino: "👩🏽: O sige, Magkita ulit tayo!", english: "All right, See you again" },
-  ]
-}
+  questions: {
+    dialogue: [
+      { person: "personA", filipino: "🧑🏻‍🦱: Ano ang pangalan mo?", english: "What is your name?" },
+      {
+        person: "personB",
+        filipino: "👱🏻‍♀️: Ako si Maria. Ikaw, ano ang pangalan mo?",
+        english: "I'm Maria. And you, what's your name?",
+      },
+      { person: "personA", filipino: "🧑🏻‍🦱: Ako si John. Saan ka nakatira?", english: "I'm John. Where do you live?" },
+      { person: "personB", filipino: "👱🏻‍♀️: Nakatira ako sa Maynila. Ikaw?", english: "I live in Manila. And you?" },
+      {
+        person: "personA",
+        filipino: "🧑🏻‍🦱: Sa Cebu ako nakatira. Kailan ka pumunta sa Maynila?",
+        english: "I live in Cebu. When did you go to Manila?",
+      },
+      {
+        person: "personB",
+        filipino: "👱🏻‍♀️: Noong isang taon pa. Bakit mo naitanong?",
+        english: "Since last year. Why do you ask?",
+      },
+      {
+        person: "personA",
+        filipino: "🧑🏻‍🦱: Gusto ko kasing bumisita. Alin ang magandang puntahan doon?",
+        english: "Because I want to visit. Which places are good to go there?",
+      },
+      {
+        person: "personB",
+        filipino: "👱🏻‍♀️: Marami! Pumunta ka sa Intramuros. Paano ka pupunta rito?",
+        english: "Many! You should visit Intramuros. How will you get here?",
+      },
+      { person: "personA", filipino: "🧑🏻‍🦱: Baka sumakay ako ng eroplano.", english: "Maybe I’ll take a plane." },
+    ],
+    _dictionary: {},
+  },
+  simpleConversation: {
+    dialogue: [
+      { person: "personA", filipino: "👨🏻: Magandang umaga po", english: "Good morning" },
+      { person: "personB", filipino: "👩🏽: Aba, marunong ka ba ng Tagalog?", english: "Wow, do you know tagalog?" },
+      { person: "personA", filipino: "👨🏻: Kaunti lang po", english: "Just a little" },
+      {
+        person: "personB",
+        filipino: "👩🏽: Taga-saan ka?, Taga-Pilipino?",
+        english: "Where are you from?, from the Phillipines?",
+      },
+      {
+        person: "personA",
+        filipino: "👨🏻: Hindi po, taga-Mexico po 🇲🇽, estudyante po ako rito.",
+        english: "no, I am from Mexico, I am a student here.",
+      },
+      { person: "personB", filipino: "👩🏽: Talaga?", english: "really?" },
+      { person: "personA", filipino: "👨🏻: opo", english: "yes" },
+      { person: "personB", filipino: "👩🏽: Ano'ng pangalan mo?", english: "what is your name?" },
+      { person: "personA", filipino: "👨🏻: Ako po ay si Noe", english: "I am Noe" },
+      { person: "personA", filipino: "👨🏻: Kinagagalak ko kayong makilala", english: "I'm glad to meet you" },
+      { person: "personB", filipino: "👩🏽: Ako rin", english: "I'm glad to meet you too" },
+      { person: "personA", filipino: "👨🏻: Paalam na po", english: "Good-bye" },
+      { person: "personB", filipino: "👩🏽: O sige, Magkita ulit tayo!", english: "All right, See you again" },
+    ],
+    _dictionary: {
+      aba: dictionary.aba,
+      marunong: dictionary.marunong,
+    },
+  },
+};
 
 const sentences = {
   questions: [
@@ -488,7 +530,7 @@ const sentences = {
       completeIndex: [0, 2],
       hint: "",
     },
-  ],  
+  ],
   common: [
     {
       filipino: "paalam",
@@ -842,8 +884,8 @@ window.routerNamespace = {
             navbarName: "May/Wala",
             icon: "bi-book",
           },
-        ]
-      }
+        ],
+      },
     },
     "#/numbers": {
       dropdown: {
