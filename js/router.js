@@ -398,8 +398,12 @@ const games = {
     { filipino: "saan", english: "where" },
     { filipino: "sino", english: "who" },
     { filipino: "kailan", english: "when" },
-    { filipino: "paano", english: "how" },
+    { filipino: "paano", english: "how (method)" },
+    { filipino: "gaano", english: "how much (measure)" },
+    { filipino: "magkano", english: "how much (cost)" },
+    { filipino: "ilan", english: "how many (cunt)" },
     { filipino: "alin", english: "which" },
+    { filipino: "kanino", english: "whose" },
   ],
 };
 
@@ -474,19 +478,129 @@ const dialogues = {
   },
 };
 
+const noHints = "no hints, this one is easy!";
+
 const sentences = {
-  questions: [
+  questions_what: [
     {
-      filipino: "Bakit hindi mo alam?",
-      english: "Why don't you know?",
+      filipino: "Ano po ?",
+      english: "What?",
+      completeIndex: [0, 1],
+      hint: "be polite",
+    },
+    {
+      filipino: "Ano po ito ?",
+      english: "What is this?",
       completeIndex: [0, 2],
-      hint: "Use the possesive personal pronoun",
+      hint: noHints,
+    },
+    {
+      filipino: "Ano po iyan ?",
+      english: "What is that? (something near by)",
+      completeIndex: [0, 2],
+      hint: "Use iyan when something is near by",
+    },
+    {
+      filipino: "Ano po iyon ?",
+      english: "What is that? (something further away)",
+      completeIndex: [0, 2],
+      hint: "Use iyon when something is further away",
     },
     {
       filipino: "Ano ang nangyari?",
       english: "What happened?",
       completeIndex: [0],
-      hint: "no hints, this one is easy!",
+      hint: noHints,
+    },
+  ],
+  questions_who: [
+    {
+      filipino: "Sino po?",
+      english: "Who?",
+      completeIndex: [0],
+      hint: noHints,
+    },
+    {
+      filipino: "Sino po ito ?",
+      english: "Who is this?",
+      completeIndex: [0, 2],
+      hint: "be polite",
+    },
+    {
+      filipino: "Sino po iyan ?",
+      english: "Who is that? (someone near by)",
+      completeIndex: [0],
+      hint: "Use iyan when someone is near by",
+    },
+    {
+      filipino: "Sino po iyan ?",
+      english: "Who is that? (someone further away)",
+      completeIndex: [0],
+      hint: "Use iyon when someone is further away",
+    },
+    {
+      filipino: "Sino ang kasama mo ?",
+      english: "Who was with you?",
+      completeIndex: [0, 3],
+      hint: "Use the possesive personal pronoun",
+    },
+  ],
+  questions_when: [
+    {
+      filipino: "kailan po ?",
+      english: "when?",
+      completeIndex: [0, 1],
+      hint: "be polite",
+    },
+    {
+      filipino: "kailan po ito ?",
+      english: "when is this?",
+      completeIndex: [0, 2],
+      hint: noHints,
+    },
+    {
+      filipino: "kailan po iyan ?",
+      english: "when is that?",
+      completeIndex: [0, 2],
+      hint: "<ul><li>'Iyan' refers to something near the person being spoken to, but not near the speaker.</li><li>English equivalent: 'When is that (near you)?'</li><li>Example: You're on the phone and the other person mentions an event. You ask: 'Kailan po iyan' (When is that [thing you're referring to]?)</li></ul>",
+    },
+    {
+      filipino: "kailan po iyon ?",
+      english: "when is that?",
+      completeIndex: [0, 2],
+      hint: "<ul><li>'Iyon' refers to something far from both the speaker and the person being spoken to.</li><li>English equivalent: 'When is that (over there/far from both of us)?'</li><li>You're talking about a festival in a distant town that neither of you are attending. 'Kailan po iyon?'</li></ul>",
+    },
+    {
+      filipino: "Kailan ito nangyari?",
+      english: "When did it happen?",
+      completeIndex: [0, 1],
+      hint: "Use the word for 'this'.",
+    },
+  ],
+  questions_where: [
+    {
+      filipino: "saan po ?",
+      english: "where?",
+      completeIndex: [0, 2],
+      hint: "be polite",
+    },
+    {
+      filipino: "saan po ito ?",
+      english: "where is this?",
+      completeIndex: [0, 1, 2],
+      hint: "be polite",
+    },
+    {
+      filipino: "saan po iyan ?",
+      english: "where is that? (near the person you're speaking to)",
+      completeIndex: [0, 2],
+      hint: "<ul><li>'Iyan' = that (near the person you're speaking to)</li><li>So this means: 'Where is that (thing near you)?'</li><li>Example: You're on a video call, and the other person shows you a restaurant. You ask: 'Saan po iyan?' (Where is that [near you]?)</li></ul>",
+    },
+    {
+      filipino: "saan po iyon ?",
+      english: "where is that? (far from both of you)",
+      completeIndex: [0, 1, 2],
+      hint: "<ul><li>'Iyon' = that (far from both of you)</li><li>So this means: 'Where is that (thing far from both of us)?'</li><li>Example: You're talking about a place neither of you are at, like a famous landmark. You ask: 'Saan po iyon?' (Where is that [far from both of us]?)</li></ul>",
     },
     {
       filipino: "Saan ito naganap?",
@@ -500,23 +614,63 @@ const sentences = {
       completeIndex: [0, 1],
       hint: "Use the possesive personal pronoun.",
     },
+  ],
+  questions_why: [
     {
-      filipino: "Sino ang kasama mo ?",
-      english: "Who was with you?",
-      completeIndex: [0, 3],
+      filipino: "Bakit po ?",
+      english: "Why?",
+      completeIndex: [0, 1],
+      hint: "be polite",
+    },
+    {
+      filipino: "Bakit po ito ?",
+      english: "Why this?",
+      completeIndex: [0, 1],
+      hint: "be polite",
+    },
+    {
+      filipino: "Bakit po iyan ?",
+      english: "Why? (near the person you're talking to)",
+      completeIndex: [0, 1],
+      hint: "<ul> <li><strong>'Iyan'</strong> = that (near the person you're talking to)</li> <li>So this means: <strong>'Why is that (thing near you)?'</strong></li> <li>Example: You're asking someone about a document they're holding. You say: <strong>'Bakit po iyan?'</strong> (Why is that [thing near you] like that?)</li> </ul>",
+    },
+    {
+      filipino: "Bakit po iyon ?",
+      english: "Why? (far from both of you)",
+      completeIndex: [0, 1],
+      hint: "<ul> <li><strong>'Iyon'</strong> = that (far from both of you)</li> <li>So this means: <strong>'Why is that (thing far from both of us)?'</strong></li> <li>Example: You're talking about a strange event in another city you both saw on the news. You ask: <strong>'Bakit po iyon?'</strong> (Why is that [far-away thing] like that?)</li> </ul>",
+    },
+    {
+      filipino: "Bakit hindi mo alam?",
+      english: "Why don't you know?",
+      completeIndex: [0, 2],
       hint: "Use the possesive personal pronoun",
     },
+  ],
+  questions_which: [
     {
-      filipino: "Kailan ito nangyari?",
-      english: "When did it happen?",
+      filipino: "alin po ?",
+      english: "which?",
       completeIndex: [0, 1],
-      hint: "Use the word for 'this'.",
+      hint: "be polite",
     },
     {
-      filipino: "Paano ito nagsimula?",
-      english: "How did it start?",
+      filipino: "alin po ito ?",
+      english: "which this?",
       completeIndex: [0, 1],
-      hint: "Use the word for 'this'.",
+      hint: "be polite",
+    },
+    {
+      filipino: "alin po iyan ?",
+      english: "which? (near the person you're talking to)",
+      completeIndex: [0, 1],
+      hint: "<ul> <li><strong>'Iyan'</strong> = that (near the person you're talking to)</li> <li>So this means: <strong>'Which one is that (thing near you)?'</strong></li> <li>Example: You're choosing from several options the other person is pointing to. You ask: <strong>'Alin po iyan?'</strong> (Which one is that [near you]?)</li> </ul>",
+    },
+    {
+      filipino: "alin po iyon ?",
+      english: "which? (far from both of you)",
+      completeIndex: [0, 1],
+      hint: "<ul> <li><strong>'Iyon'</strong> = that (far from both of you)</li> <li>So this means: <strong>'Which one is that (thing far from both of us)?'</strong></li> <li>Example: You're both looking at a picture of something far away or not physically present. You ask: <strong>'Alin po iyon?'</strong> (Which one is that [far from both of us]?)</li> </ul>",
     },
     {
       filipino: "Alin sa mga ito ang totoo?",
@@ -531,12 +685,65 @@ const sentences = {
       hint: "",
     },
   ],
+  questions_whose: [
+    {
+      filipino: "kanino po ?",
+      english: "to whom?",
+      completeIndex: [0, 1],
+      hint: "be polite",
+    },
+    {
+      filipino: "kanino po ito ?",
+      english: "to whom is this?",
+      completeIndex: [0, 1],
+      hint: "be polite",
+    },
+    {
+      filipino: "kanino po iyan ?",
+      english: "to whom is that? (near the person you're talking to)",
+      completeIndex: [0, 1],
+      hint: "<ul><li><strong>'Iyan'</strong> = that (near the person you're talking to)</li><li>So this means: <strong>'To whom is that (thing near you)?'</strong></li><li>Example: The other person is holding a book. You ask: <strong>'Kanino po iyan?'</strong> (To whom is that [near you]?)</li></ul>",
+    },
+    {
+      filipino: "kanino po iyon ?",
+      english: "to whom is that? (far from both of you)",
+      completeIndex: [0, 1],
+      hint: "<ul><li><strong>'Iyon'</strong> = that (far from both of you)</li><li>So this means: <strong>'To whom is that (thing far from both of us)?'</strong></li><li>Example: You're both looking at a bag across the room. You ask: <strong>'Kanino po iyon?'</strong> (To whom is that [far from both of us]?)</li></ul>",
+    }
+  ],
+  questions_how: [
+    {
+      filipino: "Paano ito nagsimula?",
+      english: "How did it start?",
+      completeIndex: [0, 1],
+      hint: "Use the word for 'this'.",
+    },
+    {
+      filipino: "Paano po iyan ginagawa?",
+      english: "How is that done? (near the person you're talking to)",
+      completeIndex: [0, 2],
+      hint: "<ul><li><strong>'Iyan'</strong> = that (near the person you're talking to)</li><li>So this means: <strong>'How is that done?'</strong></li><li>Example: You're asking how to do something the other person is currently doing.</li></ul>",
+    },
+    {
+      filipino: "Paano po iyon nangyari?",
+      english: "How did that happen? (far from both of you)",
+      completeIndex: [0, 2],
+      hint: "<ul><li><strong>'Iyon'</strong> = that (far from both of you)</li><li>So this means: <strong>'How did that happen?'</strong></li><li>Example: You're referring to a past event that neither of you were directly involved in.</li></ul>",
+    },
+    {
+      filipino: "Paano po tayo makakarating doon?",
+      english: "How do we get there? (inclusive 'we')",
+      completeIndex: [0, 2],
+      hint: "Use 'tayo' for 'we' (including the person you're talking to).",
+    }
+  ],
+
   common: [
     {
       filipino: "paalam",
       english: "goodbye",
       completeIndex: [-1],
-      hint: "no hints, this one is easy!",
+      hint: noHints,
     },
     {
       filipino: "tsaa na may asukal",
@@ -975,17 +1182,6 @@ window.routerNamespace = {
             },
           },
           {
-            key: "#/vocabulary-game-dialogue-questions",
-            path: "partials/games/html/chat.html",
-            navbarName: "Questions | Dialogue",
-            icon: "bi-controller",
-            game: {
-              script: "partials/games/js/chat.js",
-              config: { gameData: dialogues.questions, gameTitle: "Questions | Dialogue" },
-              nameSpace: "chatNamespace",
-            },
-          },
-          {
             key: "#/vocabulary-game-activities-answers",
             path: "partials/games/html/answers.html",
             navbarName: "Activities | answers",
@@ -1404,14 +1600,102 @@ window.routerNamespace = {
             },
           },
           {
-            key: "#/vocabulary-game-questions-sentences",
+            key: "#/vocabulary-game-questions-complete-how",
             path: "partials/games/html/completesentence.html",
-            navbarName: "Questions | sentences",
+            navbarName: "Questions-How | Complete",
             icon: "bi-controller",
             game: {
               script: "partials/games/js/completesentence.js",
-              config: { gameData: sentences.questions, gameTitle: "Questions | sentences" },
+              config: { gameData: sentences.questions_how, gameTitle: "Questions-How | Complete" },
               nameSpace: "completeSentenceNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-questions-complete-what",
+            path: "partials/games/html/completesentence.html",
+            navbarName: "Questions-What | Complete",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/completesentence.js",
+              config: { gameData: sentences.questions_what, gameTitle: "Questions-What | Complete" },
+              nameSpace: "completeSentenceNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-questions-complete-when",
+            path: "partials/games/html/completesentence.html",
+            navbarName: "Questions-When | Complete",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/completesentence.js",
+              config: { gameData: sentences.questions_when, gameTitle: "Questions-When | Complete" },
+              nameSpace: "completeSentenceNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-questions-complete-where",
+            path: "partials/games/html/completesentence.html",
+            navbarName: "Questions-where | Complete",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/completesentence.js",
+              config: { gameData: sentences.questions_where, gameTitle: "Questions-Where | Complete" },
+              nameSpace: "completeSentenceNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-questions-complete-which",
+            path: "partials/games/html/completesentence.html",
+            navbarName: "Questions-Which | Complete",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/completesentence.js",
+              config: { gameData: sentences.questions_which, gameTitle: "Questions-Which | Complete" },
+              nameSpace: "completeSentenceNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-questions-complete-who",
+            path: "partials/games/html/completesentence.html",
+            navbarName: "Questions-Who | Complete",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/completesentence.js",
+              config: { gameData: sentences.questions_who, gameTitle: "Questions-who | Complete" },
+              nameSpace: "completeSentenceNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-questions-complete-whose",
+            path: "partials/games/html/completesentence.html",
+            navbarName: "Questions-Whose | Complete",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/completesentence.js",
+              config: { gameData: sentences.questions_whose, gameTitle: "Questions-Whose | Complete" },
+              nameSpace: "completeSentenceNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-questions-complete-why",
+            path: "partials/games/html/completesentence.html",
+            navbarName: "Questions-Why | Complete",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/completesentence.js",
+              config: { gameData: sentences.questions_why, gameTitle: "Questions-Why | Complete" },
+              nameSpace: "completeSentenceNamespace",
+            },
+          },
+          {
+            key: "#/vocabulary-game-questions-dialogue",
+            path: "partials/games/html/chat.html",
+            navbarName: "Questions | Dialogue",
+            icon: "bi-controller",
+            game: {
+              script: "partials/games/js/chat.js",
+              config: { gameData: dialogues.questions, gameTitle: "What | Dialogue" },
+              nameSpace: "chatNamespace",
             },
           },
         ],

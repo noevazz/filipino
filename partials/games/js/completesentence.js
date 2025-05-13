@@ -24,7 +24,7 @@ window.completeSentenceNamespace = {
     return input;
   },
   renderSentence: function () {
-    document.getElementById("hint").textContent = "";
+    document.getElementById("hint").innerHTML = "";
     document.getElementById("checkAnswers").disabled = false;
     document.getElementById("showAnswer").disabled = false;
     document.getElementById("showHint").disabled = false;
@@ -94,7 +94,7 @@ window.completeSentenceNamespace = {
     document.getElementById("result").textContent = "Answer shown.";
   },
   showHint: function () {
-    document.getElementById("hint").textContent =
+    document.getElementById("hint").innerHTML =
       "Hint: " + completeSentenceNamespace.sentences[completeSentenceNamespace.current].hint;
   },
   disableCurrentInputs: function () {
