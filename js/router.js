@@ -560,13 +560,13 @@ const sentences = {
     },
     {
       filipino: "kailan po iyan ?",
-      english: "when is that?",
+      english: "when is that? (near you)",
       completeIndex: [0, 2],
       hint: "<ul><li>'Iyan' refers to something near the person being spoken to, but not near the speaker.</li><li>English equivalent: 'When is that (near you)?'</li><li>Example: You're on the phone and the other person mentions an event. You ask: 'Kailan po iyan' (When is that [thing you're referring to]?)</li></ul>",
     },
     {
       filipino: "kailan po iyon ?",
-      english: "when is that?",
+      english: "when is that? (over there/far from both of us)",
       completeIndex: [0, 2],
       hint: "<ul><li>'Iyon' refers to something far from both the speaker and the person being spoken to.</li><li>English equivalent: 'When is that (over there/far from both of us)?'</li><li>You're talking about a festival in a distant town that neither of you are attending. 'Kailan po iyon?'</li></ul>",
     },
