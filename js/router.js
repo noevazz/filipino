@@ -410,7 +410,9 @@ const games = {
 
 const dictionary = {
   aba: "is an expression or interjection, not a formal word with a strict definition. It's used to express surprise, disbelief, admiration, or emphasis, similar to how we use 'oh', 'wow', 'hey', or 'well!' in English.",
-  marunong: "'to know' or 'to have skill' in something",
+  marunong: "'to know' or 'to have skill' in something.",
+  naman:
+    "It is a particle used to add contrast, emphasis, or a soft tone, depending on the context. It's often used when another person has spoken first, and you're responding or taking your turn. 'Ako naman si Andrea' works like saying 'Now it's my turn to answer (or introduce myself): I'm Andrea.'",
 };
 
 const dialogues = {
@@ -467,6 +469,7 @@ const dialogues = {
       { person: "personA", filipino: "👨🏻: opo", english: "yes" },
       { person: "personB", filipino: "👩🏽: Ano'ng pangalan mo?", english: "what is your name?" },
       { person: "personA", filipino: "👨🏻: Ako po ay si Noe", english: "I am Noe" },
+      { person: "personB", filipino: "👩🏽: Ako naman si Andrea", english: "I'm Andrea" },
       { person: "personA", filipino: "👨🏻: Kinagagalak ko kayong makilala", english: "I'm glad to meet you" },
       { person: "personB", filipino: "👩🏽: Ako rin", english: "I'm glad to meet you too" },
       { person: "personA", filipino: "👨🏻: Paalam na po", english: "Good-bye" },
@@ -475,6 +478,7 @@ const dialogues = {
     _dictionary: {
       aba: dictionary.aba,
       marunong: dictionary.marunong,
+      naman: dictionary.naman
     },
   },
 };
@@ -710,7 +714,7 @@ const sentences = {
       english: "to whom is that? (far from both of you)",
       completeIndex: [0, 1],
       hint: "<ul><li><strong>'Iyon'</strong> = that (far from both of you)</li><li>So this means: <strong>'To whom is that (thing far from both of us)?'</strong></li><li>Example: You're both looking at a bag across the room. You ask: <strong>'Kanino po iyon?'</strong> (To whom is that [far from both of us]?)</li></ul>",
-    }
+    },
   ],
   questions_how: [
     {
@@ -736,7 +740,7 @@ const sentences = {
       english: "How do we get there? (inclusive 'we')",
       completeIndex: [0, 2],
       hint: "Use 'tayo' for 'we' (including the person you're talking to).",
-    }
+    },
   ],
 
   common: [
