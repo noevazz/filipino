@@ -397,6 +397,7 @@ const games = {
     { filipino: "bakit", english: "why" },
     { filipino: "ano", english: "what" },
     { filipino: "saan", english: "where" },
+    { filipino: "nasaan", english: "where (for locating people/things)" },
     { filipino: "sino", english: "who" },
     { filipino: "kailan", english: "when" },
     { filipino: "paano", english: "how (method)" },
