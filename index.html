@@ -16,142 +16,15 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
   </head>
-  <body>
+  <body class="bg-black">
     <header>
       <nav id="navbar"></nav>
     </header>
 
     <div class="container-fluid p-5 text-white text-center" id="banner">
       <h1>Learn Filipino! 🇵🇭</h1>
-      <p>A guide to learn Filipino on your own.</p>
+      <p>GREAT NEWS!!!!!, I moved to <a href="https://filipino-web.com/" target="_blank">https://filipino-web.com/</a></p>
     </div>
-    <nav
-      class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top"
-      style="box-shadow: 0 4px 4px -4px rgba(255, 255, 255, 0.2); z-index: 100"
-    >
-      <div class="container-fluid d-flex justify-content-between align-items-center">
-        <a class="btn" href="/filipino/#/" style="cursor: pointer" title="Go to home">
-          <i class="bi bi-house-door-fill fs-5 text-white"></i>
-        </a>
-
-        <div class="d-flex gap-2 mx-auto">
-          <button class="btn" role="button" title="Share on Facebook" onclick="sharePageNamespace.shareOn('facebook')">
-            <i class="bi bi-facebook fs-5 text-white"></i>
-          </button>
-          <button class="btn" role="button" title="Share on X" onclick="sharePageNamespace.shareOn('x')">
-            <i class="bi bi-twitter-x fs-5 text-white"></i>
-          </button>
-          <button class="btn" role="button" title="Share on Linkedin" onclick="sharePageNamespace.shareOn('linkedin')">
-            <i class="bi bi-linkedin fs-5 text-white"></i>
-          </button>
-        </div>
-
-        <div class="d-flex gap-2">
-          <button
-            class="btn btn-outline-light"
-            role="button"
-            title="Change theme color"
-            id="themeToggleButton"
-            onclick="toggleThemeNamespace.toggleTheme()"
-          >
-            <i class="bi bi-moon-stars-fill fs-5" id="themeToggleIcon"></i>
-          </button>
-          <button
-            class="btn btn-outline-light"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvas"
-            role="button"
-            title="Open menu"
-          >
-            <i class="bi bi-list fs-5"></i>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <div
-      class="offcanvas offcanvas-start w-20 w-sm-80"
-      tabindex="-1"
-      id="offcanvas"
-      data-bs-keyboard="false"
-      data-bs-backdrop="true"
-    >
-      <div class="offcanvas-header ms-3">
-        <h6 class="offcanvas-title" id="offcanvas">Menu</h6>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body px-0">
-        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="sidebarUl"></ul>
-      </div>
-    </div>
-
-    <div class="container-fluid pt-4" id="mainSection"></div>
-
-    <div class="modal fade" id="message" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
-      <!-- Message to the student -->
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Message to the learner.</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <h3>Learning is also cultivating patience.</h3>
-            <p>
-              Not everything we do has to bear immediate results. Learning a language also teaches you discipline,
-              perseverance, and gives you mental tools for other areas of life.
-            </p>
-            <p>❤️ Slow but steady 🐌🏁</p>
-          </div>
-          <div class="modal-footer d-flex justify-content-between align-items-center">
-            <div class="form-check mb-0">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" id="studentMessage" /> Do not show again.
-              </label>
-            </div>
-
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const hideStudentMessage = localStorage.getItem('hideStudentMessage');
-        if (hideStudentMessage === null || hideStudentMessage === "false") {
-          let myModal = new bootstrap.Modal(document.getElementById('message'));
-          myModal.show();
-        }
-        document.getElementById('studentMessage').addEventListener('change', element => {
-          localStorage.setItem('hideStudentMessage', element.target.checked);
-        });
-      });
-    </script>
-
-    <div class="modal fade" id="modalGame">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">🥳 Congratulations</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-
-          <!-- Modal body -->
-          <div class="modal-body">
-            <p>You have completed this game.🎉</p>
-          </div>
-
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="js/router.js" defer></script>
-    <script src="js/toggleTheme.js" defer></script>
+    
   </body>
 </html>
